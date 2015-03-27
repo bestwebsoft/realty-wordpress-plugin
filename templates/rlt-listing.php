@@ -1,0 +1,144 @@
+<?php get_header(); 
+	global $post, $bedrooms_bathrooms, $form_action;
+	$taxonomies = array( 'property_type' );
+
+	$args = array(
+		'orderby'		=> 'name', 
+		'order'			=> 'ASC',
+		'hide_empty'	=> false
+	); 
+
+	$terms_property_type = get_terms( $taxonomies, $args );
+	$property_info = $wpdb->get_row( 'SELECT * FROM `' . $wpdb->prefix . 'realty_property_info`
+		LEFT JOIN `' . $wpdb->prefix . 'realty_property_period` ON `' . $wpdb->prefix . 'realty_property_info`.`property_info_period_id` = `' . $wpdb->prefix . 'realty_property_period`.`property_period_id`
+		LEFT JOIN `' . $wpdb->prefix . 'realty_property_type` ON `' . $wpdb->prefix . 'realty_property_info`.`property_info_type_id` = `' . $wpdb->prefix . 'realty_property_type`.`property_type_id`
+		WHERE `property_info_post_id` = ' . $post->ID, 
+	ARRAY_A ); 
+	$property_info['property_info_photos'] = unserialize( $property_info['property_info_photos'] );
+	$count_photos = count( $property_info['property_info_photos'] ); 
+
+	$bedrooms_bathrooms = $wpdb->get_row( 'SELECT MIN(`property_info_bedroom`) AS `min_bedroom`, MAX(`property_info_bedroom`) AS `max_bedroom`,
+			MIN(`property_info_price`) AS `min_price`, MAX(`property_info_price`) AS `max_price` 
+		FROM `' . $wpdb->prefix . 'realty_property_info`', ARRAY_A ); 
+	$form_action = ! get_option( 'permalink_structure' ) ? '?property=property_search_results' : 'property_search_results';  ?> 
+	<aside class="content rlt-clearfix">
+		<div class="content-wrapper">
+			<div class="home_full_wrapper">
+				<?php get_template_part( 'rlt-search-form', 'single' ); ?>
+				<div id="home_info_full">
+					<div class="home_content_full">
+						<div class="tabs">
+							<div class="tab tab_1 active"><?php _e( 'photos', 'realty' ); ?><?php if ( $count_photos > 0 ) { ?> <span>(1 <?php _e( 'of', 'realty' ); ?> <?php echo $count_photos; ?>)</span><?php } ?></div>
+							<?php if ( ! empty( $property_info['property_info_coordinates'] ) ) { ?>
+								<div class="tab tab_2"><?php _e( 'view street', 'realty' ); ?></div>
+								<div class="tab tab_3"><?php _e( 'map', 'realty' ); ?></div>
+							<?php } ?>
+						</div>
+						<div class="home_content_tab home_content_1 active">
+							<div class="cover"></div>
+							<div class="home_image">
+								<?php if ( has_post_thumbnail() )
+									the_post_thumbnail( 'realty_listing' ); 
+								else if ( count( $property_info['property_info_photos'] ) > 0 ) {
+									$big_photo = wp_get_attachment_image_src( $property_info['property_info_photos'][0], 'realty_listing' ); ?>
+									<img src="<?php echo $big_photo[0]; ?>" alt="home" />
+								<?php } ?>
+							</div>
+							<?php if ( $count_photos > 0 ) { ?>
+								<div class="home_slides">
+									<div class="prev"></div>
+									<div class="thumbnails">
+										<div id="thumbnails_holder">
+											<?php foreach ( $property_info['property_info_photos'] as $photo_id ) {
+												$small_photo = wp_get_attachment_image_src( $photo_id, 'realty_small_photo' ); 
+												$big_photo = wp_get_attachment_image_src( $photo_id, 'realty_listing' ); ?>
+												<img src="<?php echo $small_photo[0]; ?>" rel="<?php echo $big_photo[0]; ?>" alt="home" />
+											<?php } ?>											
+										</div>
+									</div>
+									<div class="next"></div>
+								</div><!--end of .home_slides-->
+							<?php } 
+							wp_reset_postdata(); ?>
+						</div><!--end of #home_content_1-->
+						<?php if ( ! empty( $property_info['property_info_coordinates'] ) ) { ?>
+							<div class="home_content_tab home_content_2">
+								<div class="cover"></div>
+								<div style="width:420px; height:420px;">
+									<div id="map-canvas">
+									</div>
+								</div>
+							</div>
+							<div class="home_content_tab home_content_3">
+								<div class="cover"></div>
+								<div style="width:420px; height:420px;">
+									<div id="map-canvas2"></div>
+									<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+									<script>
+										var propertyLatlng;
+										var map;
+										function initialize() {
+											propertyLatlng = new google.maps.LatLng(<?php echo $property_info['property_info_coordinates']; ?>);
+											var mapOptions = {
+												zoom: 14,
+												center: propertyLatlng
+											}
+											map = new google.maps.Map( document.getElementById( 'map-canvas2' ), mapOptions );
+
+											var marker = new google.maps.Marker({
+													position: propertyLatlng,
+													map: map
+											});
+
+											var panoramaOptions = {
+												position: propertyLatlng,
+												pov: {
+													heading: 30,
+													pitch: 10
+												}
+											};
+											var panorama = new google.maps.StreetViewPanorama( document.getElementById( 'map-canvas' ), panoramaOptions );
+											
+											var client = new google.maps.StreetViewService();
+
+											client.getPanoramaByLocation( propertyLatlng, 50, function( result, status ) {
+												if ( status == google.maps.StreetViewStatus.OK ) {
+													map.setStreetView( panorama );
+												} else {
+													var view_tab = document.querySelectorAll( '.tab_2' );
+													if( view_tab.length > 0 )
+														view_tab[1].style.display = "none";
+												}
+											});
+										}
+										google.maps.event.addDomListener( window, 'load', initialize );
+									</script>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+					<div class="home_description">
+						<h3><?php _e( 'General Information', 'realty' ); ?></h3>
+						<p><?php the_content(); ?></p>
+					</div>
+				</div><!--end of #home_preview-->
+				<div class="search_options home_info_full">
+					<div class="home_preview">
+						<div class="home_info">
+							<h4><?php the_title(); ?></h4>
+							<ul>
+								<li><?php echo $property_info['property_info_location']; ?></li>
+								<li><?php echo $property_info['property_info_bedroom']; ?> <?php _e( 'bedrooms', 'realty' ); ?>, <?php echo $property_info['property_info_bathroom']; ?> <?php _e( 'bathroom', 'realty' ); ?></li>
+								<li><?php echo $property_info['property_info_square'] . ' ' . rlt_get_unit_area(); ?></li>
+							</ul>
+						</div>
+						<div class="home_footer">
+							<a class="<?php if ( ! empty( $property_info['property_period_name'] ) ) echo "rent"; else echo "sale"; ?>" href="<?php the_permalink(); ?>"><?php echo $property_info['property_type_name']; ?></a>
+							<span class="home_cost"><?php echo apply_filters( 'rlt_formatting_price', $property_info['property_info_price'], true ); ?><sup><?php if ( ! empty( $property_info['property_period_name'] ) ) echo "/" . $property_info['property_period_name']; ?></sup></span>
+						</div>
+					</div>
+				</div><!--end of .search_options-->
+			</div><!-- .home_wrapper -->
+		</div><!-- .content-wrapper -->
+	</aside>
+<?php get_footer(); ?>

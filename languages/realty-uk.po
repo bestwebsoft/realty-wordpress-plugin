@@ -1,0 +1,601 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Realty Pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-27 13:58+0300\n"
+"PO-Revision-Date: 2015-03-27 13:59+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: realty.php:42
+msgid "Realty Settings"
+msgstr "Налаштування Realty"
+
+#: realty.php:86
+msgid "Property Info"
+msgstr "Інформація про нерухомість"
+
+#: realty.php:350
+msgid "The following files"
+msgstr "Наступні файли: "
+
+#: realty.php:350
+msgid "or"
+msgstr "чи"
+
+#: realty.php:350
+msgid "were not found in your theme directory. Please copy them from the directory"
+msgstr "не були знайдені в директорії вашої теми. Будь ласка, скопіюйте їх з директорії"
+
+#: realty.php:350
+msgid "to your theme directory to make sure Realty plugin works correctly"
+msgstr "в папку з вашою темою для коректної роботи плагіну Realty"
+
+#: realty.php:364
+#: realty.php:366
+msgid "Properties"
+msgstr "Об’єкти нерухомості"
+
+#: realty.php:365
+#: realty.php:367
+msgid "Property"
+msgstr "Об’єкт нерухомості"
+
+#: realty.php:368
+msgid "Add New"
+msgstr "Додати нового"
+
+#: realty.php:369
+msgid "Add a new Property"
+msgstr "Додати новий об’єкт нерухомості"
+
+#: realty.php:370
+msgid "Edit Properties"
+msgstr "Редагувати об’єкти нерухомості"
+
+#: realty.php:371
+msgid "New Property"
+msgstr "Новий об’єкт нерухомості"
+
+#: realty.php:372
+msgid "View Properties"
+msgstr "Переглянути об’єкти нерухомості"
+
+#: realty.php:373
+msgid "Search Properties"
+msgstr "Шукати об’єкти нерухомості"
+
+#: realty.php:374
+msgid "No Properties found"
+msgstr "Об’єктів нерухомості не знайдено"
+
+#: realty.php:375
+msgid "No Properties found in Trash"
+msgstr "В корзине об’єктів нерухомості не знайдено"
+
+#: realty.php:381
+msgid "Property types"
+msgstr "Типи нерухомості"
+
+#: realty.php:382
+#: realty.php:383
+msgid "Property type"
+msgstr "Тип нерухомості"
+
+#: realty.php:384
+msgid "All Property types"
+msgstr "Всі типи нерухомості"
+
+#: realty.php:385
+msgid "Edit Property type"
+msgstr "Редагувати тип нерухомості"
+
+#: realty.php:386
+msgid "View Property type"
+msgstr "Переглянути тип нерухомості"
+
+#: realty.php:387
+msgid "Update Property type"
+msgstr "Оновити тип нерухомості"
+
+#: realty.php:388
+msgid "Add New Property type"
+msgstr "Додати новий тип нерухомості"
+
+#: realty.php:389
+msgid "New Property type Name"
+msgstr "Назва нового типу нерухомості"
+
+#: realty.php:390
+msgid "Parent Property type"
+msgstr "Вихідний тип нерухомості"
+
+#: realty.php:391
+msgid "Parent Property type:"
+msgstr "Вихідний тип нерухомості:"
+
+#: realty.php:392
+msgid "Search Property types"
+msgstr "Шукати типи нерухомості"
+
+#: realty.php:393
+msgid "Popular Property types"
+msgstr "Популярні типи нерухомості"
+
+#: realty.php:394
+msgid "Separate Property types with commas"
+msgstr "Розділяйте типи нерухомості комами"
+
+#: realty.php:395
+msgid "Add or remove Property type"
+msgstr "Додати чи видалити тип нерухомості"
+
+#: realty.php:396
+msgid "Choose from the most used Property type"
+msgstr "Выбрати з популярних типів нерухомості"
+
+#: realty.php:397
+msgid "No Property type found"
+msgstr "Тип нерухомості не знайдено"
+
+#: realty.php:476
+msgid "Please, enter the correct value for custom currency field. Settings not saved."
+msgstr "Будь ласка, введіть правильне значення в полі валюти користувача. Налаштування не збережено."
+
+#: realty.php:479
+msgid "Settings saved."
+msgstr "Налаштування збережено. "
+
+#: realty.php:505
+#: realty.php:1346
+#: realty.php:1359
+msgid "Settings"
+msgstr "Налаштування"
+
+#: realty.php:506
+#: realty.php:1360
+msgid "FAQ"
+msgstr "FAQ"
+
+#: realty.php:507
+msgid "Go PRO"
+msgstr ""
+
+#: realty.php:512
+msgid "Notice:"
+msgstr "Зауважте: "
+
+#: realty.php:512
+msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
+msgstr "Налаштування плагіну змінено. Щоб зберегти їх, не забудьте клікнути  \"Зберегти зміни\". "
+
+#: realty.php:516
+msgid "Currency"
+msgstr "Валюта"
+
+#: realty.php:524
+msgid "Custom currency, for example"
+msgstr "Кастомна валюта, наприклад"
+
+#: realty.php:528
+msgid "Currency Position"
+msgstr "Місцезнаходження символу валюти"
+
+#: realty.php:530
+msgid "before numerals"
+msgstr "перед цифрами"
+
+#: realty.php:531
+msgid "after numerals"
+msgstr "після цифр"
+
+#: realty.php:535
+msgid "Unit of area"
+msgstr "Одиниця виміру площі"
+
+#: realty.php:542
+msgid "Custom unit area"
+msgstr "Кастомна одиниця виміру площі"
+
+#: realty.php:546
+msgid "Search pages show at most"
+msgstr "Пошук популярних сторінок "
+
+#: realty.php:554
+msgid "Save Changes"
+msgstr "Зберегти зміни"
+
+#: realty.php:598
+msgid "Show All"
+msgstr "Показати всіх"
+
+#: realty.php:636
+msgid "Location"
+msgstr "Місцезнаходження"
+
+#: realty.php:639
+#: realty.php:654
+#: realty.php:667
+#: realty.php:688
+msgid "For example"
+msgstr "Наприклад"
+
+#: realty.php:642
+msgid "Type"
+msgstr "Тип"
+
+#: realty.php:651
+#: realty.php:858
+msgid "Price"
+msgstr "Ціна"
+
+#: realty.php:657
+#: realty.php:879
+#: realty.php:914
+msgid "Bedrooms"
+msgstr "Спальні"
+
+#: realty.php:664
+msgid "Latitude and longitude coordinates"
+msgstr "Координати широти та довготи"
+
+#: realty.php:670
+msgid "Period"
+msgstr "Термін"
+
+#: realty.php:680
+#: realty.php:870
+#: realty.php:905
+msgid "Bathrooms"
+msgstr "Ванні кімнати"
+
+#: realty.php:685
+msgid "Floor area"
+msgstr "Площа"
+
+#: realty.php:692
+msgid "Photos"
+msgstr "Фотографії"
+
+#: realty.php:693
+msgid "Add photo"
+msgstr "Додати фотографію"
+
+#: realty.php:704
+#: realty.php:1066
+msgid "Delete"
+msgstr "Видалити"
+
+#: realty.php:797
+msgid "Renty Widget"
+msgstr "Віджет Renty"
+
+#: realty.php:798
+msgid "Widget for displaying Sale/Rent Form."
+msgstr "Віджет для відображення форми купівлі/аренди."
+
+#: realty.php:844
+msgid "For Sale"
+msgstr "Купівля"
+
+#: realty.php:845
+msgid "For Rent"
+msgstr "Аренда"
+
+#: realty.php:852
+#: realty.php:899
+msgid "Property Type"
+msgstr "Тип нерухомості"
+
+#: realty.php:871
+#: realty.php:880
+#: realty.php:906
+#: realty.php:915
+msgid "and more"
+msgstr "і т.д"
+
+#: realty.php:937
+msgid "back to search results"
+msgstr "Назад до результатів пошуку"
+
+#: realty.php:952
+msgid "Recent Items Widget"
+msgstr "Віджет \"Останні додані об’єкти\""
+
+#: realty.php:953
+msgid "Widget for displaying Recent Items block."
+msgstr "Віджет для відображення блоку останніх доданих об’єктів"
+
+#: realty.php:985
+msgid "view all"
+msgstr "переглянути все"
+
+#: realty.php:1003
+#: templates/rlt-listing.php:131
+#: templates/rlt-search-listing-results.php:117
+msgid "bedrooms"
+msgstr "спальні"
+
+#: realty.php:1003
+#: templates/rlt-listing.php:131
+#: templates/rlt-search-listing-results.php:117
+msgid "bathroom"
+msgstr "ванні кімнати"
+
+#: realty.php:1027
+msgid "Widget Title"
+msgstr "Назва віджету"
+
+#: realty.php:1031
+msgid "Number of items to be displayed"
+msgstr "Кількість об’єктів для відображення"
+
+#: realty.php:1292
+msgid "Prev"
+msgstr "Попередній"
+
+#: realty.php:1293
+msgid "Next"
+msgstr "Наступний"
+
+#: realty.php:1361
+msgid "Support"
+msgstr "Техпідтримка"
+
+#: templates/rlt-search-form.php:5
+msgid "results from"
+msgstr "результатів"
+
+#: templates/rlt-search-form.php:5
+msgid "total"
+msgstr "всього"
+
+#: templates/rlt-listing.php:31
+msgid "photos"
+msgstr "фотографії"
+
+#: templates/rlt-listing.php:31
+msgid "of"
+msgstr "з"
+
+#: templates/rlt-listing.php:33
+msgid "view street"
+msgstr "переглянути вигляд ззовні"
+
+#: templates/rlt-listing.php:34
+msgid "map"
+msgstr "карта"
+
+#: templates/rlt-listing.php:121
+msgid "General Information"
+msgstr "Загальна інформація"
+
+#: templates/rlt-sidebar-listing.php:18
+#: templates/rlt-sidebar-listing.php:23
+msgid "Search"
+msgstr "Пошук"
+
+#: templates/rlt-sidebar-listing.php:21
+msgid "Enter search keyword"
+msgstr "Введіть ключове слово пошуку"
+
+#: templates/rlt-sidebar-listing.php:28
+msgid "recent posts"
+msgstr "останні пости"
+
+#: templates/rlt-sidebar-listing.php:38
+msgid "recent comments"
+msgstr "останні коментарі"
+
+#: templates/rlt-sidebar-listing.php:51
+msgid "on"
+msgstr "до"
+
+#: templates/rlt-sidebar-listing.php:57
+msgid "archives"
+msgstr "Архіви"
+
+#: templates/rlt-sidebar-listing.php:61
+msgid "categories"
+msgstr "Категорії"
+
+#: templates/rlt-nothing-found.php:2
+msgid "Nothing Found!"
+msgstr "Нічого не знайдено!"
+
+#: templates/rlt-search-listing-results.php:96
+msgid "sort by"
+msgstr "сортувати за"
+
+#: templates/rlt-search-listing-results.php:96
+msgid "newest"
+msgstr "датою додавання"
+
+#: templates/rlt-search-listing-results.php:96
+msgid "price"
+msgstr "ціною"
+
+#~ msgid "Agents"
+#~ msgstr "Агенти"
+
+#~ msgid "Agent Info"
+#~ msgstr "Інформація про агентів"
+
+#~ msgid "Agent"
+#~ msgstr "Агент"
+
+#~ msgid "Add a new Agent"
+#~ msgstr "Додати нового агента"
+
+#~ msgid "Edit Agents"
+#~ msgstr "Редагувати агентів"
+
+#~ msgid "New Agents"
+#~ msgstr "Нові агенти"
+
+#~ msgid "View Agents"
+#~ msgstr "Переглянути агентів"
+
+#~ msgid "Search Agents"
+#~ msgstr "Шукати агентів"
+
+#~ msgid "No Agents found"
+#~ msgstr "Агентів не знайдено"
+
+#~ msgid "No Agents found in Trash"
+#~ msgstr "В корзині агентів не знайдено"
+
+#~ msgid "Features"
+#~ msgstr "Характеристики "
+
+#~ msgid "Feature"
+#~ msgstr "Характеристика "
+
+#~ msgid "All Features"
+#~ msgstr "Всі характеристики "
+
+#~ msgid "Edit Feature"
+#~ msgstr "Редагувати характеристику "
+
+#~ msgid "View Feature"
+#~ msgstr "Переглянути характеристику "
+
+#~ msgid "Update Feature"
+#~ msgstr "Оновити характеристику "
+
+#~ msgid "Add New Feature"
+#~ msgstr "Додати нову характеристику "
+
+#~ msgid "New Feature Name"
+#~ msgstr "Назва нової характеристики "
+
+#~ msgid "Parent Feature"
+#~ msgstr "Вихідна характеристика "
+
+#~ msgid "Parent Feature:"
+#~ msgstr "Вихідна характеристика:"
+
+#~ msgid "Search Features"
+#~ msgstr "Шукати характеристику "
+
+#~ msgid "Popular Features"
+#~ msgstr "Популярні характеристики "
+
+#~ msgid "Separate Features with commas"
+#~ msgstr "Розділяйте характеристики комами"
+
+#~ msgid "Add or remove Features"
+#~ msgstr "Додати чи видалити характеристики "
+
+#~ msgid "Choose from the most used Features"
+#~ msgstr "Вибрати із списку популярних характеристик "
+
+#~ msgid "No Features found"
+#~ msgstr "Характеристик не знайдено"
+
+#~ msgid "No agent"
+#~ msgstr "Жодного агенту"
+
+#~ msgid "property(ies)"
+#~ msgstr "об’єкт(и) нерухомості"
+
+#~ msgid "No property"
+#~ msgstr "Жодного об’єкту нерухомості"
+
+#~ msgid "Show All Agents"
+#~ msgstr "Показати всіх агентів"
+
+#~ msgid "Telephone"
+#~ msgstr "Телефон"
+
+#~ msgid "Company"
+#~ msgstr "Компанія"
+
+#~ msgid "Email"
+#~ msgstr "Email "
+
+#~ msgid "Additional info"
+#~ msgstr "Додаткова інформація"
+
+#~ msgid "Photo"
+#~ msgstr "Фотографія"
+
+#~ msgid "view all agents"
+#~ msgstr "переглянути всіх агентів"
+
+#~ msgid "Not available item"
+#~ msgstr "Об’єкт недоступний"
+
+#~ msgid "Agent Details"
+#~ msgstr "Інформація про агента"
+
+#~ msgid "View profile"
+#~ msgstr "Переглянути профіль"
+
+#~ msgid "Email me"
+#~ msgstr "Повідомити мені"
+
+#~ msgid "Listings by"
+#~ msgstr "Список об’єктів нерухомості, створені агентом"
+
+#~ msgid "Load more"
+#~ msgstr "Завантажити більше"
+
+#~ msgid "properties"
+#~ msgstr "об’єктів нерухомості"
+
+#~ msgid "Available"
+#~ msgstr "Доступні"
+
+#~ msgid "items"
+#~ msgstr "об’єкти"
+
+#~ msgid "Install Demo Data"
+#~ msgstr "Встановити демо дані"
+
+#~ msgid "Remove Demo Data"
+#~ msgstr "Видалити демо дані"
+
+#~ msgid "Demo data successfully installed."
+#~ msgstr "Демо дані успішно встановлено"
+
+#~ msgid "Demo data have already been installed."
+#~ msgstr "Демо дані уже встановлені"
+
+#~ msgid "Installation of demo data with some errors occurred."
+#~ msgstr "Установка демо даних завершилась з помилками."
+
+#~ msgid "Demo data successfully removed."
+#~ msgstr "Демо дані успішно видалені"
+
+#~ msgid "Demo data have already been removed."
+#~ msgstr "Демо дані уже видалені"
+
+#~ msgid "Removing demo data with some errors occurred."
+#~ msgstr "Видалення демо даних завершилось з помилками."
+
+#~ msgid "Get more information"
+#~ msgstr "Получить дополнительную информацию"
+
+#~ msgid ""
+#~ "to the directory of your theme for the correct work of the Realty Pro "
+#~ "plugin"
+#~ msgstr "в директорию вашей темы для корректной работы плагина Realty Pro"
+
+#~ msgid "Bedroom"
+#~ msgstr "Спален"
+
+#~ msgid "Bathroom"
+#~ msgstr "Ванных"
+
+#~ msgid "Square"
+#~ msgstr "Площадь"

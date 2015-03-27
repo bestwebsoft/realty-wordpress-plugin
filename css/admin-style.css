@@ -1,0 +1,83 @@
+/*
+* styles for settings page
+*/
+
+#menu-posts-property .dashicons-admin-post:before {
+	background: url("../images/icon_16_single.png") no-repeat scroll 3px 7px transparent; 
+	content: "";
+}
+#menu-posts-property.wp-not-current-submenu div.wp-menu-image {
+    opacity: 0.7;
+}
+.admin-color-blue #menu-posts-property .dashicons-admin-post:before {
+	color: #e5f8ff;
+}
+.rlt_left_column {
+	float: left;
+	width: 50%;
+}
+.rlt_right_column {
+	float: right;
+	width: 50%;
+}
+#property-custom-metabox input {
+	max-width: 95%;
+}
+.clear {
+	clear: both;
+}
+.rlt_image_block {
+	float: left;
+	width: 170px;
+	cursor: move;
+}
+.rlt_drag {
+	border: 1px solid #ccc;
+	width: 150px;
+	padding: 5px;
+}
+.rlt_new .rlt_drag,
+.rlt_new.rlt_drag {
+	background-color: #d8e8c8;
+}
+.rlt_image {
+	width: 150px;
+	overflow: hidden;
+}
+.rlt_delete {
+	padding-left:5px;
+}
+.currency_comments {
+	color: #ccc;
+}
+.rlt-menu-button,
+.rlt-reset-button {
+	position: relative;
+	height: 28px;
+	padding: 0 10px;
+	background: #21759B;
+	border: 1px solid #2877AE;
+	outline: none;
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.rlt-reset-button {
+	margin-top: 10px;
+}
+.rlt-menu-button {
+	display: none;
+}
+.rlt-menu-button:hover,
+.rlt-reset-button:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+.rlt_info {
+	color: #888888;
+    font-size: 10px;
+}
