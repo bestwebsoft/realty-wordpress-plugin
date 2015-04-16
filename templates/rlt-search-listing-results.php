@@ -1,5 +1,5 @@
 <?php get_header(); 
-	global $post, $rlt_count_results, $rlt_property_info_count_all_results, $rlt_form_action, $rlt_form_vars, $rlt_property_info_count_all_results, $limit, $current_page, $rlt_options;
+	global $post, $rlt_count_results, $rlt_property_info_count_all_results, $rlt_form_action, $rlt_form_vars, $limit, $current_page, $rlt_options;
 	if ( empty( $rlt_options ) )
 		$rlt_options = get_option( 'rlt_options' ); 
 
@@ -80,24 +80,26 @@
 	if ( isset( $rlt_form_vars['property_sort_by'] ) && count( $property_info_results ) > 0 ) {
 		if ( $rlt_form_vars['property_sort_by'] == 'newest' ) {
 			$class_sort_newest = 'current';
-			$rlt_newest_link =  apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
-			$rlt_price_link =  apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
+			$rlt_newest_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
+			$rlt_price_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
 		} else if ( $rlt_form_vars['property_sort_by'] == 'price' ) {
 			$class_sort_price = 'current';
-			$rlt_newest_link =  apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
-			$rlt_price_link =  apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
+			$rlt_newest_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
+			$rlt_price_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
 		}
 	} ?> 
 	<aside class="content rlt-clearfix">
 		<div class="content-wrapper">
-			<div class="home_full_wrapper">
+			<div class="rlt_home_full_wrapper">
 				<?php get_template_part( 'rlt-search-form' ); ?>
-				<div id="home_preview">
-					<div class="view_more sort_by"><span><?php _e( 'sort by', 'realty' ); ?>:</span> <a class="<?php echo $class_sort_newest; ?>" href="<?php echo home_url() . '/' . $rlt_newest_link; ?>"><?php _e( 'newest', 'realty' ); ?> </a> | <a class="<?php echo $class_sort_price; ?>" href="<?php echo home_url() . '/' . $rlt_price_link; ?>"><?php _e( 'price', 'realty' ); ?></a></div>
-					<?php if ( count( $property_info_results ) > 0 ) {
+				<div id="rlt_home_preview">
+					<?php if ( isset( $rlt_newest_link ) && isset( $rlt_price_link ) ) { ?>
+						<div class="view_more sort_by"><span><?php _e( 'sort by', 'realty' ); ?>:</span> <a class="<?php echo $class_sort_newest; ?>" href="<?php echo home_url() . '/' . $rlt_newest_link; ?>"><?php _e( 'newest', 'realty' ); ?> </a> | <a class="<?php echo $class_sort_price; ?>" href="<?php echo home_url() . '/' . $rlt_price_link; ?>"><?php _e( 'price', 'realty' ); ?></a></div>
+					<?php }
+					if ( count( $property_info_results ) > 0 ) {
 						foreach ( $property_info_results as $property_info ) {
 							$property_info['property_info_photos'] = unserialize( $property_info['property_info_photos'] ); ?>
-							<div class="home_preview">
+							<div class="rlt_home_preview">
 								<a href="<?php echo get_permalink( $property_info['ID'] ); ?>">
 									<?php if ( has_post_thumbnail( $property_info['ID'] ) )
 										echo get_the_post_thumbnail( $property_info['ID'], 'realty_search_result' );
@@ -110,7 +112,7 @@
 										<?php }
 									} ?>
 								</a>
-								<div class="home_info">
+								<div class="rlt_home_info">
 									<h4><a href="<?php echo get_permalink( $property_info['ID'] ); ?>"><?php echo $property_info['post_title']; ?></a></h4>
 									<ul>
 										<li><?php echo $property_info['property_info_location']; ?></li>
@@ -124,16 +126,16 @@
 									<span class="home_cost"><?php echo apply_filters( 'rlt_formatting_price', $property_info['property_info_price'], true ); ?><sup><?php if ( ! empty( $property_info['property_period_name'] ) ) echo "/" . $property_info['property_period_name']; ?></sup></span>
 									<div class="clear"></div>
 								</div><!-- .home_footer -->
-							</div><!-- .home_preview -->
+							</div><!-- .rlt_home_preview -->
 						<?php } ?>
 						<div class="clear"></div>
 						<div class="more_rooms"><?php do_action( 'rlt_search_nav' ); ?></div>
 					<?php } else {
 						get_template_part( 'rlt-nothing-found' );
 					} ?>
-				</div><!--end of #home_preview-->
+				</div><!--end of #rlt_home_preview-->
 				<div class="clear"></div>
-			</div><!-- .home_wrapper -->
+			</div><!-- .rlt_home_full_wrapper -->
 		</div><!-- .content-wrapper -->
 	</aside>
 <?php get_footer(); ?>

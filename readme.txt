@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: realty, real estate, realestate, property, agent, relty, reelty, relaty, realti, reel estate, rela estate, real estete, real estate plugin, add property, add property info, find property, property plugin, property posts, realty agents, add agents, add agents data
 Requires at least: 3.8
-Tested up to: 4.1.1
-Stable tag: 1.0.0
+Tested up to: 4.2-beta4
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,7 +68,7 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 
 The error message notifying that some files were not found means that the plugin lacks permissions to move the templates required for its work from the plugin folder to the theme folder. To have the plugin running correctly, please follow the instructions in the message, namely:
 - open `/wp-content/plugins/realty/templates/` directory
-- copy the files from this folder (`rlt-listing.php`, `rlt-nothing-found.php`, `rlt-search-form.php`, `rlt-search-listing-results.php`, `rlt-sidebar-listing.php`)
+- copy the files from this folder (`rlt-listing.php`, `rlt-nothing-found.php`, `rlt-search-form.php`, `rlt-search-listing-results.php`)
 - open the folder with your theme and add the files you just copied. 
 
 = I would like to add some features to the plugin. How do I do that? =
@@ -96,10 +96,16 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.1 - 16.04.2015 =
+* Bugfix : Styles are updated.
+
 = V1.0.0 - 03.02.2015 =
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.1 =
+Styles are updated.
 
 = V1.0.0 =
 Ability to add Sale Rent Widget into a site.

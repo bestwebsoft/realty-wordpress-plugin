@@ -1,55 +1,41 @@
 (function($) {
 	$(document).ready( function() {
 		/*select tags*/
-		$( "select" ).select2( { width: "resolve" } );
+		$( "select.rlt_select" ).select2();
 		/*tabs*/
-		$( '.tabs .tab' ).click( function() {
+		$( '.rlt_tabs .tab' ).click( function() {
 			if ( ! $( this ).hasClass( 'active' ) ) {
 				var new_active = $( this );
 				var last_active = new_active.parent().find( '.active' );
 				last_active.removeClass( 'active' );
 				var last_active_num = last_active.attr( 'class' ).substr( ( last_active.attr( 'class' ).length-1 ), 1 );
-				var new_active_num = new_active.attr( 'class' ).substr( ( new_active.attr( 'class' ).length-1 ), 1 )
+				var new_active_num = new_active.attr( 'class' ).substr( ( new_active.attr( 'class' ).length-1 ), 1 );
 				new_active.addClass( 'active' );
-				$( new_active ).parent().parent().find( ".tab_block_" + last_active_num ).hide();
-				$( new_active ).parent().parent().find( ".home_content_tab" ).removeClass( 'active' ).hide();
-				$( new_active ).parent().parent().find( ".tab_block_" + new_active_num ).show();
-				$( new_active ).parent().parent().find( ".home_content_" + new_active_num ).show().addClass( 'active' ).css( 'z-index', '1' );
+				$( new_active ).parent().parent().find( ".rlt_tab_block_" + last_active_num ).hide();
+				$( new_active ).parent().parent().find( ".rlt_home_content_tab" ).removeClass( 'active' ).hide();
+				$( new_active ).parent().parent().find( ".rlt_tab_block_" + new_active_num ).show();
+				$( new_active ).parent().parent().find( ".rlt_home_content_" + new_active_num ).show().addClass( 'active' ).css( 'z-index', '1' );
 			}
 		})
-		$( '.tab_add' ).click( function() {
-			$( 'body' ).css( 'position', 'relative' );
-			$( 'body' ).prepend( '<div id="background_holder"><div id="window"><p><b>Some Content</b><br/><span>Lorem ipsum dolor sit amet</span></p></div></div>' );
-			$( 'body #background_holder' ).fadeIn( 200 );
-			$( 'body #background_holder' ).click( function(){
-				$( this ).fadeOut( 200, function() {
-					$( this ).remove();
-				});
-			});
-			$( '#window' ).click( function() { 
-				return false;
-			});
-			return false;
-		})
 		/*shadow*/
-		var shade = $( '.tab_block' ).css( 'box-shadow' );
-		$( '.tab_block' ).css( 'position', 'relative' );
-		$( '.home_content_tab' ).css( 'position', 'relative' );
+		var shade = $( '.rlt_tab_block' ).css( 'box-shadow' );
+		$( '.rlt_tab_block' ).css( 'position', 'relative' );
+		$( '.rlt_home_content_tab' ).css( 'position', 'relative' );
 	
 		/*dragging*/
-		if ( $( "#price" ).length > 0 ) {
-			$( "#price" ).slider({
+		if ( $( "#rlt_price" ).length > 0 ) {
+			$( "#rlt_price" ).slider({
 				range: true,
-				min: parseInt( $( '#min_price' ).val().replace( '.', '' ) ),
-				max: parseInt( $( '#max_price' ).val().replace( '.', '' ) ),
-				values: [ parseInt( $( '#current_min_price' ).val().replace( ',', '' ) ), parseInt( $( '#current_max_price' ).val().replace( ',', '' ) ) ],
+				min: parseInt( $( '#rlt_min_price' ).val().replace( '.', '' ) ),
+				max: parseInt( $( '#rlt_max_price' ).val().replace( '.', '' ) ),
+				values: [ parseInt( $( '#rlt_current_min_price' ).val().replace( ',', '' ) ), parseInt( $( '#rlt_current_max_price' ).val().replace( ',', '' ) ) ],
 				slide: function( event, ui ) {
-					$( '.min_price' ).text( number_format( ui.values[ 0 ], 0, '.', ',' ) );
-					$( '.max_price' ).text( number_format( ui.values[ 1 ], 0, '.', ',' ) );
-					$( '#min_price' ).val( ui.values[ 0 ] );
-					$( '#max_price' ).val( ui.values[ 1 ] );
-					$( '#current_min_price' ).val( ui.values[ 0 ] );
-					$( '#current_max_price' ).val( ui.values[ 1 ] );
+					$( '.rlt_min_price' ).text( rlt_number_format( ui.values[ 0 ], 0, '.', ',' ) );
+					$( '.rlt_max_price' ).text( rlt_number_format( ui.values[ 1 ], 0, '.', ',' ) );
+					$( '#rlt_min_price' ).val( ui.values[ 0 ] );
+					$( '#rlt_max_price' ).val( ui.values[ 1 ] );
+					$( '#rlt_current_min_price' ).val( ui.values[ 0 ] );
+					$( '#rlt_current_max_price' ).val( ui.values[ 1 ] );
 				}
 			});
 		}
@@ -83,51 +69,51 @@
 		}
 
 		/* property single image slider*/
-		var speed = 400;
-		var thumbs_step = $( '.thumbnails' ).width();
-		var thumbs_num = $( '.thumbnails img' ).size();
-		var thumb_length = thumbs_step / ( thumbs_step / ( $( '.thumbnails img' ).outerWidth( true ) + 3 ) );
+		var speed = 400,
+			thumbs_step = $( '.rlt_thumbnails' ).width(),
+			thumbs_num = $( '.rlt_thumbnails img' ).size();
+		var thumb_length = thumbs_step / ( thumbs_step / ( $( '.rlt_thumbnails img' ).outerWidth( true ) + 3 ) );
 		var full_length = thumbs_num * thumb_length;
 		var max_length = full_length - thumbs_step;
-		$( '#thumbnails_holder' ).width( full_length );
-		$( '.home_slides .prev, .home_slides .next' ).addClass( 'disabled' );
+		$( '#rlt_thumbnails_holder' ).width( full_length );
+		$( '.rlt_home_slides .prev, .rlt_home_slides .next' ).addClass( 'disabled' );
 		if ( full_length > thumbs_step )
-			$('.home_slides .next').removeClass('disabled');
-		$( '.home_slides .thumbnails img' ).click( function() {
-			$( '.home_image img' ).attr( 'src', $( this ).attr( 'rel' ) );
+			$('.rlt_home_slides .next').removeClass('disabled');
+		$( '.rlt_home_slides .rlt_thumbnails img' ).click( function() {
+			$( '.rlt_home_content_tab .home_image img' ).attr( 'src', $( this ).attr( 'rel' ) );
 		})
-		$( '.home_slides .prev, .home_slides .next' ).click( function() {
-			var curr_pos = parseInt( $('.home_slides .thumbnails #thumbnails_holder' ).css( 'margin-left' ) );
+		$( '.rlt_home_slides .prev, .rlt_home_slides .next' ).click( function() {
+			var curr_pos = parseInt( $( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).css( 'margin-left' ) );
 			if ( $( this ).hasClass( 'next' ) && ! $( this ).hasClass( 'disabled' ) ) {
-				$( '.home_slides .prev' ).removeClass( 'disabled' );
+				$( '.rlt_home_slides .prev' ).removeClass( 'disabled' );
 				if ( ( curr_pos-thumbs_step ) <= ( -max_length ) ) {
-					$( '.home_slides .thumbnails #thumbnails_holder' ).animate({ 'margin-left': -max_length+'px' }, speed );
+					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': - max_length + 'px' }, speed );
 					$( this ).addClass( 'disabled' );
 				} else {
-					$( '.home_slides .thumbnails #thumbnails_holder' ).animate({ 'margin-left': curr_pos-thumbs_step+'px' }, speed );
+					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': curr_pos - thumbs_step + 'px' }, speed );
 				}
-			} else if( $( this ).hasClass( 'prev' ) && ! $( this ).hasClass( 'disabled' ) ) {
-				$( '.home_slides .next').removeClass( 'disabled' );
-				if( ( curr_pos + thumbs_step ) >= 0 ) {
-					$( '.home_slides .thumbnails #thumbnails_holder' ).animate({ 'margin-left': '0px' }, speed );
+			} else if ( $( this ).hasClass( 'prev' ) && ! $( this ).hasClass( 'disabled' ) ) {
+				$( '.rlt_home_slides .next').removeClass( 'disabled' );
+				if ( ( curr_pos + thumbs_step ) >= 0 ) {
+					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': '0px' }, speed );
 					$( this ).addClass( 'disabled' );
 				} else {
-					$( '.home_slides .thumbnails #thumbnails_holder' ).animate({ 'margin-left': curr_pos+thumbs_step+'px' }, speed );
+					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': curr_pos + thumbs_step + 'px' }, speed );
 				}
 			}
 		});
 
 		/* search results */
-		var count_preview_block = $( '#home_preview .home_preview' ).length;
+		var count_preview_block = $( '#rlt_home_preview .rlt_home_preview' ).length;
 		if ( count_preview_block > 1 ) {
-			var parent_block_width = $( '#home_preview' ).width();
-			var preview_block_width = $( '#home_preview .home_preview' ).outerWidth( true );
+			var parent_block_width = $( '#rlt_home_preview' ).width();
+			var preview_block_width = $( '#rlt_home_preview .rlt_home_preview' ).outerWidth( true );
 			var count_in_row = parseInt( parent_block_width / preview_block_width );
 			var current_preview = 0;
 			var all_preview = 0;
 			var max_row_height = 0;
 			var current_height = 0;
-			$( '#home_preview .home_preview' ).each( function(){
+			$( '#rlt_home_preview .rlt_home_preview' ).each( function(){
 				current_preview += 1;
 				all_preview += 1;
 				current_height = $( this ).height();
@@ -151,7 +137,7 @@
 					
 					while ( i > 0 ) {
 						current_preview_block = $( current_preview_block ).prev();
-						if ( $( current_preview_block ).hasClass( 'home_preview' ) )
+						if ( $( current_preview_block ).hasClass( 'rlt_home_preview' ) )
 							$( current_preview_block ).height( max_row_height );
 						if ( $( current_preview_block ).hasClass( 'first' ) )
 							break;
@@ -172,10 +158,11 @@
 			
 		}
 		if ( $( '.twentyfifteen #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
-			$( '.twentyfifteen #content .home_full_wrapper #home_preview .home_preview' ).hover( function(){
+			$( '.twentyfifteen #content .rlt_home_full_wrapper #rlt_home_preview .rlt_home_preview' ).hover( function() {
 				$( this ).css( 'width', '210px');
 			});
 		}
+
 		$( '#property_sale_search_form input[type="submit"], #property_rent_search_form input[type="submit"]' ).click( function() {
 			var action = '';
 			var form_id = $( this ).parent().parent().attr( 'id' );
@@ -186,10 +173,10 @@
 					action = action + '&property_type=' + encodeURI( $( '#'+form_id+' .property option:selected' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
 				else
 					action = action + '&property_type=all';
-				if ( $( '#'+form_id+' #min_price' ).length > 0 && $( '#'+form_id+' #min_price' ).val() != '' )
-					action = action + '&property_min_price=' + $( '#'+form_id+' #current_min_price' ).val();
-				if ( $( '#'+form_id+' #min_price' ).length > 0 && $( '#'+form_id+' #max_price' ).val() != '' )
-					action = action + '&property_max_price=' + $( '#'+form_id+' #current_max_price' ).val();
+				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#' + form_id + ' #rlt_min_price' ).val() != '' )
+					action = action + '&property_min_price=' + $( '#' + form_id + ' #rlt_current_min_price' ).val();
+				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#' + form_id + ' #rlt_max_price' ).val() != '' )
+					action = action + '&property_max_price=' + $( '#' + form_id + ' #rlt_current_max_price' ).val();
 				if ( $( '#'+form_id+' .bathrooms option:selected' ).val() != '' )
 					action = action + '&property_bath=' + $( '#'+form_id+' .bathrooms option:selected' ).val();
 				else
@@ -209,10 +196,10 @@
 					action = action + 'prop-' + encodeURI( $( '#'+form_id+' .property option:selected' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
 				else
 					action = action + 'prop-all/';
-				if ( $( '#'+form_id+' #min_price' ).length > 0 && $( '#'+form_id+' #min_price' ).val() != '' )
-					action = action + 'minp-' + $( '#'+form_id+' #current_min_price' ).val() + '/';
-				if ( $( '#'+form_id+' #min_price' ).length > 0 && $( '#'+form_id+' #max_price' ).val() != '' )
-					action = action + 'maxp-' + $( '#'+form_id+' #current_max_price' ).val() + '/';
+				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#'+form_id+' #rlt_min_price' ).val() != '' )
+					action = action + 'minp-' + $( '#'+form_id+' #rlt_current_min_price' ).val() + '/';
+				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#'+form_id+' #rlt_max_price' ).val() != '' )
+					action = action + 'maxp-' + $( '#'+form_id+' #rlt_current_max_price' ).val() + '/';
 				if ( $( '#'+form_id+' .bathrooms option:selected' ).val() != '' )
 					action = action + 'bath-' + $( '#'+form_id+' .bathrooms option:selected' ).val() + '/';
 				else
@@ -233,7 +220,7 @@
 	});
 })(jQuery);
 
-function number_format( number, decimals, dec_point, thousands_sep ) {
+function rlt_number_format( number, decimals, dec_point, thousands_sep ) {
   /*  discuss at: http://phpjs.org/functions/number_format/
  original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
  improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)

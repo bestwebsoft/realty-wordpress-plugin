@@ -1,7 +1,7 @@
 <?php
 /*
 * General functions for BestWebSoft plugins
-* Version: 1.0.5
+* Version: 1.0.7
 */
 if ( ! function_exists ( 'bws_add_general_menu' ) ) {
 	function bws_add_general_menu( $base ) {
@@ -79,11 +79,14 @@ if ( ! function_exists ( 'bws_wp_version_check' ) ) {
 				deactivate_plugins( $plugin_basename );
 				$admin_url = ( function_exists( 'get_admin_url' ) ) ? get_admin_url( null, 'plugins.php' ) : esc_url( '/wp-admin/plugins.php' );
 				wp_die( 
-					printf(
-						"<strong>" . $plugin_info['Name'] . "</strong> %1$s <strong>WordPress " . $require_wp . "</strong> %2$s <br /><br />%3$s <a href='" . $admin_url . "'>%4$s</a>.",
+					sprintf(
+						"<strong>%s</strong> %s <strong>WordPress %s</strong> %s <br /><br />%s <a href='%s'>%s</a>.",
+						$plugin_info['Name'],
 						__( 'requires', 'bestwebsoft' ),
-						__( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'bestwebsoft' ),
+						$require_wp,
+						__( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'bestwebsoft' ),	
 						__( 'Back to the WordPress', 'bestwebsoft' ),
+						$admin_url,
 						__( 'Plugins page', 'bestwebsoft' )
 					)
 				);
@@ -659,12 +662,11 @@ if ( ! class_exists( 'BWS_add_admin_tooltip' ) ) {
 					/* extend pointer options - add close button */
 					pointer_options = $.extend(pointer_options, {
 						buttons: function(event, t) {
-							var button, i = '';
+							var button;
 							/* check and add dismiss-type buttons */
 							for( var but in pointer_buttons ) {
 								if ( typeof pointer_buttons[ but ]['type'] != 'undefined' && pointer_buttons[ but ]['type'] == 'dismiss' && typeof pointer_buttons[ but ]['text'] != 'undefined' && pointer_buttons[ but ]['text'] != '' ) {
-									button += '<a id="pointer-close' + i + '" style="margin:0px 5px 2px;" class="button-secondary">' + pointer_buttons[ but ]['text'] + '</a>';
-									i++;
+									button += '<a style="margin:0px 5px 2px;" class="button-secondary">' + pointer_buttons[ but ]['text'] + '</a>';
 								}
 							}
 							button = jQuery( button );
@@ -697,7 +699,7 @@ if ( ! class_exists( 'BWS_add_admin_tooltip' ) ) {
 						/* display buttons that are not type of dismiss */
 						for ( var but in pointer_buttons ) {
 							if ( typeof pointer_buttons[ but ]['type'] != 'undefined' && pointer_buttons[ but ]['type'] != 'dismiss' && typeof pointer_buttons[ but ]['text'] != 'undefined' && pointer_buttons[ but ]['text'] != '' ) {
-								$('#pointer-close').after( '<a class="button-primary" style="margin-right: 5px;" ' +
+								$( '.' + pointer_options['tooltip_id'] + ' .button-secondary').first().before( '<a class="button-primary" style="margin-right: 5px;" ' +
 								( ( pointer_buttons[ but ]['type'] == 'link' && typeof pointer_buttons[ but ]['link'] != 'undefined' && pointer_buttons[ but ]['link'] != '') ? 'target="_blank" href="' + pointer_buttons[ but ]['link'] + '"' : '' )
 								+ '>' + pointer_buttons[ but ]['text'] + '</a>' );
 							};

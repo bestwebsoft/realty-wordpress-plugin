@@ -1,5 +1,5 @@
 <?php get_header(); 
-	global $post, $bedrooms_bathrooms, $form_action;
+	global $post;
 	$taxonomies = array( 'property_type' );
 
 	$args = array(
@@ -23,18 +23,18 @@
 	$form_action = ! get_option( 'permalink_structure' ) ? '?property=property_search_results' : 'property_search_results';  ?> 
 	<aside class="content rlt-clearfix">
 		<div class="content-wrapper">
-			<div class="home_full_wrapper">
+			<div class="rlt_home_full_wrapper">
 				<?php get_template_part( 'rlt-search-form', 'single' ); ?>
 				<div id="home_info_full">
-					<div class="home_content_full">
-						<div class="tabs">
+					<div class="rlt_home_content_full">
+						<div class="rlt_tabs">
 							<div class="tab tab_1 active"><?php _e( 'photos', 'realty' ); ?><?php if ( $count_photos > 0 ) { ?> <span>(1 <?php _e( 'of', 'realty' ); ?> <?php echo $count_photos; ?>)</span><?php } ?></div>
 							<?php if ( ! empty( $property_info['property_info_coordinates'] ) ) { ?>
 								<div class="tab tab_2"><?php _e( 'view street', 'realty' ); ?></div>
 								<div class="tab tab_3"><?php _e( 'map', 'realty' ); ?></div>
 							<?php } ?>
 						</div>
-						<div class="home_content_tab home_content_1 active">
+						<div class="rlt_home_content_tab rlt_home_content_1 active">
 							<div class="cover"></div>
 							<div class="home_image">
 								<?php if ( has_post_thumbnail() )
@@ -45,10 +45,10 @@
 								<?php } ?>
 							</div>
 							<?php if ( $count_photos > 0 ) { ?>
-								<div class="home_slides">
+								<div class="rlt_home_slides">
 									<div class="prev"></div>
-									<div class="thumbnails">
-										<div id="thumbnails_holder">
+									<div class="rlt_thumbnails">
+										<div id="rlt_thumbnails_holder">
 											<?php foreach ( $property_info['property_info_photos'] as $photo_id ) {
 												$small_photo = wp_get_attachment_image_src( $photo_id, 'realty_small_photo' ); 
 												$big_photo = wp_get_attachment_image_src( $photo_id, 'realty_listing' ); ?>
@@ -57,19 +57,19 @@
 										</div>
 									</div>
 									<div class="next"></div>
-								</div><!--end of .home_slides-->
+								</div><!--end of .rlt_home_slides-->
 							<?php } 
 							wp_reset_postdata(); ?>
-						</div><!--end of #home_content_1-->
+						</div><!--end of #rlt_home_content_1-->
 						<?php if ( ! empty( $property_info['property_info_coordinates'] ) ) { ?>
-							<div class="home_content_tab home_content_2">
+							<div class="rlt_home_content_tab rlt_home_content_2">
 								<div class="cover"></div>
 								<div style="width:420px; height:420px;">
 									<div id="map-canvas">
 									</div>
 								</div>
 							</div>
-							<div class="home_content_tab home_content_3">
+							<div class="rlt_home_content_tab rlt_home_content_3">
 								<div class="cover"></div>
 								<div style="width:420px; height:420px;">
 									<div id="map-canvas2"></div>
@@ -117,14 +117,14 @@
 							</div>
 						<?php } ?>
 					</div>
-					<div class="home_description">
+					<div class="rlt_home_description">
 						<h3><?php _e( 'General Information', 'realty' ); ?></h3>
 						<p><?php the_content(); ?></p>
 					</div>
-				</div><!--end of #home_preview-->
-				<div class="search_options home_info_full">
-					<div class="home_preview">
-						<div class="home_info">
+				</div><!--end of #rlt_home_preview-->
+				<div class="rlt_search_options home_info_full">
+					<div class="rlt_home_preview">
+						<div class="rlt_home_info">
 							<h4><?php the_title(); ?></h4>
 							<ul>
 								<li><?php echo $property_info['property_info_location']; ?></li>
@@ -137,8 +137,8 @@
 							<span class="home_cost"><?php echo apply_filters( 'rlt_formatting_price', $property_info['property_info_price'], true ); ?><sup><?php if ( ! empty( $property_info['property_period_name'] ) ) echo "/" . $property_info['property_period_name']; ?></sup></span>
 						</div>
 					</div>
-				</div><!--end of .search_options-->
-			</div><!-- .home_wrapper -->
+				</div><!--end of .rlt_search_options-->
+			</div><!-- .rlt_home_full_wrapper -->
 		</div><!-- .content-wrapper -->
 	</aside>
 <?php get_footer(); ?>
