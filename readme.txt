@@ -1,10 +1,10 @@
 === Realty by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: realty, real estate, realestate, property, agent, relty, reelty, relaty, realti, reel estate, rela estate, real estete, real estate plugin, add property, add property info, find property, property plugin, property posts, realty agents, add agents, add agents data
 Requires at least: 3.8
-Tested up to: 4.2-beta4
-Stable tag: 1.0.1
+Tested up to: 4.2.2
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +14,12 @@ A convenient plugin that adds Real Estate functionality.
 
 Realty plugin allows you to create your fully functional real estate website with a single plugin. The admin panel functionality is easy to use and loaded with features.
 
+http://www.youtube.com/watch?v=HArMTHq-D7A
+
+<a href="https://www.youtube.com/watch?v=_BQCk4D-CyI" target="_blank">Video instruction on Installation</a>
+
 <a href="http://wordpress.org/plugins/realty/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 <a href="http://bestwebsoft.com/products/realty/?k=143e150e92b9751b52da0cd46fb6f5cf" target="_blank">Upgrade to Pro Version</a>
@@ -46,6 +51,10 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Plugins" > "Realty".
 
+<a href="https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/edit" target="_blank">View a Step-by-step Instruction on Realty Installation</a>.
+
+http://www.youtube.com/watch?v=_BQCk4D-CyI
+
 == Frequently Asked Questions ==
 
 = Where can I find the settings to adjust the plugin work after activation? =
@@ -57,7 +66,7 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 1. You can add the necessary Property types in "Properties" > "Property type" menu. 
 2. In the menu "Properties" > "Add New". Select the necessary Propert type. 
 3. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block. 
-4.If you are using another theme, on "Appearance" > "Widgets" page, please find  "Sale Rent Widget" and add it to the sidebar of your theme. 
+4. If you are using another theme, on "Appearance" > "Widgets" page, please find  "Sale Rent Widget" and add it to the sidebar of your theme. 
 
 = I have added Property, but nothing changed on my website. What do I do now? =
 
@@ -78,6 +87,7 @@ Please contact our Support Service <a href="http://support.bestwebsoft.com" targ
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page, on which the problem occurs
 2. plugin name and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -96,6 +106,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.2 - 19.05.2015 =
+* Update : We updated all functionality for wordpress 4.2.2.
+
 = V1.0.1 - 16.04.2015 =
 * Bugfix : Styles are updated.
 
@@ -103,6 +116,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.2 =
+We updated all functionality for wordpress 4.2.2.
 
 = V1.0.1 =
 Styles are updated.

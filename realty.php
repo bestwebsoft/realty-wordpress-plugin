@@ -4,7 +4,7 @@ Plugin Name: Realty by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: A convenient plugin that adds Real Estate functionality.
 Author: BestWebSoft
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://bestwebsoft.com/
 License: GPLv3 or later
 */
@@ -492,7 +492,7 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 				<a class="nav-tab" href="http://bestwebsoft.com/products/realty/faq/" target="_blank"><?php _e( 'FAQ', 'realty' ); ?></a>
 				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=realty_settings&amp;action=go_pro"><?php _e( 'Go PRO', 'realty' ); ?></a>
 			</h2>
-			<div id="rlt_settings_message" class="updated fade" <?php if ( ! isset( $_REQUEST['rlt_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<div id="rlt_settings_message" class="updated fade" <?php if ( empty( $message ) ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
 			<?php if ( ! isset( $_GET['action'] ) ) { ?>
 				<div id="rlt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'realty' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'realty' ); ?></p></div>
@@ -1060,7 +1060,7 @@ if ( ! function_exists ( 'rlt_enqueue_scripts' ) ) {
 if ( ! function_exists ( 'rlt_theme_body_classes' ) ) {
 	function rlt_theme_body_classes( $classes ) {
 		$current_theme = wp_get_theme();
-		$classes[] = basename( $current_theme->get( 'ThemeURI' ) );
+		$classes[] = 'rlt_' . basename( $current_theme->get( 'ThemeURI' ) );
 		return $classes;
 	}
 }
@@ -1362,7 +1362,7 @@ if ( ! function_exists ( 'rlt_plugin_banner' ) ) {
 		global $hook_suffix;
 		if ( 'plugins.php' == $hook_suffix ) {
 			global $rlt_plugin_info;
-			bws_plugin_banner( $rlt_plugin_info, 'rlt', 'realty', '3936d03a063bccc2a2fa09a26aba0679', '205', plugins_url( 'images/banner.png', __FILE__ ) ); 
+			bws_plugin_banner( $rlt_plugin_info, 'rlt', 'realty', '3936d03a063bccc2a2fa09a26aba0679', '205', '//ps.w.org/realty/assets/icon-128x128.png' ); 
 		} 
 	}
 }
