@@ -1,5 +1,5 @@
 (function($) {
-	$(document).ready( function() {
+	$(document).ready( function() {		
 		/*select tags*/
 		$( "select.rlt_select" ).select2();
 		/*tabs*/
@@ -216,7 +216,7 @@
 			$( '#'+form_id ).attr( 'method', 'post' );
 			$( '#'+form_id ).submit();
 			return false;
-		});
+		});		
 	});
 })(jQuery);
 

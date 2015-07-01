@@ -4,7 +4,7 @@ Plugin Name: Realty by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: A convenient plugin that adds Real Estate functionality.
 Author: BestWebSoft
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://bestwebsoft.com/
 License: GPLv3 or later
 */
@@ -62,7 +62,7 @@ if ( ! function_exists ( 'rlt_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version */
-		bws_wp_version_check( plugin_basename( __FILE__ ), $rlt_plugin_info, "3.8" );
+		bws_wp_version_check( plugin_basename( __FILE__ ), $rlt_plugin_info, '3.8' );
 
 		/* Call register settings function */
 		if ( ! is_admin() || ( isset( $_REQUEST['page'] ) && 'realty_settings' == $_REQUEST['page'] ) )
@@ -146,7 +146,7 @@ if ( ! function_exists ( 'rlt_install' ) ) {
 		) ENGINE=InnoDB ' . $charset_collate;
 		dbDelta( $sql );
 		
-		$wpdb->query( "INSERT INTO `" . $wpdb->prefix . "realty_currency` (`currency_id`, `country_currency`, `currency_code`, `currency_hex`, `currency_unicode`) VALUES
+		$wpdb->query( "INSERT IGNORE INTO `" . $wpdb->prefix . "realty_currency` (`currency_id`, `country_currency`, `currency_code`, `currency_hex`, `currency_unicode`) VALUES
 		(1, 'Albania Lek', 'ALL', '4c, 65, 6b', '&#76;&#101;&#107;'),
 		(2, 'Afghanistan Afghani', 'AFN', '60b', '&#1547;'),
 		(3, 'Argentina Peso', 'ARS', '24', '&#36;'),
@@ -263,11 +263,11 @@ if ( ! function_exists ( 'rlt_install' ) ) {
 		(114, 'Yemen Rial', 'YER', 'fdfc', '&#65020;'),
 		(115, 'Zimbabwe Dollar', 'ZWD', '5a, 24', '&#90;&#36;');" );
 				
-		$wpdb->query( "INSERT INTO `" . $wpdb->prefix . "realty_property_period` (`property_period_id`, `property_period_name`) VALUES
+		$wpdb->query( "INSERT IGNORE INTO `" . $wpdb->prefix . "realty_property_period` (`property_period_id`, `property_period_name`) VALUES
 		(1, 'month'),
 		(2, 'year');" );
 
-		$wpdb->query( "INSERT INTO `" . $wpdb->prefix . "realty_property_type` (`property_type_id`, `property_type_name`) VALUES
+		$wpdb->query( "INSERT IGNORE INTO `" . $wpdb->prefix . "realty_property_type` (`property_type_id`, `property_type_name`) VALUES
 		(1, 'For Rent'),
 		(2, 'For Sale');" );
 	}
@@ -403,12 +403,13 @@ if ( ! function_exists( 'rlt_settings' ) ) {
 		
 		$rlt_option_defaults = array(
 			'plugin_option_version' 		=> $rlt_plugin_info['Version'],
+			'plugin_db_version'             => $rlt_db_version,
 			'currency_custom_display'		=> 0,
 			'currency_unicode'				=> '109',
 			'custom_currency' 				=> '',
 			'currency_position' 			=> 'before',
 			'unit_area_custom_display'		=> 0,
-			'unit_area'						=> 'sq&#160;ft',
+			'unit_area'						=> 'sq&nbsp;ft',
 			'custom_unit_area' 				=> '',
 			'per_page'						=> get_option( 'posts_per_page' )
 		);
@@ -422,14 +423,16 @@ if ( ! function_exists( 'rlt_settings' ) ) {
 			rlt_plugin_install();
 			$rlt_options = array_merge( $rlt_option_defaults, $rlt_options );
 			$rlt_options['plugin_option_version'] = $rlt_plugin_info['Version'];
-			update_option( 'rlt_options', $rlt_options );				
+			$update_option = true;			
 		}	
 
 		if ( ! isset( $rlt_options['plugin_db_version'] ) || $rlt_options['plugin_db_version'] != $rlt_db_version ) {
 			rlt_install();
 			$rlt_options['plugin_db_version'] = $rlt_db_version;
-			update_option( 'rlt_options', $rlt_options );				
-		}		
+			$update_option = true;
+		}	
+		if ( isset( $update_option ) )
+			update_option( 'rlt_options', $rlt_options );	
 	}
 }
 if ( ! function_exists( 'rlt_plugin_activation' ) ) {
@@ -441,7 +444,7 @@ if ( ! function_exists( 'rlt_plugin_activation' ) ) {
 
 if ( ! function_exists( 'rlt_settings_page' ) ) {
 	function rlt_settings_page() {
-		global $wpdb, $title, $rlt_options, $rlt_filenames, $rlt_filepath, $rlt_themepath, $rlt_plugin_info;
+		global $wpdb, $title, $rlt_options, $rlt_option_defaults, $rlt_filenames, $rlt_filepath, $rlt_themepath, $rlt_plugin_info;
 		$error = $message = "";	
 
 		if ( ! isset( $_GET['action'] ) ) {
@@ -453,9 +456,9 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 				$rlt_options['custom_currency']				= esc_html( $_POST['rlt_custom_currency'] );
 				$rlt_options['currency_position']			= esc_html( $_POST['rlt_currency_position'] );
 				$rlt_options['unit_area_custom_display']	= $_POST['rlt_unit_area_custom_display'];
-				$rlt_options['unit_area']					= $_POST['rlt_unit_area'];
+				$rlt_options['unit_area']					= htmlentities( $_POST['rlt_unit_area'] );
 				$rlt_options['custom_unit_area']			= esc_html( $_POST['rlt_custom_unit_area'] );
-				$rlt_options['per_page']					= $_POST['rlt_per_page'];
+				$rlt_options['per_page']					= intval( $_POST['rlt_per_page'] );
 
 				if ( $rlt_options['currency_custom_display'] == 1 && empty( $rlt_options['custom_currency'] ) ) {
 					$rlt_options['currency_custom_display'] = 0;
@@ -477,12 +480,20 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 				rlt_admin_error();
 			}
 		}
+		/* add restore function */
+		if ( isset( $_REQUEST['bws_restore_confirm'] ) && check_admin_referer( plugin_basename(__FILE__), 'bws_settings_nonce_name' ) ) {
+			$rlt_options = $rlt_option_defaults;
+			update_option( 'rlt_options', $rlt_options );
+			$message = __( 'All plugin settings were restored.', 'realty' );
+		}		
+		/* end */
+
 		/* GO PRO */
 		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {		
 			$go_pro_result = bws_go_pro_tab_check( plugin_basename(__FILE__) );
 			if ( ! empty( $go_pro_result['error'] ) )
 				$error = $go_pro_result['error'];
-		}
+		}		
 		/* Display form on the setting page */ ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
@@ -492,56 +503,61 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 				<a class="nav-tab" href="http://bestwebsoft.com/products/realty/faq/" target="_blank"><?php _e( 'FAQ', 'realty' ); ?></a>
 				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=realty_settings&amp;action=go_pro"><?php _e( 'Go PRO', 'realty' ); ?></a>
 			</h2>
-			<div id="rlt_settings_message" class="updated fade" <?php if ( empty( $message ) ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<div id="rlt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'realty' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'realty' ); ?></p></div>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-			<?php if ( ! isset( $_GET['action'] ) ) { ?>
-				<div id="rlt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'realty' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'realty' ); ?></p></div>
-				<form id="rlt_settings_form" method="post" action="admin.php?page=realty_settings">
-					<table class="form-table">
-						<tr valign="top" class="rlt_currency_labels">
-							<th scope="row"><label for="rlt_currency"><?php _e( 'Currency', 'realty' ); ?></label></th>
-							<td>
-								<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_false" value="0" <?php if ( $rlt_options['currency_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
-								<select name="rlt_currency" id="rlt_currency">
-									<?php foreach ( $currencies as $currency ) { ?>
-										<option value="<?php echo $currency['currency_id']; ?>" <?php if ( $currency['currency_id'] == $rlt_options['currency_unicode'] ) echo 'selected="selected"'; ?>><?php echo $currency['currency_unicode'] . ' ('.$currency['country_currency'] . " - " . $currency['currency_code'] . ')'; ?></option>
-									<?php } ?>
-								</select><br />
-								<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_true" value="1" <?php if ( $rlt_options['currency_custom_display'] == 1 ) echo 'checked="checked"'; ?> /> <input type="text" id="rlt_custom_currency" name="rlt_custom_currency" value="<?php echo $rlt_options['custom_currency']; ?>" /> <span class="rlt_info"><?php _e( 'Custom currency, for example', 'realty' ); ?> $</span>
-							</td>
-						</tr>
-						<tr valign="top" class="rlt_custom_currency_position_labels">
-							<th scope="row"><?php _e( 'Currency Position', 'realty' ); ?></th>
-							<td>
-								<label for="rlt_currency_position_before"><input type="radio" id="rlt_currency_position_before" name="rlt_currency_position" value="before" <?php if( $rlt_options['currency_position'] == 'before' ) echo 'checked="checked"'; ?> /> <?php _e( 'before numerals', 'realty' ); ?></label><br />
-								<label for="rlt_currency_position_after"><input type="radio" id="rlt_currency_position_after" name="rlt_currency_position" value="after" <?php if( $rlt_options['currency_position'] == 'after' ) echo 'checked="checked"'; ?> /> <?php _e( 'after numerals', 'realty' ); ?></label>
-							</td>
-						</tr>					
-						<tr valign="top" class="rlt_unit_area_labels">
-							<th scope="row"><label for="rlt_unit_area"><?php _e( 'Unit of area', 'realty' ); ?></label></th>
-							<td>
-								<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_false" value="0" <?php if ( $rlt_options['unit_area_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
-								<select name="rlt_unit_area" id="rlt_unit_area">
-									<option value="sq&#160;ft" <?php if ( 'sq&#160;ft' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>sq&#160;ft</option>
-									<option value="m&#178;" <?php if ( 'm&#178;' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>m&#178;</option>
-								</select><br />
-								<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_true" value="1" <?php if ( $rlt_options['unit_area_custom_display'] == 1 ) echo 'checked="checked"'; ?> /> <input type="text" id="rlt_custom_unit_area" name="rlt_custom_unit_area" value="<?php echo $rlt_options['custom_unit_area']; ?>" /> <span class="rlt_info"><?php _e( 'Custom unit area', 'realty' ); ?></span>
-							</td>
-						</tr>
-						<tr valign="top" class="rlt_per_page_labels">
-							<th scope="row"><label for="rlt_per_page"><?php _e( 'Search pages show at most', 'realty' ); ?></label></th>
-							<td>
-								<input type="number" class="small-text" min="1" step="1" id="rlt_per_page" name="rlt_per_page" value="<?php echo $rlt_options['per_page']; ?>" />
-							</td>
-						</tr>
-					</table>					
-					<div class="submit">
-						<input type="hidden" name="rlt_form_submit" value="submit" />
-						<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'realty' ); ?>" />
-						<?php wp_nonce_field( plugin_basename( __FILE__ ), 'rlt_nonce_name' ); ?>
-					</div>
-				</form>
-				<?php bws_plugin_reviews_block( $rlt_plugin_info['Name'], 'realty' );
+			<div id="rlt_settings_message" class="updated fade" <?php if ( "" == $message || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>			
+			<?php if ( ! isset( $_GET['action'] ) ) {
+				if ( isset( $_REQUEST['bws_restore_default'] ) && check_admin_referer( plugin_basename(__FILE__), 'bws_settings_nonce_name' ) ) {
+					bws_form_restore_default_confirm( plugin_basename(__FILE__) );
+				} else {  ?>
+					<form id="rlt_settings_form" method="post" action="admin.php?page=realty_settings">
+						<table class="form-table">
+							<tr valign="top" class="rlt_currency_labels">
+								<th scope="row"><label for="rlt_currency"><?php _e( 'Currency', 'realty' ); ?></label></th>
+								<td>
+									<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_false" value="0" <?php if ( $rlt_options['currency_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
+									<select name="rlt_currency" id="rlt_currency">
+										<?php foreach ( $currencies as $currency ) { ?>
+											<option value="<?php echo $currency['currency_id']; ?>" <?php if ( $currency['currency_id'] == $rlt_options['currency_unicode'] ) echo 'selected="selected"'; ?>><?php echo $currency['currency_unicode'] . ' ('.$currency['country_currency'] . " - " . $currency['currency_code'] . ')'; ?></option>
+										<?php } ?>
+									</select><br />
+									<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_true" value="1" <?php if ( $rlt_options['currency_custom_display'] == 1 ) echo 'checked="checked"'; ?> /> <input type="text" id="rlt_custom_currency" name="rlt_custom_currency" maxlength='250' value="<?php echo $rlt_options['custom_currency']; ?>" /> <span class="rlt_info"><?php _e( 'Custom currency, for example', 'realty' ); ?> $</span>
+								</td>
+							</tr>
+							<tr valign="top" class="rlt_custom_currency_position_labels">
+								<th scope="row"><?php _e( 'Currency Position', 'realty' ); ?></th>
+								<td>
+									<label for="rlt_currency_position_before"><input type="radio" id="rlt_currency_position_before" name="rlt_currency_position" value="before" <?php if( $rlt_options['currency_position'] == 'before' ) echo 'checked="checked"'; ?> /> <?php _e( 'before numerals', 'realty' ); ?></label><br />
+									<label for="rlt_currency_position_after"><input type="radio" id="rlt_currency_position_after" name="rlt_currency_position" value="after" <?php if( $rlt_options['currency_position'] == 'after' ) echo 'checked="checked"'; ?> /> <?php _e( 'after numerals', 'realty' ); ?></label>
+								</td>
+							</tr>					
+							<tr valign="top" class="rlt_unit_area_labels">
+								<th scope="row"><label for="rlt_unit_area"><?php _e( 'Unit of area', 'realty' ); ?></label></th>
+								<td>
+									<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_false" value="0" <?php if ( $rlt_options['unit_area_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
+									<select name="rlt_unit_area" id="rlt_unit_area">
+										<option value="sq&nbsp;ft" <?php if ( 'sq&nbsp;ft' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>sq&nbsp;ft</option>
+										<option value="m&sup2;" <?php if ( 'm&sup2;' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>m&sup2;</option>
+									</select><br />
+									<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_true" value="1" <?php if ( $rlt_options['unit_area_custom_display'] == 1 ) echo 'checked="checked"'; ?> /> <input type="text" id="rlt_custom_unit_area" name="rlt_custom_unit_area" maxlength='250' value="<?php echo $rlt_options['custom_unit_area']; ?>" /> <span class="rlt_info"><?php _e( 'Custom unit area', 'realty' ); ?></span>
+								</td>
+							</tr>
+							<tr valign="top" class="rlt_per_page_labels">
+								<th scope="row"><label for="rlt_per_page"><?php _e( 'Search pages show at most', 'realty' ); ?></label></th>
+								<td>
+									<input type="number" class="small-text" min="1" max="10000" step="1" id="rlt_per_page" name="rlt_per_page" value="<?php echo $rlt_options['per_page']; ?>" />
+								</td>
+							</tr>
+						</table>					
+						<div class="submit">
+							<input type="hidden" name="rlt_form_submit" value="submit" />
+							<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'realty' ); ?>" />
+							<?php wp_nonce_field( plugin_basename( __FILE__ ), 'rlt_nonce_name' ); ?>
+						</div>
+					</form>
+					<?php bws_form_restore_default_settings( plugin_basename(__FILE__) );					
+				}
+				bws_plugin_reviews_block( $rlt_plugin_info['Name'], 'realty' );
 			} elseif ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
 				bws_go_pro_tab( $rlt_plugin_info, plugin_basename( __FILE__ ), 'realty_settings', 'realty_pro_settings', 'realty-pro/realty-pro.php', 'realty', '', '205', isset( $go_pro_result['pro_plugin_is_activated'] ) ); 
 			} ?>
@@ -723,7 +739,7 @@ if ( ! function_exists( 'rlt_save_postdata' ) ) {
 				$property_info = array();
 				$property_info['property_info_post_id']			= $post_id;
 				$property_info['property_info_location']		= esc_js( $_POST['rlt_location'] );
-				$property_info['property_info_coordinates'] 	= esc_js( $_POST['rlt_coordinates'] );
+				$property_info['property_info_coordinates'] 	= preg_match( '/^[-]?[\d]{1,2}[.][\d]{3,9}[,][-]?[\d]{1,3}[.][\d]{3,9}$/', trim( $_POST['rlt_coordinates'] ) ) ? trim( $_POST['rlt_coordinates'] ) : '';
 				$property_info['property_info_type_id']			= esc_js( $_POST['rlt_type'] );
 				$property_info['property_info_period_id']		= esc_js( $_POST['rlt_period'] );
 				$property_info['property_info_price']			= esc_js( $_POST['rlt_price'] );

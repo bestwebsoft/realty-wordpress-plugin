@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: realty, real estate, realestate, property, agent, relty, reelty, relaty, realti, reel estate, rela estate, real estete, real estate plugin, add property, add property info, find property, property plugin, property posts, realty agents, add agents, add agents data
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -106,6 +106,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.3 - 01.07.2015 =
+* New : Ability to restore settings to defaults.
+* Bugfix : We fixed errors in the database recording when updating.
+* Bugfix : We added a field validation in the admin panel.
+
 = V1.0.2 - 19.05.2015 =
 * Update : We updated all functionality for wordpress 4.2.2.
 
@@ -116,6 +121,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.3 =
+Ability to restore settings to defaults. We fixed errors in the database recording when updating. We added a field validation in the admin panel.
 
 = V1.0.2 =
 We updated all functionality for wordpress 4.2.2.
