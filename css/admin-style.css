@@ -74,7 +74,10 @@
 	opacity: 0.8;
 	cursor: pointer;
 }
-.rlt_info {
-	color: #888888;
-    font-size: 10px;
+@media screen and (max-width: 500px) {
+	.rlt_left_column,
+	.rlt_right_column {
+		float: none;
+		width: 100%;
+	}
 }

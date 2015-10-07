@@ -1,10 +1,10 @@
 === Realty by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: realty, real estate, realestate, property, agent, relty, reelty, relaty, realti, reel estate, rela estate, real estete, real estate plugin, add property, add property info, find property, property plugin, property posts, realty agents, add agents, add agents data
+Tags: add agents, add agents data, add property, add property info, agent, broker, find property, free, free plugin, free realty plugin, home, homes, housing, leasing, listing, listings, map, neighborhood, placester, properties, property, property management Property Plugin, property posts, real estate, Real Estate Plugin, real estete, realestate, realti, realty, realty agents, reel estate, reelty, rela estate, relaty, relty, realtor, Rental, rentals,  wordpress, wp, wp plugin, wp free plugin, wp realty, wp realty plugin, wp simple realty plugin, wp free realty, wp free realty plugin, wordpress plugin, wordpress free plugin, wordpress realty, wordpress realty plugin, wordpress simple realty plugin, wordpress free realty, wordpress free realty plugin
 Requires at least: 3.8
-Tested up to: 4.2.2
-Stable tag: 1.0.3
+Tested up to: 4.3.1
+Stable tag: 1.0.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,19 +16,21 @@ Realty plugin allows you to create your fully functional real estate website wit
 
 http://www.youtube.com/watch?v=HArMTHq-D7A
 
-<a href="https://www.youtube.com/watch?v=_BQCk4D-CyI" target="_blank">Video instruction on Installation</a>
+<a href="https://www.youtube.com/watch?v=_BQCk4D-CyI" target="_blank">Realty by BestWebSoft Video instruction on Installation</a>
 
-<a href="http://wordpress.org/plugins/realty/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/plugins/realty/faq/" target="_blank">Realty by BestWebSoft FAQ</a>
 
-<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+<a href="http://support.bestwebsoft.com" target="_blank">Realty by BestWebSoft Support</a>
 
-<a href="http://bestwebsoft.com/products/realty/?k=143e150e92b9751b52da0cd46fb6f5cf" target="_blank">Upgrade to Pro Version</a>
+<a href="http://bestwebsoft.com/products/realty/?k=143e150e92b9751b52da0cd46fb6f5cf" target="_blank">Upgrade to Realty Pro by BestWebSoft</a>
 
 = Features =
 
-* An option to add an unlimited number of Properties. 
-* An option to add an image to the Property.
-* An option to sort Property by various criteria. 
+* Add an unlimited number of Properties. 
+* Add Info and Photos to the Property.
+* Add Property types.
+* Sort Property by various criteria.
+* Add "Realty Recent Items" widget and "Realty Widget" for searching.
 
 = Translation =
 
@@ -106,6 +108,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.4 - 07.10.2015 =
+* Update : We updated all functionality for wordpress 4.3.1.
+* Update : BWS plugins section is updated.
+
 = V1.0.3 - 01.07.2015 =
 * New : Ability to restore settings to defaults.
 * Bugfix : We fixed errors in the database recording when updating.
@@ -121,6 +127,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.4 =
+We updated all functionality for wordpress 4.3.1. BWS plugins section is updated.
 
 = V1.0.3 =
 Ability to restore settings to defaults. We fixed errors in the database recording when updating. We added a field validation in the admin panel.

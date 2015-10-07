@@ -1,15 +1,5 @@
 (function($) {
 	$(document).ready( function() {
-		$( '#rlt_settings_form input' ).bind( "change click select", function() {
-			if ( $( this ).attr( 'type' ) != 'submit' ) {
-				$( '.updated.fade' ).css( 'display', 'none' );
-				$( '#rlt_settings_notice' ).css( 'display', 'block' );
-			};
-		});
-		$( '#rlt_settings_form select' ).focus( function() {
-			$( '.updated.fade' ).css( 'display', 'none' );
-			$( '#rlt_settings_notice' ).css( 'display', 'block' );
-		});
 		if ( $( '.rlt_add_photo' ).length > 0 ) {
 			if ( typeof wp !== 'undefined' && wp.media && wp.media.editor ) {
 				$( '.wrap' ).on( 'click', '.rlt_add_photo', function(e) {
