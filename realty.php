@@ -6,7 +6,7 @@ Description: A convenient plugin that adds Real Estate functionality.
 Author: BestWebSoft
 Text Domain: realty
 Domain Path: /languages
-Version: 1.0.4
+Version: 1.0.5
 Author URI: http://bestwebsoft.com/
 License: GPLv3 or later
 */
@@ -40,9 +40,16 @@ $rlt_filenames[]	=	'rlt-search-listing-results.php';
 if ( ! function_exists( 'rlt_admin_menu' ) ) {
 	function rlt_admin_menu() {
 		global $submenu;
-		bws_add_general_menu( plugin_basename( __FILE__ ) );
-		add_submenu_page( 'bws_plugins', __( 'Realty Settings', 'realty' ), 'Realty', 'manage_options', 'realty_settings', 'rlt_settings_page' );
-		$submenu['edit.php?post_type=property'][] = array( __( 'Settings', 'realty' ), 'manage_options', admin_url( 'admin.php?page=realty_settings' ) );	
+		bws_general_menu();
+		$settings = add_submenu_page( 'bws_plugins', __( 'Realty Settings', 'realty' ), 'Realty', 'manage_options', 'realty_settings', 'rlt_settings_page' );
+		if ( isset( $submenu['edit.php?post_type=property'] ) )
+			$submenu['edit.php?post_type=property'][] = array( __( 'Settings', 'realty' ), 'manage_options', admin_url( 'admin.php?page=realty_settings' ) );	
+
+		add_action( 'load-' . $settings, 'rlt_add_tabs' );
+		add_action( 'load-post.php', 'rlt_add_tabs' );
+		add_action( 'load-edit.php', 'rlt_add_tabs' );
+		add_action( 'load-post-new.php', 'rlt_add_tabs' );
+		add_action( 'load-edit-tags.php', 'rlt_add_tabs' );
 	}
 }
 
@@ -367,7 +374,10 @@ if ( ! function_exists ( 'rlt_register_post_type' ) ) {
 				'view_item'				=> __( 'View Properties', 'realty' ),
 				'search_items'			=> __( 'Search Properties', 'realty' ),
 				'not_found'				=> __( 'No Properties found', 'realty' ),
-				'not_found_in_trash'	=> __( 'No Properties found in Trash', 'realty' )
+				'not_found_in_trash'	=> __( 'No Properties found in Trash', 'realty' ),
+				'filter_items_list'     => __( 'Filter Properties list', 'realty' ),
+				'items_list_navigation' => __( 'Properties list navigation', 'realty' ),
+				'items_list'            => __( 'Properties list', 'realty' )
 			)
 		);
 		register_post_type( 'property' , $args );
@@ -389,7 +399,9 @@ if ( ! function_exists ( 'rlt_register_post_type' ) ) {
 			'separate_items_with_commas'	=> __( 'Separate Property types with commas', 'realty' ),
 			'add_or_remove_items'			=> __( 'Add or remove Property type', 'realty' ),
 			'choose_from_most_used'			=> __( 'Choose from the most used Property type', 'realty' ),
-			'not_found'						=> __( 'No Property type found', 'realty' )
+			'not_found'						=> __( 'No Property type found', 'realty' ),
+			'items_list_navigation' 		=> __( 'Property types list navigation', 'realty' ),
+			'items_list'            		=> __( 'Property types list', 'realty' )
 		);
 
 		$args = array(
@@ -498,8 +510,7 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 			$rlt_options = $rlt_option_defaults;
 			update_option( 'rlt_options', $rlt_options );
 			$message = __( 'All plugin settings were restored.', 'realty' );
-		}		
-		/* end */
+		}
 
 		/* GO PRO */
 		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {		
@@ -509,10 +520,9 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 		}		
 		/* Display form on the setting page */ ?>
 		<div class="wrap">
-			<h2><?php echo $title; ?></h2>
+			<h1><?php echo $title; ?></h1>
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab<?php if ( ! isset( $_GET['action'] ) ) echo ' nav-tab-active'; ?>" href="admin.php?page=realty_settings"><?php _e( 'Settings', 'realty' ); ?></a>
-				<a class="nav-tab" href="http://bestwebsoft.com/products/realty/faq/" target="_blank"><?php _e( 'FAQ', 'realty' ); ?></a>
 				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=realty_settings&amp;action=go_pro"><?php _e( 'Go PRO', 'realty' ); ?></a>
 			</h2>
 			<?php bws_show_settings_notice(); ?>
@@ -570,11 +580,11 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 						</div>
 					</form>
 					<?php bws_form_restore_default_settings( plugin_basename(__FILE__) );					
-				}
-				bws_plugin_reviews_block( $rlt_plugin_info['Name'], 'realty' );
+				}				
 			} elseif ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
 				bws_go_pro_tab( $rlt_plugin_info, plugin_basename( __FILE__ ), 'realty_settings', 'realty_pro_settings', 'realty-pro/realty-pro.php', 'realty', '', '205', isset( $go_pro_result['pro_plugin_is_activated'] ) ); 
-			} ?>
+			} 
+			bws_plugin_reviews_block( $rlt_plugin_info['Name'], 'realty' ); ?>
 		</div>
 	<?php } 
 }
@@ -1350,6 +1360,21 @@ if ( ! function_exists( 'rlt_get_unit_area' ) ) {
 			return $rlt_options['unit_area'];
 		else
 			return $rlt_options['custom_unit_area'];
+	}
+}
+
+/* add help tab  */
+if ( ! function_exists( 'rlt_add_tabs' ) ) {
+	function rlt_add_tabs() {
+		$screen = get_current_screen();
+		if ( ( ! empty( $screen->post_type ) && 'property' == $screen->post_type ) ||
+			( isset( $_GET['page'] ) && $_GET['page'] == 'realty_settings' ) ) {
+			$args = array(
+				'id' 			=> 'rlt',
+				'section' 		=> '200930549'
+			);
+			bws_help_tab( $screen, $args );
+		}
 	}
 }
 

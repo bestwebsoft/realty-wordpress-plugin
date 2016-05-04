@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add agents, add agents data, add property, add property info, agent, broker, find property, free, free plugin, free realty plugin, home, homes, housing, leasing, listing, listings, map, neighborhood, placester, properties, property, property management Property Plugin, property posts, real estate, Real Estate Plugin, real estete, realestate, realti, realty, realty agents, reel estate, reelty, rela estate, relaty, relty, realtor, Rental, rentals,  wordpress, wp, wp plugin, wp free plugin, wp realty, wp realty plugin, wp simple realty plugin, wp free realty, wp free realty plugin, wordpress plugin, wordpress free plugin, wordpress realty, wordpress realty plugin, wordpress simple realty plugin, wordpress free realty, wordpress free realty plugin
 Requires at least: 3.8
-Tested up to: 4.3.1
-Stable tag: 1.0.4
+Tested up to: 4.4
+Stable tag: 1.0.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -108,6 +108,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.5 - 07.12.2015 =
+* Bugfix : The bug with plugin menu duplicating was fixed.
+
 = V1.0.4 - 07.10.2015 =
 * Update : We updated all functionality for wordpress 4.3.1.
 * Update : BWS plugins section is updated.
@@ -127,6 +130,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.5 =
+The bug with plugin menu duplicating was fixed.
 
 = V1.0.4 =
 We updated all functionality for wordpress 4.3.1. BWS plugins section is updated.
