@@ -37,9 +37,9 @@
 						<div class="rlt_home_content_tab rlt_home_content_1 active">
 							<div class="cover"></div>
 							<div class="home_image">
-								<?php if ( has_post_thumbnail() )
-									the_post_thumbnail( 'realty_listing' ); 
-								else if ( count( $property_info['property_info_photos'] ) > 0 ) {
+								<?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail( 'realty_pro_listing' );
+								} else if ( count( $property_info['property_info_photos'] ) > 0 ) {
 									$big_photo = wp_get_attachment_image_src( $property_info['property_info_photos'][0], 'realty_listing' ); ?>
 									<img src="<?php echo $big_photo[0]; ?>" alt="home" />
 								<?php } ?>

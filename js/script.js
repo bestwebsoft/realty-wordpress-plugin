@@ -1,7 +1,8 @@
 (function($) {
 	$(document).ready( function() {		
 		/*select tags*/
-		$( "select.rlt_select" ).select2();
+		if( ! rlt_translation.realestate_active )
+			$( "select.rlt_select" ).select2();
 		/*tabs*/
 		$( '.rlt_tabs .tab' ).click( function() {
 			if ( ! $( this ).hasClass( 'active' ) ) {
@@ -23,22 +24,29 @@
 		$( '.rlt_home_content_tab' ).css( 'position', 'relative' );
 	
 		/*dragging*/
-		if ( $( "#rlt_price" ).length > 0 ) {
-			$( "#rlt_price" ).slider({
-				range: true,
-				min: parseInt( $( '#rlt_min_price' ).val().replace( '.', '' ) ),
-				max: parseInt( $( '#rlt_max_price' ).val().replace( '.', '' ) ),
-				values: [ parseInt( $( '#rlt_current_min_price' ).val().replace( ',', '' ) ), parseInt( $( '#rlt_current_max_price' ).val().replace( ',', '' ) ) ],
-				slide: function( event, ui ) {
-					$( '.rlt_min_price' ).text( rlt_number_format( ui.values[ 0 ], 0, '.', ',' ) );
-					$( '.rlt_max_price' ).text( rlt_number_format( ui.values[ 1 ], 0, '.', ',' ) );
-					$( '#rlt_min_price' ).val( ui.values[ 0 ] );
-					$( '#rlt_max_price' ).val( ui.values[ 1 ] );
-					$( '#rlt_current_min_price' ).val( ui.values[ 0 ] );
-					$( '#rlt_current_max_price' ).val( ui.values[ 1 ] );
-				}
-			});
-		}
+		$( ".rlt_prices" ).each( function() {
+			var this_slider = $( this );
+			var min_price = this_slider.siblings( '#rlt_min_price' );
+			var max_price = this_slider.siblings( '#rlt_max_price' );
+			var current_min_price = this_slider.siblings( '#rlt_current_min_price' );
+			var current_max_price = this_slider.siblings( '#rlt_current_max_price' );
+			if ( this_slider.find( '#rlt_price' ).length > 0 ) {
+				this_slider.find( '#rlt_price' ).slider({
+					range: true,
+					min: min_price.val() * 1000,
+					max: max_price.val() * 1000,
+					values: [ current_min_price.val() * 1000, current_max_price.val() * 1000 ],
+					slide: function( event, ui ) {
+						this_slider.find( '.rlt_min_price' ).text( rlt_number_format( ui.values[ 0 ] / 1000 ) );
+						this_slider.find( '.rlt_max_price' ).text( rlt_number_format( ui.values[ 1 ] / 1000 ) );
+						min_price.val( ui.values[ 0 ] / 1000 );
+						max_price.val( ui.values[ 1 ] / 1000 );
+						current_min_price.val( ui.values[ 0 ] / 1000 );
+						current_max_price.val( ui.values[ 1 ] / 1000 );
+					}
+				});
+			}
+		});
 		
 		/* Placeholder for IE */
 		if ( $.browser.msie ) {
@@ -163,60 +171,65 @@
 			});
 		}
 
+		var tab_block_count = 1;
+		$( '.rlt_tab_block' ).each( function() {
+			$( this ).addClass( 'rlt_tab_block_count_' + tab_block_count );
+			tab_block_count ++;
+		} );
+
 		$( '#property_sale_search_form input[type="submit"], #property_rent_search_form input[type="submit"]' ).click( function() {
 			var action = '';
-			var form_id = $( this ).parent().parent().attr( 'id' );
+			var tab = $( this ).parent().parent().parent().attr( 'class' );
+			tab = tab.slice( tab.search( 'rlt_tab_block_count_' ) );
+			var property_type = $( '.'+tab+' .property option:selected' ).val();
 			if ( rlt_translation.rlt_permalink == '' ) {
-				if ( $( '#'+form_id+' #rlt_location' ).val() != '' )
-					action = action + '&property_location=' + encodeURI( $( '#'+form_id+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
-				if ( $( '#'+form_id+' .property option:selected' ).val() != '' )
-					action = action + '&property_type=' + encodeURI( $( '#'+form_id+' .property option:selected' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
-				else
-					action = action + '&property_type=all';
-				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#' + form_id + ' #rlt_min_price' ).val() != '' )
-					action = action + '&property_min_price=' + $( '#' + form_id + ' #rlt_current_min_price' ).val();
-				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#' + form_id + ' #rlt_max_price' ).val() != '' )
-					action = action + '&property_max_price=' + $( '#' + form_id + ' #rlt_current_max_price' ).val();
-				if ( $( '#'+form_id+' .bathrooms option:selected' ).val() != '' )
-					action = action + '&property_bath=' + $( '#'+form_id+' .bathrooms option:selected' ).val();
+				if ( $( '.'+tab+' #rlt_location' ).val() != '' )
+					action = action + '&property_location=' + encodeURI( $( '.'+tab+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
+				if ( '' != property_type && 'all' != property_type )
+					action = action + '&property_type=' + encodeURI( property_type.replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
+				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_min_price' ).val() != '' )
+					action = action + '&property_min_price=' + $( '.' + tab + ' #rlt_current_min_price' ).val();
+				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_max_price' ).val() != '' )
+					action = action + '&property_max_price=' + $( '.' + tab + ' #rlt_current_max_price' ).val();
+				if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' )
+					action = action + '&property_bath=' + $( '.'+tab+' .bathrooms option:selected' ).val();
 				else
 					action = action + '&property_bath=1';
-				if ( $( '#'+form_id+' .bedrooms option:selected' ).val() != '' )
-					action = action + '&property_bed=' + $( '#'+form_id+' .bedrooms option:selected' ).val();
+				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' )
+					action = action + '&property_bed=' + $( '.'+tab+' .bedrooms option:selected' ).val();
 				else
 					action = action + '&property_bed=1';
-				if ( $( '#'+form_id+' #rlt_type_id' ).val() != '' )
-					action = action + '&property_typeid=' + $( '#'+form_id+' #rlt_type_id' ).val();
+				if ( $( '.'+tab+' #rlt_type_id' ).val() != '' )
+					action = action + '&property_typeid=' + $( '.'+tab+' #rlt_type_id' ).val();
 				action = '?post_type=property&s=properties&property_search_results=1' + action + '&property_sortby=newest';
 			} else {
 				action = '/';
-				if ( $( '#'+form_id+' #rlt_location' ).val() != '' )
-					action = action + 'loc-' + encodeURI( $( '#'+form_id+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
-				if ( $( '#'+form_id+' .property option:selected' ).val() != '' )
-					action = action + 'prop-' + encodeURI( $( '#'+form_id+' .property option:selected' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
-				else
-					action = action + 'prop-all/';
-				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#'+form_id+' #rlt_min_price' ).val() != '' )
-					action = action + 'minp-' + $( '#'+form_id+' #rlt_current_min_price' ).val() + '/';
-				if ( $( '#'+form_id+' #rlt_min_price' ).length > 0 && $( '#'+form_id+' #rlt_max_price' ).val() != '' )
-					action = action + 'maxp-' + $( '#'+form_id+' #rlt_current_max_price' ).val() + '/';
-				if ( $( '#'+form_id+' .bathrooms option:selected' ).val() != '' )
-					action = action + 'bath-' + $( '#'+form_id+' .bathrooms option:selected' ).val() + '/';
+				if ( $( '.'+tab+' #rlt_location' ).val() != '' )
+					action = action + 'loc-' + encodeURI( $( '.'+tab+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
+				if ( '' != property_type && 'all' != property_type )
+					action = action + 'prop-' + encodeURI( property_type.val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
+				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_min_price' ).val() != '' )
+					action = action + 'minp-' + $( '.'+tab+' #rlt_current_min_price' ).val() + '/';
+				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_max_price' ).val() != '' )
+					action = action + 'maxp-' + $( '.'+tab+' #rlt_current_max_price' ).val() + '/';
+				if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' )
+					action = action + 'bath-' + $( '.'+tab+' .bathrooms option:selected' ).val() + '/';
 				else
 					action = action + 'bath-1/';
-				if ( $( '#'+form_id+' .bedrooms option:selected' ).val() != '' )
-					action = action + 'bed-' + $( '#'+form_id+' .bedrooms option:selected' ).val() + '/';
+				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' )
+					action = action + 'bed-' + $( '.'+tab+' .bedrooms option:selected' ).val() + '/';
 				else
 					action = action + 'bed-1/';
-				if ( $( '#'+form_id+' #rlt_type_id' ).val() != '' )
-					action = action + 'type-' + $( '#'+form_id+' #rlt_type_id' ).val() + '/';
+				if ( $( '.'+tab+' #rlt_type_id' ).val() != '' )
+					action = action + 'type-' + $( '.'+tab+' #rlt_type_id' ).val() + '/';
 				action = action + 'sort-newest/';
 			}
-			$( '#'+form_id ).attr( 'action', $( '#'+form_id ).attr( 'action' ) + action );
-			$( '#'+form_id ).attr( 'method', 'post' );
-			$( '#'+form_id ).submit();
+			console.log( action );
+			$( '.'+tab+' form' ).attr( 'action', $( '.'+tab+' form' ).attr( 'action' ) + action );
+			$( '.'+tab+' form' ).attr( 'method', 'post' );
+			$( '.'+tab+' form' ).submit();
 			return false;
-		});		
+		});	
 	});
 })(jQuery);
 

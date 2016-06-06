@@ -1,10 +1,10 @@
 === Realty by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: add agents, add agents data, add property, add property info, agent, broker, find property, free, free plugin, free realty plugin, home, homes, housing, leasing, listing, listings, map, neighborhood, placester, properties, property, property management Property Plugin, property posts, real estate, Real Estate Plugin, real estete, realestate, realti, realty, realty agents, reel estate, reelty, rela estate, relaty, relty, realtor, Rental, rentals,  wordpress, wp, wp plugin, wp free plugin, wp realty, wp realty plugin, wp simple realty plugin, wp free realty, wp free realty plugin, wordpress plugin, wordpress free plugin, wordpress realty, wordpress realty plugin, wordpress simple realty plugin, wordpress free realty, wordpress free realty plugin
+Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.4
-Stable tag: 1.0.5
+Tested up to: 4.5.2
+Stable tag: 1.0.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,14 +26,17 @@ http://www.youtube.com/watch?v=HArMTHq-D7A
 
 = Features =
 
-* Add an unlimited number of Properties. 
+* Add an unlimited number of Properties.
 * Add Info and Photos to the Property.
 * Add Property types.
 * Sort Property by various criteria.
 * Add "Realty Recent Items" widget and "Realty Widget" for searching.
 
+If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
+
 = Translation =
 
+* Czech (cs_CZ) (thanks to <a href="mailto:info@pamadessoft.cz">PaMaDeSSoft</a>, www.pamadessoft.cz)
 * Russian (ru_RU)
 * Ukrainian (uk)
 
@@ -41,10 +44,10 @@ If you create your own language pack or update the existing one, you can send <a
 
 = Technical support =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in another languages won't be accepted.
+Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
 
 If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, description of an issue, and WordPress admin panel credentials.
-Moreover, we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then. 
+Moreover, we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then.
 We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).
 
 == Installation ==
@@ -65,14 +68,14 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 
 = How do I use the plugin? =
 
-1. You can add the necessary Property types in "Properties" > "Property type" menu. 
-2. In the menu "Properties" > "Add New". Select the necessary Propert type. 
-3. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block. 
-4. If you are using another theme, on "Appearance" > "Widgets" page, please find  "Sale Rent Widget" and add it to the sidebar of your theme. 
+1. You can add the necessary Property types in "Properties" > "Property type" menu.
+2. In the menu "Properties" > "Add New". Select the necessary Propert type.
+3. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block.
+4. If you are using another theme, on "Appearance" > "Widgets" page, please find  "Sale Rent Widget" and add it to the sidebar of your theme.
 
 = I have added Property, but nothing changed on my website. What do I do now? =
 
-1. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block. 
+1. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block.
 2. If you are using another theme, on "Appearance" > "Widgets" page, please find "Sale Rent Widget" and add it to the sidebar of your theme.
 
 = I get a message that some files were not found in the theme. Why does this occur and how do I fix it? =
@@ -80,7 +83,7 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 The error message notifying that some files were not found means that the plugin lacks permissions to move the templates required for its work from the plugin folder to the theme folder. To have the plugin running correctly, please follow the instructions in the message, namely:
 - open `/wp-content/plugins/realty/templates/` directory
 - copy the files from this folder (`rlt-listing.php`, `rlt-nothing-found.php`, `rlt-search-form.php`, `rlt-search-listing-results.php`)
-- open the folder with your theme and add the files you just copied. 
+- open the folder with your theme and add the files you just copied.
 
 = I would like to add some features to the plugin. How do I do that? =
 
@@ -97,16 +100,22 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Screenshots ==
 
-1. Plugin settings page.
-2. Edit Property page.
-3. Sale Rent Widget with standard 2015 theme.
-4. Sale Rent Widget with Real Estate theme on the Home page.
-5. Property Search Results page.
-6. Single Property Photo tab page.
-7. Single Property View Street tab page.
-8. Single Property Map tab page.
+1. Sale Rent Widget with Real Estate theme on the Home page.
+2. Property Search Results page.
+3. Single Property Photo tab page.
+4. Single Property View Street tab page.
+5. Single Property Map tab page.
+6. Sale Rent Widget with standard 2015 theme.
+7. Plugin settings page.
+8. Edit Property page.
 
 == Changelog ==
+
+= V1.0.6 - 6.06.2016 =
+* NEW : The Czech language file is added.
+* Update : We updated all functionality for wordpress 4.5.2.
+* Bugfix : The bug with "View All" button was fixed.
+* Bugfix : The bug with slider in search was fixed.
 
 = V1.0.5 - 07.12.2015 =
 * Bugfix : The bug with plugin menu duplicating was fixed.
@@ -130,6 +139,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.6 =
+We updated all functionality for wordpress 4.5.2. The Czech language file is added. The bug with "View All" button was fixed. The bug with slider in search was fixed.
 
 = V1.0.5 =
 The bug with plugin menu duplicating was fixed.

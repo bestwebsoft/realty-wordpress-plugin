@@ -15,7 +15,7 @@ Realty plugin allows you to create your fully functional real estate website wit
 
 Features
 -----------------------------
-* Add an unlimited number of Properties. 
+* Add an unlimited number of Properties.
 * Add Info and Photos to the Property.
 * Add Property types.
 * Sort Property by various criteria.
@@ -24,6 +24,7 @@ Features
 
 Translation
 -----------------------------
+* Czech (cs_CZ) (thanks to PaMaDeSSoft, www.pamadessoft.cz)
 * Russian (ru_RU)
 * Ukrainian (uk)
 

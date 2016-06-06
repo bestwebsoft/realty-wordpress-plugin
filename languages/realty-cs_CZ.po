@@ -1,0 +1,453 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Realty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-01 09:22+0300\n"
+"PO-Revision-Date: 2016-06-01 09:23+0300\n"
+"Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"Language-Team: PaMaDeSSof <info@pamadessoft.cz>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: realty.php:44
+msgid "Realty Settings"
+msgstr "Nastavení Realty"
+
+#: realty.php:46 realty.php:562 realty.php:1468 realty.php:1481
+msgid "Settings"
+msgstr "Nastavení"
+
+#: realty.php:102
+msgid "Property Info"
+msgstr "Informace o nemovitosti"
+
+#: realty.php:286
+msgid "month"
+msgstr ""
+
+#: realty.php:287
+msgid "year"
+msgstr ""
+
+#: realty.php:295 realty.php:918
+msgid "For Rent"
+msgstr "K pronajmutí"
+
+#: realty.php:296 realty.php:917
+msgid "For Sale"
+msgstr "Na prodej"
+
+#: realty.php:364
+msgid "The following files"
+msgstr "Následující soubory"
+
+#: realty.php:364
+msgid "or"
+msgstr "nebo"
+
+#: realty.php:364
+msgid ""
+"were not found in your theme directory. Please copy them from the directory"
+msgstr "nebyl nalezen v adresáři motivu. Prosím, zkopírujte je z adresáře"
+
+#: realty.php:364
+msgid "to your theme directory to make sure Realty plugin works correctly"
+msgstr "do adresáře motivu k zajištění správné funkčnosti pluginu Realty"
+
+#: realty.php:378
+msgctxt "post type general name"
+msgid "Properties"
+msgstr "Nemovitosti"
+
+#: realty.php:379
+msgctxt "post type singular name"
+msgid "Property"
+msgstr "Nemovistost"
+
+#: realty.php:380
+msgctxt "admin menu"
+msgid "Properties"
+msgstr "Nemovitosti"
+
+#: realty.php:381
+msgctxt "add new on admin bar"
+msgid "Property"
+msgstr "Nemovistost"
+
+#: realty.php:382
+msgctxt "property"
+msgid "Add New"
+msgstr "Přidat novou"
+
+#: realty.php:383
+msgid "Add a new Property"
+msgstr "Přidat novou nemovitost"
+
+#: realty.php:384
+msgid "Edit Properties"
+msgstr "Upravit nemovitost"
+
+#: realty.php:385
+msgid "New Property"
+msgstr "Nová nemovitost"
+
+#: realty.php:386
+msgid "View Properties"
+msgstr "Zobrazit nemovitosti"
+
+#: realty.php:387
+msgid "Search Properties"
+msgstr "Hledání nemovitosti"
+
+#: realty.php:388
+msgid "No Properties found"
+msgstr "Nebyly nalezeny žádné nemovitosti"
+
+#: realty.php:389
+msgid "No Properties found in Trash"
+msgstr "Žádné nemovitosti v koši"
+
+#: realty.php:390
+msgid "Filter Properties list"
+msgstr "Filtr pro výpis nemovitostí"
+
+#: realty.php:391
+msgid "Properties list navigation"
+msgstr "Navigace seznamu nemovitostí"
+
+#: realty.php:392
+msgid "Properties list"
+msgstr "Seznam nemovitostí"
+
+#: realty.php:398
+msgctxt "taxonomy general name"
+msgid "Property types"
+msgstr "Typy nemovitostí"
+
+#: realty.php:399
+msgctxt "taxonomy singular name"
+msgid "Property type"
+msgstr "Typ nemovitosti"
+
+#: realty.php:400
+msgid "Property type"
+msgstr "Typ nemovitosti"
+
+#: realty.php:401
+msgid "All Property types"
+msgstr "Všechny typy nemovitostí"
+
+#: realty.php:402
+msgid "Edit Property type"
+msgstr "Upravit typ nemovitosti"
+
+#: realty.php:403
+msgid "View Property type"
+msgstr "Zobrazit typ nemovitosti"
+
+#: realty.php:404
+msgid "Update Property type"
+msgstr "Aktualizovat typ nemovitosti"
+
+#: realty.php:405
+msgid "Add New Property type"
+msgstr "Přidat nový typ nemovitosti"
+
+#: realty.php:406
+msgid "New Property type Name"
+msgstr "Nový název typu nemovitosti"
+
+#: realty.php:407
+msgid "Parent Property type"
+msgstr "Nadřazený typ nemovitosti"
+
+#: realty.php:408
+msgid "Parent Property type:"
+msgstr "Nadřazený typ nemovitosti:"
+
+#: realty.php:409
+msgid "Search Property types"
+msgstr "Vyhledávání typů nemovitosti"
+
+#: realty.php:410
+msgid "Popular Property types"
+msgstr "Oblíbené typy nemovitostí"
+
+#: realty.php:411
+msgid "Separate Property types with commas"
+msgstr "Typy nemovitostí oddělte čárkami"
+
+#: realty.php:412
+msgid "Add or remove Property type"
+msgstr "Přidání nebo odebrání typu nemovitosti"
+
+#: realty.php:413
+msgid "Choose from the most used Property type"
+msgstr "Vyberte si z nejpoužívanějšího typu nemovitosti"
+
+#: realty.php:414
+msgid "No Property type found"
+msgstr "Nenalezen žádný typ nemovitosti"
+
+#: realty.php:415
+msgid "Property types list navigation"
+msgstr "Navigace seznamu typů nemovitostí"
+
+#: realty.php:416
+msgid "Property types list"
+msgstr "Seznam typů nemovitostí"
+
+#: realty.php:527
+msgid ""
+"Please, enter the correct value for custom currency field. Settings not "
+"saved."
+msgstr ""
+"Zadejte správnou hodnotu pro vlastní pole měny. Nastavení nebude uloženo."
+
+#: realty.php:530
+msgid "Settings saved."
+msgstr "Nastavení bylo uloženo."
+
+#: realty.php:549
+msgid "All plugin settings were restored."
+msgstr "Výchozí nastavení pluginu bylo obnoveno."
+
+#: realty.php:563
+msgid "Custom code"
+msgstr ""
+
+#: realty.php:564
+msgid "Go PRO"
+msgstr "Získat verzi Pro"
+
+#: realty.php:576
+msgid "Currency"
+msgstr "Měna"
+
+#: realty.php:584
+msgid "Custom currency, for example"
+msgstr "Vlastní měny, například"
+
+#: realty.php:588
+msgid "Currency Position"
+msgstr "Pozice měny"
+
+#: realty.php:591
+msgid "before numerals"
+msgstr "před číslem"
+
+#: realty.php:592
+msgid "after numerals"
+msgstr "za číslem"
+
+#: realty.php:597
+msgid "Unit of area"
+msgstr "Plošné jednotky"
+
+#: realty.php:604
+msgid "Custom unit area"
+msgstr "Vlastní jednotka plochy"
+
+#: realty.php:608
+msgid "Search pages show at most"
+msgstr "Vyhledávací stránka ukáže nanejvýš"
+
+#: realty.php:616
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+#: realty.php:635
+msgid "Date"
+msgstr ""
+
+#: realty.php:664
+msgid "Show All"
+msgstr "Zobrazit vše"
+
+#: realty.php:702 realty.php:923 realty.php:970
+msgid "Location"
+msgstr "Poloha"
+
+#: realty.php:705 realty.php:720 realty.php:733 realty.php:754
+msgid "For example"
+msgstr "Například"
+
+#: realty.php:708
+msgid "Type"
+msgstr "Typ"
+
+#: realty.php:717 realty.php:931
+msgid "Price"
+msgstr "Cena"
+
+#: realty.php:723 realty.php:952 realty.php:987
+msgid "Bedrooms"
+msgstr "Ložnice"
+
+#: realty.php:730
+msgid "Latitude and longitude coordinates"
+msgstr "zeměpisná šířka a délka."
+
+#: realty.php:736
+msgid "Period"
+msgstr "lhůta"
+
+#: realty.php:746 realty.php:943 realty.php:978
+msgid "Bathrooms"
+msgstr "Koupelny"
+
+#: realty.php:751
+msgid "Floor area"
+msgstr "Podlahová plocha"
+
+#: realty.php:758
+msgid "Photos"
+msgstr "Fotografie"
+
+#: realty.php:759
+msgid "Add photo"
+msgstr "Přidat fotografii"
+
+#: realty.php:770 realty.php:1164
+msgid "Delete"
+msgstr "Smazat"
+
+#: realty.php:867
+msgid "Realty Widget"
+msgstr "Realitní Widget"
+
+#: realty.php:868
+msgid "Widget for displaying Sale/Rent Form."
+msgstr "Widget pro zobrazení formuláře prodej/pronájem."
+
+#: realty.php:925 realty.php:972
+msgid "Property Type"
+msgstr "Typ nemovitosti"
+
+#: realty.php:944 realty.php:953 realty.php:979 realty.php:988
+msgid "and more"
+msgstr "A více ..."
+
+#: realty.php:962 realty.php:997
+msgid "update filters"
+msgstr "Aktualizace filtrů"
+
+#: realty.php:1010
+msgid "back to search results"
+msgstr "Zpět na výsledky vyhledávání"
+
+#: realty.php:1025
+msgid "Realty Recent Items"
+msgstr "Položky nových nemovitostí"
+
+#: realty.php:1026
+msgid "Widget for displaying Recent Items block."
+msgstr "Widget pro zobrazení bloku posledních položek."
+
+#: realty.php:1034
+#, fuzzy
+msgid "Recent items"
+msgstr "Položky nových nemovitostí"
+
+#: realty.php:1064
+msgid "view all"
+msgstr "Zobrazit vše"
+
+#: realty.php:1086 templates/rlt-search-listing-results.php:118
+#: templates/rlt-listing.php:131
+msgid "bedrooms"
+msgstr "Ložnice"
+
+#: realty.php:1086 templates/rlt-search-listing-results.php:118
+#: templates/rlt-listing.php:131
+msgid "bathroom"
+msgstr "koupelna"
+
+#: realty.php:1110
+msgid "Widget Title"
+msgstr "Nadpis widgetu"
+
+#: realty.php:1114
+msgid "Number of items to be displayed"
+msgstr "Počet položek, který se má zobrazit"
+
+#: realty.php:1393
+msgid "Prev"
+msgstr "Předchozí"
+
+#: realty.php:1394
+msgid "Next"
+msgstr "Další"
+
+#: realty.php:1482
+msgid "FAQ"
+msgstr "Často kladené otázky"
+
+#: realty.php:1483
+msgid "Support"
+msgstr "Podpora"
+
+#: realty.php:1505
+msgid "Your theme does not declare Realty plugin support. Please check out our"
+msgstr ""
+
+#: realty.php:1505
+msgid ""
+" theme which has been developed specifically for use with Realty plugin."
+msgstr ""
+
+#: realty.php:1508
+msgid "Close notice"
+msgstr ""
+
+#: templates/rlt-search-listing-results.php:96
+msgid "sort by"
+msgstr "Seřadit podle:"
+
+#: templates/rlt-search-listing-results.php:96
+msgid "newest"
+msgstr "od nejnovějšího"
+
+#: templates/rlt-search-listing-results.php:96
+msgid "price"
+msgstr "cena"
+
+#: templates/rlt-nothing-found.php:2
+msgid "Nothing Found!"
+msgstr "Nic nenalezeno"
+
+#: templates/rlt-search-form.php:5
+msgid "results from"
+msgstr "výsledky z"
+
+#: templates/rlt-search-form.php:5
+msgid "total"
+msgstr "celkem"
+
+#: templates/rlt-listing.php:31
+msgid "photos"
+msgstr "fotografie"
+
+#: templates/rlt-listing.php:31
+msgid "of"
+msgstr "z"
+
+#: templates/rlt-listing.php:33
+msgid "view street"
+msgstr "Pohled z ulice"
+
+#: templates/rlt-listing.php:34
+msgid "map"
+msgstr "mapa"
+
+#: templates/rlt-listing.php:121
+msgid "General Information"
+msgstr "Základní informace"

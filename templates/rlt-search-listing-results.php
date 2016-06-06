@@ -37,11 +37,11 @@
 		if ( ! empty( $rlt_form_vars['property_bed'] ) )
 			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_bedroom >= ' . $rlt_form_vars['property_bed'];
 		if ( ! empty( $rlt_form_vars['property_min_price'] ) )
-			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_price >= ' . intval( $rlt_form_vars['property_min_price'] );
+			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_price >= ' . ( $rlt_form_vars['property_min_price'] );
 		if ( ! empty( $rlt_form_vars['property_max_price'] ) )
-			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_price <= ' . intval( $rlt_form_vars['property_max_price'] );
+			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_price <= ' . ( $rlt_form_vars['property_max_price'] );
 		if ( ! empty( $rlt_form_vars['property_type_id'] ) )
-			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_type_id = ' . intval( $rlt_form_vars['property_type_id'] );
+			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_type_id = ' . ( $rlt_form_vars['property_type_id'] );
 		$search_propety_sql = 'SELECT ' . $wpdb->posts . '.ID,
 				' . $wpdb->posts . '.post_title,
 				' . $wpdb->prefix . 'realty_property_info.*, 
@@ -75,17 +75,16 @@
 			$rlt_property_info_count_all_results = $rlt_count_results;
 	}
 	wp_reset_query();	
-	$rlt_current_slug = get_option( 'permalink_structure' ) == '' ? '' : 'property_search_results/';
 	$class_sort_newest = $class_sort_price = '';
 	if ( isset( $rlt_form_vars['property_sort_by'] ) && count( $property_info_results ) > 0 ) {
 		if ( $rlt_form_vars['property_sort_by'] == 'newest' ) {
 			$class_sort_newest = 'current';
-			$rlt_newest_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
-			$rlt_price_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
+			$rlt_newest_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), '' );
+			$rlt_price_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), 'sort' );
 		} else if ( $rlt_form_vars['property_sort_by'] == 'price' ) {
 			$class_sort_price = 'current';
-			$rlt_newest_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), 'sort' );
-			$rlt_price_link = apply_filters( 'realty_request_uri', $rlt_current_slug, 'property', get_option( 'permalink_structure' ), '' );
+			$rlt_newest_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), 'sort' );
+			$rlt_price_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), '' );
 		}
 	} ?> 
 	<aside class="content rlt-clearfix">

@@ -8,11 +8,14 @@
 					var id = button.prev();
 					wp.media.editor.send.attachment = function( props, attachment ) {
 						/*id.val(attachment.id);*/
+						attachment.caption = "";
+						attachment.url = "undefined" !== typeof( attachment.sizes.thumbnail ) ? attachment.sizes.thumbnail.url : attachment.url;
+						props.size = "thumbnail";
+						props.align = "none";
+						var img = wp.media.string.image( props, attachment );
 						var content = '<li id="' + attachment.id + '" class="rlt_image_block rlt_new">' +
 							'<div class="rlt_drag">' +
-								'<div class="rlt_image">' +
-									'<img src="' + attachment.url + '" alt="' + attachment.title + '" width="150" />' +
-								'</div>' +
+								'<div class="rlt_image">' + img + '</div>' +
 								'<div class="rlt_delete"><a href="javascript:void(0);" onclick="rlt_img_delete(' + attachment.id + ');">' + rlt_translation.rlt_delete_image + '</a><div/>' +
 							'</div>' +
 						'</li>';
@@ -28,18 +31,18 @@
 		if ( $.fn.sortable ) {
 			$( '#rlt_gallery.rlt-gallery' ).sortable();
 		}
-		
+
 		$( '#rlt_currency' ).change( function() {
 			$( '#rlt_currency_custom_display_false' ).attr( 'checked', 'checked' );
 		});
 		$( '#rlt_custom_currency' ).change( function() {
-			$( '#rlt_currency_custom_display_true' ).attr( 'checked', 'checked' );			
+			$( '#rlt_currency_custom_display_true' ).attr( 'checked', 'checked' );
 		});
 		$( '#rlt_unit_area' ).change( function() {
 			$( '#rlt_unit_area_custom_display_false' ).attr( 'checked', 'checked' );
 		});
 		$( '#rlt_custom_unit_area' ).change( function() {
-			$( '#rlt_unit_area_custom_display_true' ).attr( 'checked', 'checked' );			
+			$( '#rlt_unit_area_custom_display_true' ).attr( 'checked', 'checked' );
 		});
 	});
 })(jQuery);

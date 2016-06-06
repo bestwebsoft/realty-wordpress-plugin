@@ -3,7 +3,7 @@
 */
 
 #menu-posts-property .dashicons-admin-post:before {
-	background: url("../images/icon_16_single.png") no-repeat scroll 3px 7px transparent; 
+	background: url("../images/icon_16_single.png") no-repeat scroll 3px 7px transparent;
 	content: "";
 }
 #menu-posts-property.wp-not-current-submenu div.wp-menu-image {
@@ -36,12 +36,15 @@
 	width: 150px;
 	padding: 5px;
 }
+.rlt_drag img {
+	width: 150px;
+	height: 150px;
+}
 .rlt_new .rlt_drag,
 .rlt_new.rlt_drag {
 	background-color: #d8e8c8;
 }
 .rlt_image {
-	width: 150px;
 	overflow: hidden;
 }
 .rlt_delete {
