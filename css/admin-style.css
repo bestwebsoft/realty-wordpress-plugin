@@ -31,6 +31,9 @@
 	width: 170px;
 	cursor: move;
 }
+.rtl .rlt_image_block {
+	float: right;
+}
 .rlt_drag {
 	border: 1px solid #ccc;
 	width: 150px;

@@ -207,7 +207,7 @@
 				if ( $( '.'+tab+' #rlt_location' ).val() != '' )
 					action = action + 'loc-' + encodeURI( $( '.'+tab+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
 				if ( '' != property_type && 'all' != property_type )
-					action = action + 'prop-' + encodeURI( property_type.val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
+					action = action + 'prop-' + encodeURI( property_type.replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
 				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_min_price' ).val() != '' )
 					action = action + 'minp-' + $( '.'+tab+' #rlt_current_min_price' ).val() + '/';
 				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_max_price' ).val() != '' )
@@ -224,7 +224,6 @@
 					action = action + 'type-' + $( '.'+tab+' #rlt_type_id' ).val() + '/';
 				action = action + 'sort-newest/';
 			}
-			console.log( action );
 			$( '.'+tab+' form' ).attr( 'action', $( '.'+tab+' form' ).attr( 'action' ) + action );
 			$( '.'+tab+' form' ).attr( 'method', 'post' );
 			$( '.'+tab+' form' ).submit();

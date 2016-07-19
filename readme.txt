@@ -3,12 +3,12 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.5.2
-Stable tag: 1.0.6
+Tested up to: 4.5.3
+Stable tag: 1.0.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-A convenient plugin that adds Real Estate functionality.
+Create your personal real estate WordPress website. Sell, rent and buy properties. Add, search and browse listings easily.
 
 == Description ==
 
@@ -34,13 +34,21 @@ http://www.youtube.com/watch?v=HArMTHq-D7A
 
 If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
 
+= Recommended Plugins =
+
+The author of the Realty Pro also recommends the following plugins:
+
+* <a href="http://wordpress.org/plugins/pdf-print/">PDF & Print</a> - This useful tool helps you to create PDF and Print pages and add the appropriate buttons to your content in the easiest way. You can stylize documents and add the additional info in accordance with your needs. Also, there is a <a href="http://bestwebsoft.com/products/pdf-print/">Pro</a> version which provides more advantageous features. You can create templates with running titles or set PDF layout and many more!
+* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+
 = Translation =
 
 * Czech (cs_CZ) (thanks to <a href="mailto:info@pamadessoft.cz">PaMaDeSSoft</a>, www.pamadessoft.cz)
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> to <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a>, and we'll add it to the plugin. You can download the latest version of the program for working with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> to <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a>, and we'll add it to the plugin. You can download the latest version of the program for working with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -54,7 +62,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload the `realty` folder to `/wp-content/plugins/` directory.
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
-3. You can adjust the necessary settings using your WordPress admin panel in "BWS Plugins" > "Realty".
+3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Realty".
 
 <a href="https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/edit" target="_blank">View a Step-by-step Instruction on Realty Installation</a>.
 
@@ -64,7 +72,7 @@ http://www.youtube.com/watch?v=_BQCk4D-CyI
 
 = Where can I find the settings to adjust the plugin work after activation? =
 
-You can find a link to the settings page in your WordPress admin panel in "BWS Plugins" > "Realty".
+You can find a link to the settings page in your WordPress admin panel in "BWS Panel" > "Realty".
 
 = How do I use the plugin? =
 
@@ -105,13 +113,19 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. Single Property Photo tab page.
 4. Single Property View Street tab page.
 5. Single Property Map tab page.
-6. Sale Rent Widget with standard 2015 theme.
+6. Sale Rent Widget with standard 2016 theme.
 7. Plugin settings page.
 8. Edit Property page.
 
 == Changelog ==
 
-= V1.0.6 - 6.06.2016 =
+= V1.0.7 - 18.07.2016 =
+* NEW : Compatibility with PDF & Print by BestWebSoft plugin was added.
+* Update : We updated all functionality for wordpress 4.5.3.
+* Update : BWS panel section is updated.
+* Bugfix : The bug with property type in search was fixed.
+
+= V1.0.6 - 06.06.2016 =
 * NEW : The Czech language file is added.
 * Update : We updated all functionality for wordpress 4.5.2.
 * Bugfix : The bug with "View All" button was fixed.
@@ -139,6 +153,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.7 =
+Compatibility with PDF & Print by BestWebSoft plugin was added. We updated all functionality for wordpress 4.5.3. BWS panel section is updated. The bug with property type in search was fixed.
 
 = V1.0.6 =
 We updated all functionality for wordpress 4.5.2. The Czech language file is added. The bug with "View All" button was fixed. The bug with slider in search was fixed.
