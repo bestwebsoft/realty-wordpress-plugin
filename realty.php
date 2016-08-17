@@ -6,7 +6,7 @@ Description: Create your personal real estate WordPress website. Sell, rent and 
 Author: BestWebSoft
 Text Domain: realty
 Domain Path: /languages
-Version: 1.0.7
+Version: 1.0.8
 Author URI: http://bestwebsoft.com/
 License: GPLv3 or later
 */

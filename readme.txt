@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.5.3
-Stable tag: 1.0.7
+Tested up to: 4.6
+Stable tag: 1.0.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -119,6 +119,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.8 - 17.08.2016 =
+* Update : All functionality for WordPress 4.6 was updated.
+
 = V1.0.7 - 18.07.2016 =
 * NEW : Compatibility with PDF & Print by BestWebSoft plugin was added.
 * Update : We updated all functionality for wordpress 4.5.3.
@@ -153,6 +156,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.8 =
+* The compatibility with new WordPress version updated.
 
 = V1.0.7 =
 Compatibility with PDF & Print by BestWebSoft plugin was added. We updated all functionality for wordpress 4.5.3. BWS panel section is updated. The bug with property type in search was fixed.
