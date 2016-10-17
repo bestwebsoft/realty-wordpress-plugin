@@ -3,7 +3,7 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.6
+Tested up to: 4.6.1
 Stable tag: 1.0.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,51 +12,97 @@ Create your personal real estate WordPress website. Sell, rent and buy propertie
 
 == Description ==
 
-Realty plugin allows you to create your fully functional real estate website with a single plugin. The admin panel functionality is easy to use and loaded with features.
+Realty plugins makes it easy to create your own real estate WordPress website. Add realty widgets, add and manage unlimited properties, agents and property info for each listing.
+
+Start your online real estate WordPress website today!
 
 http://www.youtube.com/watch?v=HArMTHq-D7A
 
-<a href="https://www.youtube.com/watch?v=_BQCk4D-CyI" target="_blank">Realty by BestWebSoft Video instruction on Installation</a>
+= Free Features =
 
-<a href="http://wordpress.org/plugins/realty/faq/" target="_blank">Realty by BestWebSoft FAQ</a>
+* Add unlimited number of properties
+* Add widgets:
+	* Realty recent items
+	* Sale/Rent form
+* Separate properties by property type
+* Add property info:
+	* Location
+	* Latitude and longitude coordinates
+	* Property type:
+		* Rent
+		* Sale
+	* Set the rental period:
+		* Month
+		* Year
+	* Price
+	* Number of:
+		* Bathrooms
+		* Bedrooms
+	* Edit footer area
+	* Photos
+* Choose currency:
+	* From the list
+	* Custom currency
+* Choose currency position:
+	* Before numerals
+	* After numerals
+* Select area units
+	* Square foot
+	* Square meter
+	* Custom
+* Compatible with [PDF&Print](http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f)
+* Add custom code via plugin settings page
+* Compatible with latest WordPress version
+* Incredibly simple settings for fast setup without modifying code
+* Detailed step-by-step documentation and videos
 
-<a href="http://support.bestwebsoft.com" target="_blank">Realty by BestWebSoft Support</a>
+> **Pro Features**
+>
+> All features from Free version included plus:
+>
+> * Add unlimited number of agents
+> * Add agent info:
+> 	* Location
+> 	* Company
+> 	* Telephone
+> 	* Email
+> 	* Additional info
+> * Add custom property features to each listing
+> * Install/Delete demo data
+> * Get answer to your support question within one business day ([Support Policy](http://bestwebsoft.com/support-policy/))
+>
+> [Upgrade to Pro Now](http://bestwebsoft.com/products/wordpress/plugins/realty/?k=143e150e92b9751b52da0cd46fb6f5cf)
 
-<a href="http://bestwebsoft.com/products/realty/?k=143e150e92b9751b52da0cd46fb6f5cf" target="_blank">Upgrade to Realty Pro by BestWebSoft</a>
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
 
-= Features =
+= Documentation & Videos =
 
-* Add an unlimited number of Properties.
-* Add Info and Photos to the Property.
-* Add Property types.
-* Sort Property by various criteria.
-* Add "Realty Recent Items" widget and "Realty Widget" for searching.
+* [[Doc] Installation](https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/)
+* [[Doc] Purchase, Installation & Configuration](https://docs.google.com/document/d/1Hn98k9y3e2ODfmYpR8jDK1BkxwcH8bdx1MVwZDNQshE/)
+* [[Video] Installation Instruction](https://www.youtube.com/watch?v=_BQCk4D-CyI) 
 
-If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
+= Help & Support =
 
-= Recommended Plugins =
-
-The author of the Realty Pro also recommends the following plugins:
-
-* <a href="http://wordpress.org/plugins/pdf-print/">PDF & Print</a> - This useful tool helps you to create PDF and Print pages and add the appropriate buttons to your content in the easiest way. You can stylize documents and add the additional info in accordance with your needs. Also, there is a <a href="http://bestwebsoft.com/products/pdf-print/">Pro</a> version which provides more advantageous features. You can create templates with running titles or set PDF layout and many more!
-* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <http://support.bestwebsoft.com/>
 
 = Translation =
 
-* Czech (cs_CZ) (thanks to <a href="mailto:info@pamadessoft.cz">PaMaDeSSoft</a>, www.pamadessoft.cz)
+* Czech (cs_CZ) (thanks to [PaMaDeSSoft](mailto:info@pamadessoft.cz), www.pamadessoft.cz)
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-Some of these translations are not complete. We are constantly adding new features which should be translated. If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> to <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a>, and we'll add it to the plugin. You can download the latest version of the program for working with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
 
-= Technical support =
+= Recommended Plugins =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
+* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=02c908259e8f82ccb1620b73e5b4cbca) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
+* [PDF & Print](http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f) - Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
 
-If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, description of an issue, and WordPress admin panel credentials.
-Moreover, we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then.
-We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).
+= Donate =
+
+Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
+
+[Donate Now](http://bestwebsoft.com/donate/)
 
 == Installation ==
 
@@ -64,7 +110,7 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Realty".
 
-<a href="https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/edit" target="_blank">View a Step-by-step Instruction on Realty Installation</a>.
+[View a Step-by-step Instruction on Realty Installation](https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/)
 
 http://www.youtube.com/watch?v=_BQCk4D-CyI
 
@@ -93,18 +139,14 @@ The error message notifying that some files were not found means that the plugin
 - copy the files from this folder (`rlt-listing.php`, `rlt-nothing-found.php`, `rlt-search-form.php`, `rlt-search-listing-results.php`)
 - open the folder with your theme and add the files you just copied.
 
-= I would like to add some features to the plugin. How do I do that? =
-
-Please contact our Support Service <a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a> and describe the features you want added there.
-
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
-1. the link to the page, on which the problem occurs
-2. plugin name and its version. If you are using a pro version - your order number.
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">Instuction on System Status</a>
+4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
 
 == Screenshots ==
 
