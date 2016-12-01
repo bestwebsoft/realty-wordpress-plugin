@@ -1,9 +1,7 @@
-<a href="http://bestwebsoft.com/products/realty/" target=_blank>Realty WordPress Plugin</a>
+<a href="http://bestwebsoft.com/products/wordpress/plugins/realty/" target=_blank>Realty WordPress Plugin</a>
 ========================
 
 Create your personal real estate WordPress website. Sell, rent and buy properties. Add, search and browse listings easily.
-
-<img src="http://bestwebsoft.com/wp-content/uploads/2015/03/realty-banner-website.jpg" />
 
 <p>Realty plugins makes it easy to create your own real estate WordPress website. Add realty widgets, add and manage unlimited properties, agents and property info for each listing.</p>
 
