@@ -2,16 +2,6 @@
 * styles for settings page
 */
 
-#menu-posts-property .dashicons-admin-post:before {
-	background: url("../images/icon_16_single.png") no-repeat scroll 3px 7px transparent;
-	content: "";
-}
-#menu-posts-property.wp-not-current-submenu div.wp-menu-image {
-    opacity: 0.7;
-}
-.admin-color-blue #menu-posts-property .dashicons-admin-post:before {
-	color: #e5f8ff;
-}
 .rlt_left_column {
 	float: left;
 	width: 50%;

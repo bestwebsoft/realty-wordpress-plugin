@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Realty\n"
+"Project-Id-Version: Realty Pro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 09:22+0300\n"
-"PO-Revision-Date: 2016-06-01 09:23+0300\n"
-"Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"POT-Creation-Date: 2016-11-28 13:55+0300\n"
+"PO-Revision-Date: 2016-11-28 13:55+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: PaMaDeSSof <info@pamadessoft.cz>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Realty Settings"
 msgstr "Nastavení Realty"
 
-#: realty.php:46 realty.php:562 realty.php:1468 realty.php:1481
+#: realty.php:46 realty.php:551 realty.php:1517 realty.php:1530
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -29,382 +29,371 @@ msgstr "Nastavení"
 msgid "Property Info"
 msgstr "Informace o nemovitosti"
 
-#: realty.php:286
+#: realty.php:284
 msgid "month"
 msgstr ""
 
-#: realty.php:287
+#: realty.php:285
 msgid "year"
 msgstr ""
 
-#: realty.php:295 realty.php:918
+#: realty.php:293 realty.php:901
 msgid "For Rent"
 msgstr "K pronajmutí"
 
-#: realty.php:296 realty.php:917
+#: realty.php:294 realty.php:900
 msgid "For Sale"
 msgstr "Na prodej"
 
-#: realty.php:364
+#: realty.php:353
 msgid "The following files"
 msgstr "Následující soubory"
 
-#: realty.php:364
+#: realty.php:353
 msgid "or"
 msgstr "nebo"
 
-#: realty.php:364
+#: realty.php:353
 msgid ""
 "were not found in your theme directory. Please copy them from the directory"
 msgstr "nebyl nalezen v adresáři motivu. Prosím, zkopírujte je z adresáře"
 
-#: realty.php:364
+#: realty.php:353
 msgid "to your theme directory to make sure Realty plugin works correctly"
 msgstr "do adresáře motivu k zajištění správné funkčnosti pluginu Realty"
 
-#: realty.php:378
+#: realty.php:367
 msgctxt "post type general name"
 msgid "Properties"
 msgstr "Nemovitosti"
 
-#: realty.php:379
+#: realty.php:368
 msgctxt "post type singular name"
 msgid "Property"
 msgstr "Nemovistost"
 
-#: realty.php:380
+#: realty.php:369
 msgctxt "admin menu"
 msgid "Properties"
 msgstr "Nemovitosti"
 
-#: realty.php:381
+#: realty.php:370
 msgctxt "add new on admin bar"
 msgid "Property"
 msgstr "Nemovistost"
 
-#: realty.php:382
+#: realty.php:371
 msgctxt "property"
 msgid "Add New"
-msgstr "Přidat novou"
+msgstr "Přidat nový"
 
-#: realty.php:383
+#: realty.php:372
 msgid "Add a new Property"
 msgstr "Přidat novou nemovitost"
 
-#: realty.php:384
+#: realty.php:373
 msgid "Edit Properties"
 msgstr "Upravit nemovitost"
 
-#: realty.php:385
+#: realty.php:374
 msgid "New Property"
 msgstr "Nová nemovitost"
 
-#: realty.php:386
+#: realty.php:375
 msgid "View Properties"
 msgstr "Zobrazit nemovitosti"
 
-#: realty.php:387
+#: realty.php:376
 msgid "Search Properties"
 msgstr "Hledání nemovitosti"
 
-#: realty.php:388
+#: realty.php:377
 msgid "No Properties found"
 msgstr "Nebyly nalezeny žádné nemovitosti"
 
-#: realty.php:389
+#: realty.php:378
 msgid "No Properties found in Trash"
 msgstr "Žádné nemovitosti v koši"
 
-#: realty.php:390
+#: realty.php:379
 msgid "Filter Properties list"
 msgstr "Filtr pro výpis nemovitostí"
 
-#: realty.php:391
+#: realty.php:380
 msgid "Properties list navigation"
 msgstr "Navigace seznamu nemovitostí"
 
-#: realty.php:392
+#: realty.php:381
 msgid "Properties list"
 msgstr "Seznam nemovitostí"
 
-#: realty.php:398
+#: realty.php:387
 msgctxt "taxonomy general name"
 msgid "Property types"
 msgstr "Typy nemovitostí"
 
-#: realty.php:399
+#: realty.php:388
 msgctxt "taxonomy singular name"
 msgid "Property type"
 msgstr "Typ nemovitosti"
 
-#: realty.php:400
+#: realty.php:389
 msgid "Property type"
 msgstr "Typ nemovitosti"
 
-#: realty.php:401
+#: realty.php:390
 msgid "All Property types"
 msgstr "Všechny typy nemovitostí"
 
-#: realty.php:402
+#: realty.php:391
 msgid "Edit Property type"
 msgstr "Upravit typ nemovitosti"
 
-#: realty.php:403
+#: realty.php:392
 msgid "View Property type"
 msgstr "Zobrazit typ nemovitosti"
 
-#: realty.php:404
+#: realty.php:393
 msgid "Update Property type"
 msgstr "Aktualizovat typ nemovitosti"
 
-#: realty.php:405
+#: realty.php:394
 msgid "Add New Property type"
 msgstr "Přidat nový typ nemovitosti"
 
-#: realty.php:406
+#: realty.php:395
 msgid "New Property type Name"
 msgstr "Nový název typu nemovitosti"
 
-#: realty.php:407
+#: realty.php:396
 msgid "Parent Property type"
 msgstr "Nadřazený typ nemovitosti"
 
-#: realty.php:408
+#: realty.php:397
 msgid "Parent Property type:"
 msgstr "Nadřazený typ nemovitosti:"
 
-#: realty.php:409
+#: realty.php:398
 msgid "Search Property types"
 msgstr "Vyhledávání typů nemovitosti"
 
-#: realty.php:410
+#: realty.php:399
 msgid "Popular Property types"
 msgstr "Oblíbené typy nemovitostí"
 
-#: realty.php:411
+#: realty.php:400
 msgid "Separate Property types with commas"
 msgstr "Typy nemovitostí oddělte čárkami"
 
-#: realty.php:412
+#: realty.php:401
 msgid "Add or remove Property type"
 msgstr "Přidání nebo odebrání typu nemovitosti"
 
-#: realty.php:413
+#: realty.php:402
 msgid "Choose from the most used Property type"
 msgstr "Vyberte si z nejpoužívanějšího typu nemovitosti"
 
-#: realty.php:414
+#: realty.php:403
 msgid "No Property type found"
 msgstr "Nenalezen žádný typ nemovitosti"
 
-#: realty.php:415
+#: realty.php:404
 msgid "Property types list navigation"
 msgstr "Navigace seznamu typů nemovitostí"
 
-#: realty.php:416
+#: realty.php:405
 msgid "Property types list"
 msgstr "Seznam typů nemovitostí"
 
-#: realty.php:527
+#: realty.php:516
 msgid ""
 "Please, enter the correct value for custom currency field. Settings not "
 "saved."
 msgstr ""
-"Zadejte správnou hodnotu pro vlastní pole měny. Nastavení nebude uloženo."
+"Zadejte správnou hodnotu pro vlastní pole měny. Nastavení není uloženo."
 
-#: realty.php:530
+#: realty.php:519
 msgid "Settings saved."
 msgstr "Nastavení bylo uloženo."
 
-#: realty.php:549
+#: realty.php:538
 msgid "All plugin settings were restored."
 msgstr "Výchozí nastavení pluginu bylo obnoveno."
 
-#: realty.php:563
+#: realty.php:552
 msgid "Custom code"
 msgstr ""
 
-#: realty.php:564
+#: realty.php:553
 msgid "Go PRO"
-msgstr "Získat verzi Pro"
+msgstr ""
 
-#: realty.php:576
+#: realty.php:565
 msgid "Currency"
 msgstr "Měna"
 
-#: realty.php:584
+#: realty.php:573
 msgid "Custom currency, for example"
 msgstr "Vlastní měny, například"
 
-#: realty.php:588
+#: realty.php:577
 msgid "Currency Position"
 msgstr "Pozice měny"
 
-#: realty.php:591
+#: realty.php:580
 msgid "before numerals"
 msgstr "před číslem"
 
-#: realty.php:592
+#: realty.php:581
 msgid "after numerals"
 msgstr "za číslem"
 
-#: realty.php:597
+#: realty.php:586
 msgid "Unit of area"
-msgstr "Plošné jednotky"
+msgstr "Vlastní jednotka plochy"
 
-#: realty.php:604
+#: realty.php:593
 msgid "Custom unit area"
 msgstr "Vlastní jednotka plochy"
 
-#: realty.php:608
+#: realty.php:597
 msgid "Search pages show at most"
 msgstr "Vyhledávací stránka ukáže nanejvýš"
 
-#: realty.php:616
+#: realty.php:605
 msgid "Save Changes"
 msgstr "Uložit změny"
 
-#: realty.php:635
+#: realty.php:624
 msgid "Date"
 msgstr ""
 
-#: realty.php:664
+#: realty.php:653
 msgid "Show All"
 msgstr "Zobrazit vše"
 
-#: realty.php:702 realty.php:923 realty.php:970
+#: realty.php:691 realty.php:906 realty.php:953
 msgid "Location"
 msgstr "Poloha"
 
-#: realty.php:705 realty.php:720 realty.php:733 realty.php:754
+#: realty.php:694 realty.php:708 realty.php:720 realty.php:739
 msgid "For example"
 msgstr "Například"
 
-#: realty.php:708
+#: realty.php:697
 msgid "Type"
 msgstr "Typ"
 
-#: realty.php:717 realty.php:931
+#: realty.php:705 realty.php:914
 msgid "Price"
 msgstr "Cena"
 
-#: realty.php:723 realty.php:952 realty.php:987
+#: realty.php:711 realty.php:935 realty.php:970
 msgid "Bedrooms"
 msgstr "Ložnice"
 
-#: realty.php:730
+#: realty.php:717
 msgid "Latitude and longitude coordinates"
 msgstr "zeměpisná šířka a délka."
 
-#: realty.php:736
+#: realty.php:723
 msgid "Period"
 msgstr "lhůta"
 
-#: realty.php:746 realty.php:943 realty.php:978
+#: realty.php:732 realty.php:926 realty.php:961
 msgid "Bathrooms"
 msgstr "Koupelny"
 
-#: realty.php:751
+#: realty.php:736
 msgid "Floor area"
 msgstr "Podlahová plocha"
 
-#: realty.php:758
+#: realty.php:743
 msgid "Photos"
 msgstr "Fotografie"
 
-#: realty.php:759
+#: realty.php:744
 msgid "Add photo"
 msgstr "Přidat fotografii"
 
-#: realty.php:770 realty.php:1164
+#: realty.php:755 realty.php:1148
 msgid "Delete"
 msgstr "Smazat"
 
-#: realty.php:867
+#: realty.php:852
 msgid "Realty Widget"
 msgstr "Realitní Widget"
 
-#: realty.php:868
+#: realty.php:853
 msgid "Widget for displaying Sale/Rent Form."
 msgstr "Widget pro zobrazení formuláře prodej/pronájem."
 
-#: realty.php:925 realty.php:972
+#: realty.php:908 realty.php:955
 msgid "Property Type"
 msgstr "Typ nemovitosti"
 
-#: realty.php:944 realty.php:953 realty.php:979 realty.php:988
+#: realty.php:927 realty.php:936 realty.php:962 realty.php:971
 msgid "and more"
 msgstr "A více ..."
 
-#: realty.php:962 realty.php:997
+#: realty.php:945 realty.php:980
 msgid "update filters"
 msgstr "Aktualizace filtrů"
 
-#: realty.php:1010
+#: realty.php:993
 msgid "back to search results"
 msgstr "Zpět na výsledky vyhledávání"
 
-#: realty.php:1025
+#: realty.php:1008
 msgid "Realty Recent Items"
-msgstr "Položky nových nemovitostí"
+msgstr "Poslední položky realit Widget"
 
-#: realty.php:1026
+#: realty.php:1009
 msgid "Widget for displaying Recent Items block."
-msgstr "Widget pro zobrazení bloku posledních položek."
+msgstr "Widget pro zobrazení bloku posledních položek realit."
 
-#: realty.php:1034
-#, fuzzy
+#: realty.php:1017
 msgid "Recent items"
-msgstr "Položky nových nemovitostí"
+msgstr ""
 
-#: realty.php:1064
+#: realty.php:1047
 msgid "view all"
 msgstr "Zobrazit vše"
 
-#: realty.php:1086 templates/rlt-search-listing-results.php:118
-#: templates/rlt-listing.php:131
-msgid "bedrooms"
-msgstr "Ložnice"
-
-#: realty.php:1086 templates/rlt-search-listing-results.php:118
-#: templates/rlt-listing.php:131
-msgid "bathroom"
-msgstr "koupelna"
-
-#: realty.php:1110
+#: realty.php:1093
 msgid "Widget Title"
 msgstr "Nadpis widgetu"
 
-#: realty.php:1114
+#: realty.php:1097
 msgid "Number of items to be displayed"
 msgstr "Počet položek, který se má zobrazit"
 
-#: realty.php:1393
+#: realty.php:1387
 msgid "Prev"
 msgstr "Předchozí"
 
-#: realty.php:1394
+#: realty.php:1388
 msgid "Next"
 msgstr "Další"
 
-#: realty.php:1482
+#: realty.php:1531
 msgid "FAQ"
 msgstr "Často kladené otázky"
 
-#: realty.php:1483
+#: realty.php:1532
 msgid "Support"
 msgstr "Podpora"
 
-#: realty.php:1505
+#: realty.php:1554
 msgid "Your theme does not declare Realty plugin support. Please check out our"
-msgstr ""
+msgstr "do adresáře motivu k zajištění správné funkčnosti pluginu Realty"
 
-#: realty.php:1505
+#: realty.php:1554
 msgid ""
 " theme which has been developed specifically for use with Realty plugin."
 msgstr ""
 
-#: realty.php:1508
+#: realty.php:1557
 msgid "Close notice"
 msgstr ""
 
@@ -451,3 +440,216 @@ msgstr "mapa"
 #: templates/rlt-listing.php:121
 msgid "General Information"
 msgstr "Základní informace"
+
+#~ msgid "bedrooms"
+#~ msgstr "Ložnice"
+
+#~ msgid "bathroom"
+#~ msgstr "koupelna"
+
+#~ msgid "Agents"
+#~ msgstr "Realitní makléři"
+
+#~ msgid "Agent Info"
+#~ msgstr "Makléř Info"
+
+#~ msgctxt "post type general name"
+#~ msgid "Agents"
+#~ msgstr "Realitní makléři"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Agent"
+#~ msgstr "Makléř "
+
+#~ msgctxt "admin menu"
+#~ msgid "Agents"
+#~ msgstr "Realitní makléři"
+
+#~ msgctxt "add new on admin bar"
+#~ msgid "Agent"
+#~ msgstr "Makléř "
+
+#~ msgctxt "agent"
+#~ msgid "Add New"
+#~ msgstr "Přidat nový"
+
+#~ msgid "Add a new Agent"
+#~ msgstr "Přidat realitního makléře"
+
+#~ msgid "Edit Agents"
+#~ msgstr "Upravit makléře"
+
+#~ msgid "New Agents"
+#~ msgstr "Noví makléři"
+
+#~ msgid "View Agents"
+#~ msgstr "Zobrazit makléře"
+
+#~ msgid "Search Agents"
+#~ msgstr "Hledat makléře"
+
+#~ msgid "No Agents found"
+#~ msgstr "Realitní makléř nenalezen"
+
+#~ msgid "No Agents found in Trash"
+#~ msgstr "Žádní makléři v koši"
+
+#~ msgid "Filter agents list"
+#~ msgstr "Filtr pro seznam makléřů"
+
+#~ msgid "Agents list navigation"
+#~ msgstr "Navigace seznamu makléřů"
+
+#~ msgid "Agents list"
+#~ msgstr "Seznam makléřů"
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Features"
+#~ msgstr "Vlastnosti"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Feature"
+#~ msgstr "Vlastnost"
+
+#~ msgid "Feature"
+#~ msgstr "Vlastnost"
+
+#~ msgid "All Features"
+#~ msgstr "Všechny vlastnosti"
+
+#~ msgid "Edit Feature"
+#~ msgstr "Upravit vlastnost"
+
+#~ msgid "View Feature"
+#~ msgstr "Zobrazit vlastnost"
+
+#~ msgid "Update Feature"
+#~ msgstr "Aktualizace vlastnost"
+
+#~ msgid "Add New Feature"
+#~ msgstr "Přidat novou vlastnost"
+
+#~ msgid "New Feature Name"
+#~ msgstr "Nový název vlastnosti"
+
+#~ msgid "Parent Feature"
+#~ msgstr "Nadřazené vlastnost"
+
+#~ msgid "Parent Feature:"
+#~ msgstr "Nadřazená vlastnost:"
+
+#~ msgid "Search Features"
+#~ msgstr "Hledat vlastnost"
+
+#~ msgid "Popular Features"
+#~ msgstr "Oblíbené vlastnosti"
+
+#~ msgid "Separate Features with commas"
+#~ msgstr "Oddělte vlastnosti čárkami"
+
+#~ msgid "Add or remove Features"
+#~ msgstr "Přidání nebo odebrání vlastnosti"
+
+#~ msgid "Choose from the most used Features"
+#~ msgstr "Vyberte si z nejpoužívanějších vlastností"
+
+#~ msgid "No Features found"
+#~ msgstr "Nebyly nalezeny žádné vlastnosti"
+
+#~ msgid "Features list navigation"
+#~ msgstr "Navigace seznamu vlastností"
+
+#~ msgid "Features list"
+#~ msgstr "Seznam vlastností"
+
+#, fuzzy
+#~ msgid "Agent"
+#~ msgstr "Makléř "
+
+#, fuzzy
+#~ msgid "Count Property"
+#~ msgstr "Nemovistost"
+
+#~ msgid "No agent"
+#~ msgstr "Žádný makléř"
+
+#~ msgid "property(ies)"
+#~ msgstr "Nemovistost(i)"
+
+#~ msgid "No property"
+#~ msgstr "Žádná nemovitost"
+
+#~ msgid "Show All Agents"
+#~ msgstr "Zobrazit všechny makléře"
+
+#~ msgid "Telephone"
+#~ msgstr "Telefon"
+
+#~ msgid "Company"
+#~ msgstr "Společnost"
+
+#~ msgid "Email"
+#~ msgstr "E-mail"
+
+#~ msgid "Additional info"
+#~ msgstr "Podrobné informace"
+
+#~ msgid "Photo"
+#~ msgstr "Foto"
+
+#~ msgid "view all agents"
+#~ msgstr "Zobrazit všechny makléře"
+
+#~ msgid "Email me"
+#~ msgstr "Napište mi"
+
+#~ msgid "Features"
+#~ msgstr "Vlastnosti"
+
+#~ msgid "Not available item"
+#~ msgstr "Položka není k dispozici"
+
+#~ msgid "Agent Details"
+#~ msgstr "Podrobnosti makléře"
+
+#~ msgid "View profile"
+#~ msgstr "Zobrazit profil"
+
+#~ msgid "Install Demo Data"
+#~ msgstr "Nainstalovat ukázková data"
+
+#~ msgid "Remove Demo Data"
+#~ msgstr "Odebrat ukázková data"
+
+#~ msgid "Demo data successfully installed."
+#~ msgstr "Ukázková data úspěšně nainstalována."
+
+#~ msgid "Demo data have already been installed."
+#~ msgstr "Ukázková data již byla nainstalována."
+
+#~ msgid "Installation of demo data with some errors occurred."
+#~ msgstr "Při instalace demo dat došlo k chybám."
+
+#~ msgid "Demo data successfully removed."
+#~ msgstr "Ukázková data byla úspěšně odebrána."
+
+#~ msgid "Demo data have already been removed."
+#~ msgstr "Ukázková data již byla odstraněna."
+
+#~ msgid "Removing demo data with some errors occurred."
+#~ msgstr "Při odstraňování demo dat došlo k chybám."
+
+#~ msgid "properties"
+#~ msgstr "Nemovitosti"
+
+#~ msgid "Available"
+#~ msgstr "K dispozici"
+
+#~ msgid "items"
+#~ msgstr "položky"
+
+#~ msgid "Listings by"
+#~ msgstr "Seznam podle"
+
+#~ msgid "Load more"
+#~ msgstr "Načíst další"

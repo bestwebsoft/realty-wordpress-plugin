@@ -106,7 +106,7 @@ Create your personal real estate WordPress website. Sell, rent and buy propertie
 <ul>
 <li><a href="https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/">[Doc] Installation</a></li>
 <li><a href="https://docs.google.com/document/d/1Hn98k9y3e2ODfmYpR8jDK1BkxwcH8bdx1MVwZDNQshE/">[Doc] Purchase, Installation &#38; Configuration</a></li>
-<li><a href="https://www.youtube.com/watch?v=_BQCk4D-CyI">[Video] Installation Instruction</a> </li>
+<li><a href="https://www.youtube.com/watch?v=_BQCk4D-CyI">[Video] Installation Instruction</a></li>
 </ul>
 
 <h4>Help &#38; Support</h4>

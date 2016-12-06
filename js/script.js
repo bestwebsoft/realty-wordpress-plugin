@@ -1,5 +1,5 @@
 (function($) {
-	$(document).ready( function() {		
+	$(document).ready( function() {
 		/*select tags*/
 		if( ! rlt_translation.realestate_active )
 			$( "select.rlt_select" ).select2();
@@ -18,11 +18,12 @@
 				$( new_active ).parent().parent().find( ".rlt_home_content_" + new_active_num ).show().addClass( 'active' ).css( 'z-index', '1' );
 			}
 		})
+
 		/*shadow*/
 		var shade = $( '.rlt_tab_block' ).css( 'box-shadow' );
 		$( '.rlt_tab_block' ).css( 'position', 'relative' );
 		$( '.rlt_home_content_tab' ).css( 'position', 'relative' );
-	
+
 		/*dragging*/
 		$( ".rlt_prices" ).each( function() {
 			var this_slider = $( this );
@@ -47,7 +48,7 @@
 				});
 			}
 		});
-		
+
 		/* Placeholder for IE */
 		if ( $.browser.msie ) {
 			var color = $( 'input' ).css( 'color' );
@@ -77,96 +78,30 @@
 		}
 
 		/* property single image slider*/
-		var speed = 400,
-			thumbs_step = $( '.rlt_thumbnails' ).width(),
-			thumbs_num = $( '.rlt_thumbnails img' ).size();
-		var thumb_length = thumbs_step / ( thumbs_step / ( $( '.rlt_thumbnails img' ).outerWidth( true ) + 3 ) );
-		var full_length = thumbs_num * thumb_length;
-		var max_length = full_length - thumbs_step;
-		$( '#rlt_thumbnails_holder' ).width( full_length );
-		$( '.rlt_home_slides .prev, .rlt_home_slides .next' ).addClass( 'disabled' );
-		if ( full_length > thumbs_step )
-			$('.rlt_home_slides .next').removeClass('disabled');
-		$( '.rlt_home_slides .rlt_thumbnails img' ).click( function() {
-			$( '.rlt_home_content_tab .home_image img' ).attr( 'src', $( this ).attr( 'rel' ) );
-		})
-		$( '.rlt_home_slides .prev, .rlt_home_slides .next' ).click( function() {
-			var curr_pos = parseInt( $( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).css( 'margin-left' ) );
-			if ( $( this ).hasClass( 'next' ) && ! $( this ).hasClass( 'disabled' ) ) {
-				$( '.rlt_home_slides .prev' ).removeClass( 'disabled' );
-				if ( ( curr_pos-thumbs_step ) <= ( -max_length ) ) {
-					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': - max_length + 'px' }, speed );
-					$( this ).addClass( 'disabled' );
-				} else {
-					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': curr_pos - thumbs_step + 'px' }, speed );
-				}
-			} else if ( $( this ).hasClass( 'prev' ) && ! $( this ).hasClass( 'disabled' ) ) {
-				$( '.rlt_home_slides .next').removeClass( 'disabled' );
-				if ( ( curr_pos + thumbs_step ) >= 0 ) {
-					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': '0px' }, speed );
-					$( this ).addClass( 'disabled' );
-				} else {
-					$( '.rlt_home_slides .rlt_thumbnails #rlt_thumbnails_holder' ).animate({ 'margin-left': curr_pos + thumbs_step + 'px' }, speed );
-				}
-			}
+
+		$('#rlt_thumbnails_holder').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			dots: false,
+			centerMode: true,
+			focusOnSelect: true
+
+		}).on( 'afterChange', function( slick, currentSlide ) {
+			var src = $( '#rlt_thumbnails_holder .slick-current' ).attr( 'rel' ),
+				image = $( '.home_image img' );
+			image.attr( 'src', src ).attr( 'srcset', src );
 		});
 
 		/* search results */
 		var count_preview_block = $( '#rlt_home_preview .rlt_home_preview' ).length;
 		if ( count_preview_block > 1 ) {
-			var parent_block_width = $( '#rlt_home_preview' ).width();
-			var preview_block_width = $( '#rlt_home_preview .rlt_home_preview' ).outerWidth( true );
-			var count_in_row = parseInt( parent_block_width / preview_block_width );
-			var current_preview = 0;
-			var all_preview = 0;
-			var max_row_height = 0;
-			var current_height = 0;
-			$( '#rlt_home_preview .rlt_home_preview' ).each( function(){
-				current_preview += 1;
-				all_preview += 1;
-				current_height = $( this ).height();
-				if ( $( '#page #sidebar.sidebar + #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
-					current_height += 15;
-				}
-				if ( current_preview == 1 ) {
-					$( this ).addClass( 'first' );
-					max_row_height = current_height;
-				} else if ( current_preview > 1 && current_preview < count_in_row && all_preview < count_preview_block ) {
-					if ( current_height > max_row_height ) {
-						max_row_height = current_height;						
-					}
-				} else {
-					if ( current_height > max_row_height ) {
-						max_row_height = current_height;
-					}
-					var i = current_preview;
-					var current_preview_block = $( this );
-					$( this ).height( max_row_height );
-					
-					while ( i > 0 ) {
-						current_preview_block = $( current_preview_block ).prev();
-						if ( $( current_preview_block ).hasClass( 'rlt_home_preview' ) )
-							$( current_preview_block ).height( max_row_height );
-						if ( $( current_preview_block ).hasClass( 'first' ) )
-							break;
-						i--;
-					}
-					max_row_height = 0;
-					current_preview = 0;
-				}
-				if ( $( '#page #sidebar.sidebar + #content' ).length > 0 && ( 'MozAppearance' in document.documentElement.style ) !== true ) {
-					var current_preview_block = $( this );
-					current_preview_block.hover( function() {
-						$( current_preview_block ).height( $( current_preview_block ).height() + 10 );
-					}, function(){
-						$( current_preview_block ).height( $( current_preview_block ).height() - 10 );
-					});
-				}
-			});
-			
+			$( window ).resize( function() {
+				rlt_resize_changes();
+			}).trigger( 'resize' );
 		}
-		if ( $( '.twentyfifteen #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
-			$( '.twentyfifteen #content .rlt_home_full_wrapper #rlt_home_preview .rlt_home_preview' ).hover( function() {
+
+		if ( $( '.rlt_twentyfifteen #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
+			$( '.rlt_twentyfifteen #content .rlt_home_full_wrapper #rlt_home_preview .rlt_home_preview' ).hover( function(){
 				$( this ).css( 'width', '210px');
 			});
 		}
@@ -228,7 +163,7 @@
 			$( '.'+tab+' form' ).attr( 'method', 'post' );
 			$( '.'+tab+' form' ).submit();
 			return false;
-		});	
+		});
 	});
 })(jQuery);
 
@@ -304,3 +239,22 @@ function rlt_number_format( number, decimals, dec_point, thousands_sep ) {
 	}
 	return s.join(dec);
 }
+
+/**
+* Function for different window sizes
+**/
+function rlt_resize_changes() {
+	(function( $ ) {
+		var rlt_home_preview = 0;
+		$( '#rlt_home_preview .rlt_home_preview' ).each( function () {
+			$( this ).css( 'height', 'auto' );
+			var height_block = parseInt( $(this).height() );
+			if ( height_block > rlt_home_preview ) {
+				rlt_home_preview = height_block;
+			}
+		});
+		if ( $( window ).width() >= 405 ) {
+			$( "#rlt_home_preview .rlt_home_preview" ).css( 'height', rlt_home_preview );
+		}
+	})( jQuery );
+};

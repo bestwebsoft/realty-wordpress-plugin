@@ -6,7 +6,7 @@ Description: Create your personal real estate WordPress website. Sell, rent and 
 Author: BestWebSoft
 Text Domain: realty
 Domain Path: /languages
-Version: 1.0.8
+Version: 1.0.9
 Author URI: http://bestwebsoft.com/
 License: GPLv3 or later
 */
@@ -43,7 +43,7 @@ if ( ! function_exists( 'rlt_admin_menu' ) ) {
 		bws_general_menu();
 		$settings = add_submenu_page( 'bws_panel', __( 'Realty Settings', 'realty' ), 'Realty', 'manage_options', 'realty_settings', 'rlt_settings_page' );
 		if ( isset( $submenu['edit.php?post_type=property'] ) )
-			$submenu['edit.php?post_type=property'][] = array( __( 'Settings', 'realty' ), 'manage_options', admin_url( 'admin.php?page=realty_settings' ) );	
+			$submenu['edit.php?post_type=property'][] = array( __( 'Settings', 'realty' ), 'manage_options', admin_url( 'admin.php?page=realty_settings' ) );
 
 		add_action( 'load-' . $settings, 'rlt_add_tabs' );
 		add_action( 'load-post.php', 'rlt_add_tabs' );
@@ -67,7 +67,7 @@ if ( ! function_exists ( 'rlt_init' ) ) {
 
 		add_image_size( 'realty_search_result', 200, 110, true );
 		add_image_size( 'realty_listing', 420, 320, true );
-		add_image_size( 'realty_small_photo', 110, 80, true );		
+		add_image_size( 'realty_small_photo', 110, 80, true );
 
 		require_once( dirname( __FILE__ ) . '/bws_menu/bws_include.php' );
 		bws_include_init( plugin_basename( __FILE__ ) );
@@ -84,7 +84,7 @@ if ( ! function_exists ( 'rlt_init' ) ) {
 		/* Call register settings function */
 		if ( ! is_admin() || ( isset( $_REQUEST['page'] ) && 'realty_settings' == $_REQUEST['page'] ) )
 			rlt_settings();
-		
+
 		if ( ! isset( $_SESSION ) )
 			session_start();
 	}
@@ -100,8 +100,8 @@ if ( ! function_exists ( 'rlt_admin_init' ) ) {
 		add_rewrite_endpoint( 'realty', EP_PERMALINK );
 
 		add_meta_box( 'property-custom-metabox', __( 'Property Info', 'realty' ), 'rlt_property_custom_metabox', 'property', 'normal', 'high' );
-	
-		if ( ( isset( $_REQUEST['post_type'] ) && 'property' == $_REQUEST['post_type'] ) || 
+
+		if ( ( isset( $_REQUEST['post_type'] ) && 'property' == $_REQUEST['post_type'] ) ||
 			( isset( $_REQUEST['action'] ) && 'edit' == $_REQUEST['action'] && 'property' == get_post_type() ) ) {
 			/* add error if templates were not found in the theme directory */
 			rlt_admin_error();
@@ -162,7 +162,7 @@ if ( ! function_exists ( 'rlt_install' ) ) {
 			PRIMARY KEY (`property_type_id`)
 		) ENGINE=InnoDB ' . $charset_collate;
 		dbDelta( $sql );
-		
+
 		$wpdb->query( "INSERT IGNORE INTO `" . $wpdb->prefix . "realty_currency` (`currency_id`, `country_currency`, `currency_code`, `currency_hex`, `currency_unicode`) VALUES
 		(1, 'Albania Lek', 'ALL', '4c, 65, 6b', '&#76;&#101;&#107;'),
 		(2, 'Afghanistan Afghani', 'AFN', '60b', '&#1547;'),
@@ -279,8 +279,8 @@ if ( ! function_exists ( 'rlt_install' ) ) {
 		(113, 'Viet Nam Dong', 'VND', '20ab', '&#8363;'),
 		(114, 'Yemen Rial', 'YER', 'fdfc', '&#65020;'),
 		(115, 'Zimbabwe Dollar', 'ZWD', '5a, 24', '&#90;&#36;');" );
-			
-		$periods = array( 
+
+		$periods = array(
 			__( 'month', 'realty'),
 			__( 'year', 'realty')
 		);
@@ -289,7 +289,7 @@ if ( ! function_exists ( 'rlt_install' ) ) {
 		(1, '" . $periods[0] . "'),
 		(2, '" . $periods[1] . "');" );
 
-		$types = array( 
+		$types = array(
 			__( 'For Rent', 'realty'),
 			__( 'For Sale', 'realty')
 		);
@@ -328,7 +328,7 @@ if ( ! function_exists( 'rlt_plugin_install' ) ) {
 				return false;
 			@fwrite( $handle, $contents );
 			@fclose( $handle );
-			@chmod( $rlt_themepath . $filename, octdec( 644 ) );		
+			@chmod( $rlt_themepath . $filename, octdec( 644 ) );
 		}
 	}
 }
@@ -363,9 +363,10 @@ if ( ! function_exists ( 'rlt_register_post_type' ) ) {
 			'hierarchical'		=>	false,
 			'rewrite'			=>	true,
 			'supports'			=>	array( 'title', 'editor', 'thumbnail' ),
+			'menu_icon'			=> 'dashicons-admin-multisite',
 			'labels'			=>	array(
 				'name'					=> _x( 'Properties', 'post type general name', 'realty' ),
-				'singular_name' 		=> _x( 'Property', 'post type singular name', 'realty' ),		
+				'singular_name' 		=> _x( 'Property', 'post type singular name', 'realty' ),
 				'menu_name'				=> _x( 'Properties', 'admin menu', 'realty' ),
 				'name_admin_bar'		=> _x( 'Property', 'add new on admin bar', 'realty' ),
 				'add_new'				=> _x( 'Add New', 'property', 'realty' ),
@@ -422,8 +423,8 @@ if ( ! function_exists ( 'rlt_register_post_type' ) ) {
 if ( ! function_exists( 'rlt_settings' ) ) {
 	function rlt_settings() {
 		global $rlt_options, $rlt_option_defaults, $wpdb, $bws_plugin_info, $rlt_plugin_info;
-		$db_version = "1.0";	
-		
+		$db_version = "1.0";
+
 		$rlt_option_defaults = array(
 			'plugin_option_version' 		=> $rlt_plugin_info['Version'],
 			'plugin_db_version'             => $db_version,
@@ -437,7 +438,7 @@ if ( ! function_exists( 'rlt_settings' ) ) {
 			'unit_area_custom_display'		=> 0,
 			'unit_area'						=> 'sq&nbsp;ft',
 			'custom_unit_area' 				=> '',
-			'per_page'						=> get_option( 'posts_per_page' ),			
+			'per_page'						=> get_option( 'posts_per_page' ),
 			'theme_banner'					=>	1
 		);
 
@@ -445,13 +446,13 @@ if ( ! function_exists( 'rlt_settings' ) ) {
 		if ( ! get_option( 'rlt_options' ) )
 			add_option( 'rlt_options', $rlt_option_defaults );
 		$rlt_options = get_option( 'rlt_options' );
-		
+
 		if ( ! isset( $rlt_options['plugin_option_version'] ) || $rlt_options['plugin_option_version'] != $rlt_plugin_info['Version'] ) {
 			rlt_plugin_install();
 			$rlt_options = array_merge( $rlt_option_defaults, $rlt_options );
 			$rlt_options['plugin_option_version'] = $rlt_plugin_info['Version'];
-			$update_option = true;			
-		}	
+			$update_option = true;
+		}
 
 		if ( ! isset( $rlt_options['plugin_db_version'] ) || $rlt_options['plugin_db_version'] != $db_version ) {
 			rlt_install();
@@ -460,7 +461,7 @@ if ( ! function_exists( 'rlt_settings' ) ) {
 		}
 
 		if ( isset( $update_option ) )
-			update_option( 'rlt_options', $rlt_options );	
+			update_option( 'rlt_options', $rlt_options );
 	}
 }
 if ( ! function_exists( 'rlt_plugin_activation' ) ) {
@@ -496,7 +497,7 @@ if ( ! function_exists( 'rlt_plugin_activation' ) ) {
 if ( ! function_exists( 'rlt_settings_page' ) ) {
 	function rlt_settings_page() {
 		global $wpdb, $title, $rlt_options, $rlt_option_defaults, $rlt_filenames, $rlt_filepath, $rlt_themepath, $rlt_plugin_info;
-		$error = $message = "";	
+		$error = $message = "";
 
 		if ( ! isset( $_GET['action'] ) ) {
 			$currencies = $wpdb->get_results( "SELECT * FROM `" . $wpdb->prefix . "realty_currency`", ARRAY_A );
@@ -539,11 +540,11 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 		}
 
 		/* GO PRO */
-		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {		
+		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
 			$go_pro_result = bws_go_pro_tab_check( plugin_basename(__FILE__) );
 			if ( ! empty( $go_pro_result['error'] ) )
 				$error = $go_pro_result['error'];
-		}		
+		}
 		/* Display form on the setting page */ ?>
 		<div class="wrap">
 			<h1><?php echo $title; ?></h1>
@@ -554,7 +555,7 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 			</h2>
 			<?php bws_show_settings_notice(); ?>
 			<div class="error below-h2" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-			<div id="rlt_settings_message" class="updated below-h2 fade" <?php if ( "" == $message || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>			
+			<div id="rlt_settings_message" class="updated below-h2 fade" <?php if ( "" == $message || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<?php if ( ! isset( $_GET['action'] ) ) {
 				if ( isset( $_REQUEST['bws_restore_default'] ) && check_admin_referer( plugin_basename(__FILE__), 'bws_settings_nonce_name' ) ) {
 					bws_form_restore_default_confirm( plugin_basename(__FILE__) );
@@ -564,7 +565,7 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 							<tr valign="top" class="rlt_currency_labels">
 								<th scope="row"><label for="rlt_currency"><?php _e( 'Currency', 'realty' ); ?></label></th>
 								<td>
-									<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_false" value="0" <?php if ( $rlt_options['currency_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
+									<input type="radio" name="rlt_currency_custom_display" id="rlt_currency_custom_display_false" value="0" <?php if ( $rlt_options['currency_custom_display'] == 0 ) echo 'checked="checked"'; ?> />
 									<select name="rlt_currency" id="rlt_currency">
 										<?php foreach ( $currencies as $currency ) { ?>
 											<option value="<?php echo $currency['currency_id']; ?>" <?php if ( $currency['currency_id'] == $rlt_options['currency_unicode'] ) echo 'selected="selected"'; ?>><?php echo $currency['currency_unicode'] . ' (' . $currency['country_currency'] . " - " . $currency['currency_code'] . ')'; ?></option>
@@ -581,11 +582,11 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 										<label for="rlt_currency_position_after"><input type="radio" id="rlt_currency_position_after" name="rlt_currency_position" value="after" <?php if ( $rlt_options['currency_position'] == 'after' ) echo 'checked="checked"'; ?> /> <?php _e( 'after numerals', 'realty' ); ?></label>
 									</fieldset>
 								</td>
-							</tr>					
+							</tr>
 							<tr valign="top" class="rlt_unit_area_labels">
 								<th scope="row"><label for="rlt_unit_area"><?php _e( 'Unit of area', 'realty' ); ?></label></th>
 								<td>
-									<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_false" value="0" <?php if ( $rlt_options['unit_area_custom_display'] == 0 ) echo 'checked="checked"'; ?> /> 
+									<input type="radio" name="rlt_unit_area_custom_display" id="rlt_unit_area_custom_display_false" value="0" <?php if ( $rlt_options['unit_area_custom_display'] == 0 ) echo 'checked="checked"'; ?> />
 									<select name="rlt_unit_area" id="rlt_unit_area">
 										<option value="sq&nbsp;ft" <?php if ( 'sq&nbsp;ft' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>sq&nbsp;ft</option>
 										<option value="m2" <?php if ( 'm2' == $rlt_options['unit_area'] ) echo 'selected="selected"'; ?>>m&sup2;</option>
@@ -599,23 +600,23 @@ if ( ! function_exists( 'rlt_settings_page' ) ) {
 									<input type="number" class="small-text" min="1" max="10000" step="1" id="rlt_per_page" name="rlt_per_page" value="<?php echo $rlt_options['per_page']; ?>" />
 								</td>
 							</tr>
-						</table>					
+						</table>
 						<div class="submit">
 							<input type="hidden" name="rlt_form_submit" value="submit" />
 							<input id="bws-submit-button" type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'realty' ); ?>" />
 							<?php wp_nonce_field( plugin_basename( __FILE__ ), 'rlt_nonce_name' ); ?>
 						</div>
 					</form>
-					<?php bws_form_restore_default_settings( plugin_basename(__FILE__) );					
-				}				
+					<?php bws_form_restore_default_settings( plugin_basename(__FILE__) );
+				}
 			} elseif ( isset( $_GET['action'] ) && 'custom_code' == $_GET['action'] ) {
 				bws_custom_code_tab();
 			} elseif ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
-				bws_go_pro_tab( $rlt_plugin_info, plugin_basename( __FILE__ ), 'realty_settings', 'realty_pro_settings', 'realty-pro/realty-pro.php', 'realty', '', '205', isset( $go_pro_result['pro_plugin_is_activated'] ) ); 
-			} 
+				bws_go_pro_tab( $rlt_plugin_info, plugin_basename( __FILE__ ), 'realty_settings', 'realty_pro_settings', 'realty-pro/realty-pro.php', 'realty', '', '205', isset( $go_pro_result['pro_plugin_is_activated'] ) );
+			}
 			bws_plugin_reviews_block( $rlt_plugin_info['Name'], 'realty' ); ?>
 		</div>
-	<?php } 
+	<?php }
 }
 
 if ( ! function_exists ( 'rlt_property_columns' ) ) {
@@ -639,13 +640,13 @@ if ( ! function_exists ( 'rlt_restrict_manage_property' ) ) {
 				$tax_obj = get_taxonomy( $tax_slug );
 				$tax_name = $tax_obj->labels->name;
 				/* retrieve array of term objects per taxonomy */
-				$terms = get_terms( 
-					array( $tax_slug ), 
+				$terms = get_terms(
+					array( $tax_slug ),
 					array(
-						'orderby'		=> 'name', 
+						'orderby'		=> 'name',
 						'order'			=> 'ASC',
 						'hide_empty'	=> false
-					) 
+					)
 				);
 				$current_id = ! empty( $_GET['rlt_' . $tax_slug . '_filter'] ) ? intval( $_GET['rlt_' . $tax_slug . '_filter'] ) : 0;
 				/* output html for taxonomy dropdown filter */ ?>
@@ -681,7 +682,7 @@ if ( ! function_exists ( 'rlt_property_pre_get_posts' ) ) {
 
 if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 	function rlt_property_custom_metabox() {
-		global $post, $wpdb;	
+		global $post, $wpdb;
 		$property_info = $wpdb->get_row( 'SELECT * FROM `' . $wpdb->prefix . 'realty_property_info` WHERE `property_info_post_id` = ' . $post->ID, ARRAY_A );
 		$property_type = $wpdb->get_results( 'SELECT * FROM `' . $wpdb->prefix . 'realty_property_type`', ARRAY_A );
 		$property_periods = $wpdb->get_results( 'SELECT * FROM `' . $wpdb->prefix . 'realty_property_period`', ARRAY_A );
@@ -699,7 +700,7 @@ if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 					<?php foreach ( $property_type as $p_type ) { ?>
 						<option value="<?php echo $p_type['property_type_id']; ?>" <?php if ( ! empty( $property_info['property_info_type_id'] ) && $property_info['property_info_type_id'] == $p_type['property_type_id'] ) echo 'selected="selected"' ?>><?php echo $p_type['property_type_name']; ?></option>
 					<?php } ?>
-				</select>				
+				</select>
 			</p>
 			<p>
 				<label for="rlt_price"><?php _e( 'Price', 'realty' ); ?>:</label><br />
@@ -709,7 +710,7 @@ if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 			</p>
 			<p>
 				<label for="rlt_bedroom"><?php _e( 'Bedrooms', 'realty' ); ?>:</label><br />
-				<input type="number" id="rlt_bedroom" min="1" name="rlt_bedroom" value="<?php echo ! empty( $property_info['property_info_bedroom'] ) ? $property_info['property_info_bedroom'] : "1"; ?>" />				
+				<input type="number" id="rlt_bedroom" min="1" name="rlt_bedroom" value="<?php echo ! empty( $property_info['property_info_bedroom'] ) ? $property_info['property_info_bedroom'] : "1"; ?>" />
 			</p>
 		</div>
 		<div class="rlt_right_column">
@@ -726,28 +727,28 @@ if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 					<?php foreach ( $property_periods as $p_period ){ ?>
 						<option value="<?php echo $p_period['property_period_id']; ?>" <?php if ( ! empty( $property_info['property_info_period_id'] ) && $property_info['property_info_period_id'] == $p_period['property_period_id'] ) echo 'selected="selected"' ?>><?php echo $p_period['property_period_name']; ?></option>
 					<?php } ?>
-				</select>				
+				</select>
 			</p>
 			<p>
 				<label for="rlt_bathroom"><?php _e( 'Bathrooms', 'realty' ); ?>:</label><br />
-				<input type="number" id="rlt_bathroom" min="1" name="rlt_bathroom" value="<?php echo ! empty( $property_info['property_info_bathroom'] ) ? $property_info['property_info_bathroom'] : "1"; ?>" />				
+				<input type="number" id="rlt_bathroom" min="1" name="rlt_bathroom" value="<?php echo ! empty( $property_info['property_info_bathroom'] ) ? $property_info['property_info_bathroom'] : "1"; ?>" />
 			</p>
 			<p>
 				<label for="rlt_square"><?php _e( 'Floor area', 'realty' ); ?>:</label><br />
 					<input type="text" id="rlt_square" name="rlt_square" value="<?php if ( ! empty( $property_info['property_info_square'] ) ) echo $property_info['property_info_square']; ?>"/>
 				 (<?php echo rlt_get_unit_area(); ?>)<br />
 				<span class="bws_info"><?php _e( 'For example', 'realty' ); ?>: 21820.00</span>
-			</p>		
+			</p>
 		</div>
 		<div>
 			<label for="rlt_photos"><?php _e( 'Photos', 'realty' ); ?>:</label><br />
 			<button class="rlt_add_photo button"><?php _e( 'Add photo', 'realty' ); ?></button>
 			<ul class="rlt-gallery clearfix" id="rlt_gallery">
-				<?php if ( ! empty( $property_info['property_info_photos'] ) ) { 
+				<?php if ( ! empty( $property_info['property_info_photos'] ) ) {
 					$property_info['property_info_photos'] = unserialize( $property_info['property_info_photos'] );
 					foreach ( $property_info['property_info_photos'] as $rlt_photo ) { ?>
 						<li id="<?php echo $rlt_photo; ?>" class="rlt_image_block">
-							<div class="rlt_drag">				
+							<div class="rlt_drag">
 								<div class="rlt_image">
 									<?php $image_attributes = wp_get_attachment_image_src( $rlt_photo, 'thumbnail' ); ?>
 									<img src="<?php echo $image_attributes[0]; ?>" title="" width="150" />
@@ -756,7 +757,7 @@ if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 								<input type="hidden" name="rlt_photos[]" value="<?php echo $rlt_photo; ?>" />
 							</div>
 						</li>
-					<?php } 
+					<?php }
 				} ?>
 			</ul>
 			<div id="rlt_add_images" class="clear"></div>
@@ -764,20 +765,20 @@ if ( ! function_exists( 'rlt_property_custom_metabox' ) ) {
 			<?php if ( ! empty( $property_info ) ) { ?>
 				<input type="hidden" value="<?php echo $property_info['property_info_id']; ?>" name="property_info_id" />
 			<?php } ?>
-		</div>	
+		</div>
 		<div class="clear"></div>
 	<?php }
 }
 
 if ( ! function_exists( 'rlt_save_postdata' ) ) {
-	function rlt_save_postdata( $post_id ) {
+	function rlt_save_postdata( $post_id, $post ) {
 		global $post_type;
 		/*
 		 * We need to verify this came from the our screen and with proper authorization,
 		 * because save_post can be triggered at other times.
 		 */
 		/* If this is an autosave, our form has not been submitted, so we don't want to do anything. */
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
 		/* Check if our nonce is set. */
 		if ( $post_type != 'property' ) {
@@ -809,16 +810,16 @@ if ( ! function_exists( 'rlt_save_postdata' ) ) {
 				$property_info['property_info_photos'] = serialize( $property_info['property_info_photos'] );
 				/* Update the meta field in the database. */
 				if ( isset( $_POST['property_info_id'] ) ) {
-					$wpdb->update( 
-						$wpdb->prefix . 'realty_property_info', 
-						$property_info, 
+					$wpdb->update(
+						$wpdb->prefix . 'realty_property_info',
+						$property_info,
 						array( 'property_info_id' => $_POST['property_info_id'] ),
 						array( '%d', '%s', '%s', '%d', '%d', '%s', '%d', '%d', '%f', '%s', '%d' ),
 						array( '%d' )
 					);
 				} else {
-					$wpdb->insert( 
-						$wpdb->prefix . 'realty_property_info', 
+					$wpdb->insert(
+						$wpdb->prefix . 'realty_property_info',
 						$property_info
 					);
 				}
@@ -831,12 +832,12 @@ if ( ! function_exists( 'rlt_delete_post' ) ) {
 	function rlt_delete_post( $post_id ) {
 		/* We check if the global post type isn't ours and just return */
 		global $post_type, $wpdb;
-		if ( $post_type != 'property' ) 
+		if ( $post_type != 'property' )
 			return;
 
 		/* Delete information from custom table */
-		$wpdb->delete( 
-			$wpdb->prefix . 'realty_property_info', 
+		$wpdb->delete(
+			$wpdb->prefix . 'realty_property_info',
 			array( 'property_info_post_id' => $post_id )
 		);
 	}
@@ -847,8 +848,8 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 
 		function __construct() {
 			/* Instantiate the parent object */
-			parent::__construct( 
-				'realty_widget', 
+			parent::__construct(
+				'realty_widget',
 				__( 'Realty Widget', 'realty' ),
 				array( 'description' => __( 'Widget for displaying Sale/Rent Form.', 'realty' ) )
 			);
@@ -863,34 +864,34 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 			$tab_1_class = $tab_2_class = '';
 
 			echo $args['before_widget'];
-			
-			$taxonomies = array( 
+
+			$taxonomies = array(
 				'property_type'
 			);
 
 			$taxonomy_args = array(
-				'orderby'		=> 'name', 
+				'orderby'		=> 'name',
 				'order'			=> 'ASC',
 				'hide_empty'	=> false
-			); 
+			);
 
-			$terms_property_type = get_terms( $taxonomies, $taxonomy_args ); 
+			$terms_property_type = get_terms( $taxonomies, $taxonomy_args );
 
-			$bedrooms_bathrooms = $wpdb->get_row( 'SELECT MIN(`property_info_bedroom`) AS `min_bedroom`, 
+			$bedrooms_bathrooms = $wpdb->get_row( 'SELECT MIN(`property_info_bedroom`) AS `min_bedroom`,
 					MAX(`property_info_bedroom`) AS `max_bedroom`,
 					MIN(`property_info_bathroom`) AS `min_bathroom`,
 					MAX(`property_info_bathroom`) AS `max_bathroom`,
 					MIN(`property_info_price`) AS `min_price`,
 					MAX(`property_info_price`) AS `max_price`
-				FROM `' . $wpdb->prefix . 'realty_property_info`', 
-			ARRAY_A ); 
-			
+				FROM `' . $wpdb->prefix . 'realty_property_info`',
+			ARRAY_A );
+
 			if ( ! isset( $rlt_form_vars['property_type_id'] ) || ( isset( $rlt_form_vars['property_type_id'] ) && $rlt_form_vars['property_type_id'] == '2' ) )
 				$tab_1_class = ' active';
 			else
 				$tab_2_class = ' active';
-			$rlt_form_action = get_option( 'permalink_structure' ) == '' ? '' : 'property_search_results'; 
-			$min_price = ! empty( $rlt_form_vars['property_min_price'] ) ? $rlt_form_vars['property_min_price'] : $bedrooms_bathrooms['min_price']; 
+			$rlt_form_action = get_option( 'permalink_structure' ) == '' ? '' : 'property_search_results';
+			$min_price = ! empty( $rlt_form_vars['property_min_price'] ) ? $rlt_form_vars['property_min_price'] : $bedrooms_bathrooms['min_price'];
 			$max_price = ! empty( $rlt_form_vars['property_max_price'] ) ? $rlt_form_vars['property_max_price'] : $bedrooms_bathrooms['max_price']; ?>
 
 			<div class="rlt_tab_wrapper">
@@ -900,7 +901,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 							<div class="tab tab_1<?php echo $tab_1_class; ?>"><span><?php _e( 'For Sale', 'realty' ); ?></span></div>
 							<div class="tab tab_2<?php echo $tab_2_class; ?>"><span><?php _e( 'For Rent', 'realty' ); ?></span></div>
 						</div><!-- .tabs -->
-						<div class="for_sale rlt_tab_block rlt_tab_block_1<?php echo $tab_1_class; ?>">	
+						<div class="for_sale rlt_tab_block rlt_tab_block_1<?php echo $tab_1_class; ?>">
 							<form action="<?php echo home_url() . '/' . $rlt_form_action; ?>" method="get" id="property_sale_search_form">
 								<div>
 									<input placeholder="<?php _e( 'Location', 'realty' ); ?>" type="text" name="rlt_location" id="rlt_location" value="<?php if ( ! empty( $rlt_form_vars['property_location'] ) ) echo $rlt_form_vars['property_location']; ?>" />
@@ -908,7 +909,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 										<option value="all" selected="selected"><?php _e( 'Property Type', 'realty' ); ?></option>
 										<?php foreach ( $terms_property_type as $term_property_type ) { ?>
 											<option value="<?php echo $term_property_type->name; ?>" <?php if ( ! empty( $rlt_form_vars['property_type'] ) && $rlt_form_vars['property_type'] == $term_property_type->name ) echo 'selected="selected"'; ?>><?php echo $term_property_type->name; ?></option>
-										<?php } ?>	
+										<?php } ?>
 									</select>
 									<div class="rlt_prices">
 										<?php _e( 'Price', 'realty' ); ?>: <span class="rlt_min_price"><?php echo apply_filters( 'rlt_formatting_price', $min_price ); ?></span> - <span class="rlt_max_price"><?php echo apply_filters( 'rlt_formatting_price', $max_price ); ?></span>
@@ -925,7 +926,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 									<select class="bathrooms rlt_select" name="rlt_bathrooms">
 										<option value="" disabled="disabled" selected="selected"><?php _e( 'Bathrooms', 'realty' ); ?></option>
 										<?php $and_more = __( 'and more', 'realty' );
-										for ( $i = $bedrooms_bathrooms['min_bathroom']; $i <= $bedrooms_bathrooms['max_bathroom']; $i++ ){ 
+										for ( $i = $bedrooms_bathrooms['min_bathroom']; $i <= $bedrooms_bathrooms['max_bathroom']; $i++ ){
 											if ( $i == $bedrooms_bathrooms['max_bathroom'] )
 												$and_more = ''; ?>
 											<option value="<?php echo $i; ?>" <?php if ( ! empty( $rlt_form_vars['property_bath'] ) && $rlt_form_vars['property_bath'] == $i && $rlt_form_vars['property_bath'] != $bedrooms_bathrooms['min_bathroom'] ) echo 'selected="selected"'; ?>><?php echo $i; ?> <?php echo $and_more; ?></option>
@@ -934,7 +935,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 									<select class="bedrooms rlt_select" name="rlt_bedrooms">
 										<option value="" disabled="disabled" selected="selected"><?php _e( 'Bedrooms', 'realty' ); ?></option>
 										<?php $and_more = __( 'and more', 'realty' );
-										for ( $i = $bedrooms_bathrooms['min_bedroom']; $i <= $bedrooms_bathrooms['max_bedroom']; $i++ ) { 
+										for ( $i = $bedrooms_bathrooms['min_bedroom']; $i <= $bedrooms_bathrooms['max_bedroom']; $i++ ) {
 											if ( $i == $bedrooms_bathrooms['max_bedroom'] )
 												$and_more = ''; ?>
 											<option value="<?php echo $i; ?>" <?php if ( ! empty( $rlt_form_vars['property_bed'] ) && $rlt_form_vars['property_bed'] == $i && $rlt_form_vars['property_bed'] != $bedrooms_bathrooms['min_bedroom'] ) echo 'selected="selected"'; ?>><?php echo $i; ?> <?php echo $and_more; ?></option>
@@ -955,12 +956,12 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 										<option value="all" selected="selected"><?php _e( 'Property Type', 'realty' ); ?></option>
 										<?php foreach ( $terms_property_type as $term_property_type ) { ?>
 											<option value="<?php echo $term_property_type->name; ?>" <?php if ( ! empty( $rlt_form_vars['property_type'] ) && $rlt_form_vars['property_type'] == $term_property_type->name ) echo 'selected="selected"'; ?>><?php echo $term_property_type->name; ?></option>
-										<?php } ?>	
+										<?php } ?>
 									</select>
 									<select class="bathrooms rlt_select" name="rlt_bathrooms">
 										<option value="" disabled="disabled" selected="selected"><?php _e( 'Bathrooms', 'realty' ); ?></option>
 										<?php $and_more = __( 'and more', 'realty' );
-										for ( $i = $bedrooms_bathrooms['min_bathroom']; $i <= $bedrooms_bathrooms['max_bathroom']; $i++ ) { 
+										for ( $i = $bedrooms_bathrooms['min_bathroom']; $i <= $bedrooms_bathrooms['max_bathroom']; $i++ ) {
 											if ( $i == $bedrooms_bathrooms['max_bathroom'] )
 												$and_more = ''; ?>
 											<option value="<?php echo $i; ?>" <?php if ( ! empty( $rlt_form_vars['property_bath'] ) && $rlt_form_vars['property_bath'] == $i && $rlt_form_vars['property_bath'] != $bedrooms_bathrooms['min_bathroom'] ) echo 'selected="selected"'; ?>><?php echo $i; ?> <?php echo $and_more; ?></option>
@@ -969,7 +970,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 									<select class="bedrooms rlt_select" name="rlt_bedrooms">
 										<option value="" disabled="disabled" selected="selected"><?php _e( 'Bedrooms', 'realty' ); ?></option>
 										<?php $and_more = __( 'and more', 'realty' );
-										for ( $i = $bedrooms_bathrooms['min_bedroom']; $i <= $bedrooms_bathrooms['max_bedroom']; $i++ ) { 
+										for ( $i = $bedrooms_bathrooms['min_bedroom']; $i <= $bedrooms_bathrooms['max_bedroom']; $i++ ) {
 											if ( $i == $bedrooms_bathrooms['max_bedroom'] )
 												$and_more = ''; ?>
 											<option value="<?php echo $i; ?>" <?php if ( ! empty( $rlt_form_vars['property_bed'] ) && $rlt_form_vars['property_bed'] == $i && $rlt_form_vars['property_bed'] != $bedrooms_bathrooms['min_bedroom'] ) echo 'selected="selected"'; ?>><?php echo $i; ?> <?php echo $and_more; ?></option>
@@ -985,7 +986,7 @@ if ( ! class_exists( 'Realty_Widget' ) ) {
 				</div><!-- #rlt_body_tabs -->
 			</div><!-- .rlt_tab_wrapper -->
 			<?php $permalink_structure = get_option('permalink_structure');
-			if ( is_single() && get_post_type() == 'property' && !empty( $_SESSION['current_page'] ) ) { 
+			if ( is_single() && get_post_type() == 'property' && !empty( $_SESSION['current_page'] ) ) {
 				if ( $permalink_structure == '' )
 					$link = realty_request_uri( esc_url( home_url( '/' ) ), 'property', $permalink_structure ) . ( $_SESSION['current_page'] > 1 ? '&property_paged=' . $_SESSION['current_page'] : '' );
 				else
@@ -1003,8 +1004,8 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 
 		function __construct() {
 			/* Instantiate the parent object */
-			parent::__construct( 
-				'realty_recent_items_widget', 
+			parent::__construct(
+				'realty_recent_items_widget',
 				__( 'Realty Recent Items', 'realty' ),
 				array( 'description' => __( 'Widget for displaying Recent Items block.', 'realty' ) )
 			);
@@ -1025,9 +1026,9 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 
 					$recent_items_sql = 'SELECT ' . $wpdb->posts . '.ID,
 							' . $wpdb->posts . '.post_title,
-							' . $wpdb->prefix . 'realty_property_info.*, 
-							' . $wpdb->prefix . 'realty_property_period.property_period_name, 
-							' . $wpdb->prefix . 'realty_property_type.property_type_name 
+							' . $wpdb->prefix . 'realty_property_info.*,
+							' . $wpdb->prefix . 'realty_property_period.property_period_name,
+							' . $wpdb->prefix . 'realty_property_type.property_type_name
 						FROM ' . $wpdb->posts . '
 							INNER JOIN ' . $wpdb->prefix . 'realty_property_info ON ' . $wpdb->prefix . 'realty_property_info.property_info_post_id = ' . $wpdb->posts . '.ID
 							LEFT JOIN ' . $wpdb->prefix . 'realty_property_period ON ' . $wpdb->prefix . 'realty_property_info.property_info_period_id = ' . $wpdb->prefix . 'realty_property_period.property_period_id
@@ -1036,13 +1037,13 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 						LIMIT ' . $count_items . '
 					';
 
-					$recent_items_results = $wpdb->get_results( $recent_items_sql, ARRAY_A ); 
+					$recent_items_results = $wpdb->get_results( $recent_items_sql, ARRAY_A );
 					$permalink_structure = get_option('permalink_structure');
 					if ( ! empty( $rlt_form_vars ) ) {
 						$form_vars_old = $rlt_form_vars;
 						$rlt_form_vars = array();
 					}
-					rlt_check_form_vars( true ); ?>	
+					rlt_check_form_vars( true ); ?>
 					<div id="rlt_home_preview">
 						<div class="view_more"><a href="<?php echo realty_request_uri( esc_url( home_url( '/' ) ), 'property', $permalink_structure ); ?>"><?php _e( 'view all', 'realty' ); ?></a></div>
 						<?php if ( isset( $form_vars_old ) )
@@ -1066,7 +1067,7 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 									<h4><a href="<?php echo get_permalink( $recent_item['ID'] ); ?>"><?php echo $recent_item['post_title']; ?></a></h4>
 									<ul>
 										<li><?php echo $recent_item['property_info_location']; ?></li>
-										<li><?php echo $recent_item['property_info_bedroom']; ?> <?php _e( 'bedrooms', 'realty' ); ?>, <?php echo $recent_item['property_info_bathroom']; ?> <?php _e( 'bathroom', 'realty' ); ?></li>
+										<li><?php echo $recent_item['property_info_bedroom'] . ' ' . _n( 'bedroom', 'bedrooms', absint( $recent_item['property_info_bedroom'] ), 'realty' ) . ', ' . $recent_item['property_info_bathroom'] .' ' . _n( 'bathroom', 'bathrooms', absint( $recent_item['property_info_bathroom'] ), 'realty' ); ?></li>
 										<li><?php echo $recent_item['property_info_square'] . ' ' . rlt_get_unit_area(); ?></li>
 									</ul>
 								</div>
@@ -1087,7 +1088,7 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 		}
 
 		function form( $instance ) {
-			$widget_title 	= isset( $instance['widget_title'] ) ? $instance['widget_title'] : null; 
+			$widget_title 	= isset( $instance['widget_title'] ) ? $instance['widget_title'] : null;
 			$count_items	= isset( $instance['count_items'] ) ? $instance['count_items'] : 4; ?>
 			<p>
 				<label for="<?php echo $this->get_field_id( 'widget_title' ); ?>"><?php _e( 'Widget Title', 'realty' ); ?>: </label>
@@ -1102,17 +1103,17 @@ if ( ! class_exists( 'Realty_Resent_Items_Widget' ) ) {
 		function update( $new_instance, $old_instance ) {
 			$instance = array();
 			$instance['widget_title'] = ( ! empty( $new_instance['widget_title'] ) ) ? strip_tags( $new_instance['widget_title'] ) : null;
-			$instance['count_items']	= ( ! empty( $new_instance['count_items'] ) ) ? strip_tags( $new_instance['count_items'] ) : 4; 
+			$instance['count_items']	= ( ! empty( $new_instance['count_items'] ) ) ? strip_tags( $new_instance['count_items'] ) : 4;
 			return $instance;
 		}
 	}
 }
 
-
 if ( ! function_exists( 'rlt_enqueue_styles' ) ) {
 	function rlt_enqueue_styles() {
-		wp_enqueue_style( 'rlt_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 		wp_enqueue_style( 'rlt_select_stylesheet', plugins_url( 'css/select2.css', __FILE__ ) );
+		wp_enqueue_style( 'slick.css', plugins_url( 'css/slick.css', __FILE__ ) ); /* including css for  slick*/
+		wp_enqueue_style( 'rlt_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 	}
 }
 
@@ -1122,10 +1123,11 @@ if ( ! function_exists( 'rlt_enqueue_scripts' ) ) {
 			$realestate_active = 'RealEstate' == wp_get_theme();
 			if ( ! $realestate_active )
 				wp_enqueue_script( 'rlt_select_script', plugins_url( 'js/select2.min.js', __FILE__ ), array( 'jquery' ) );
-			
+			wp_enqueue_script( 'slick.min.js', plugins_url( 'js/slick.min.js', __FILE__ ) ); /* including scripts for  slick*/
+
 			/* All dependencies ( 'jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-draggable' ) are described in the registration 'rlt_script' */
 			wp_enqueue_script( 'rlt_script' );
-			$translation_array = array( 
+			$translation_array = array(
 				'rlt_permalink'			=> get_option( 'rewrite_rules' ),
 				'realestate_active'		=> $realestate_active
 			);
@@ -1142,8 +1144,8 @@ if ( ! function_exists ( 'rlt_admin_enqueue_scripts' ) ) {
 			bws_plugins_include_codemirror();
 		wp_enqueue_style( 'rlt_stylesheet', plugins_url( 'css/admin-style.css', __FILE__ ) );
 		wp_enqueue_script( 'rlt_script', plugins_url( 'js/admin-script.js', __FILE__ ), array( 'jquery', 'jquery-ui-sortable' ) );
-		
-		$translation_array = array( 
+
+		$translation_array = array(
 			'rlt_delete_image' => __( 'Delete', 'realty' )
 		);
 		wp_localize_script( 'rlt_script', 'rlt_translation', $translation_array );
@@ -1159,7 +1161,7 @@ if ( ! function_exists ( 'rlt_theme_body_classes' ) ) {
 }
 
 if ( ! function_exists( 'rlt_template_redirect' ) ) {
-	function rlt_template_redirect(){		
+	function rlt_template_redirect(){
 		global $post, $wp_query, $rlt_filenames, $rlt_themepath;
 		$file_exists_flag = true;
 		foreach ( $rlt_filenames as $filename ) {
@@ -1168,7 +1170,7 @@ if ( ! function_exists( 'rlt_template_redirect' ) ) {
 			}
 		}
 		if ( $file_exists_flag ) {
-			if ( isset( $wp_query->query_vars['property_search_results'] ) || ( isset( $_POST['rlt_action'] ) && $_POST['rlt_action'] == 'listing_search' ) || isset( $wp_query->query_vars['property_paged'] ) ) { 
+			if ( isset( $wp_query->query_vars['property_search_results'] ) || ( isset( $_POST['rlt_action'] ) && $_POST['rlt_action'] == 'listing_search' ) || isset( $wp_query->query_vars['property_paged'] ) ) {
 				wp_register_script( 'rlt_script', plugins_url( 'js/script.js', __FILE__ ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-draggable' ), false, true );
 				get_template_part( 'rlt-search-listing-results' );
 				exit();
@@ -1230,7 +1232,7 @@ if ( ! function_exists( 'rlt_custom_permalinks' ) ) {
 			$newrules['property_search_results/bath-([^/]+)/bed-([^/]+)/type-([^/]+)/sort-([^/]+)/?$'] = 'index.php?post_type=property&s=properties&property_sortby=$matches[4]&property_search_results=1&property_bath=$matches[1]&property_bed=$matches[2]&property_typeid=$matches[3]';
 			/* Property search results without location, property type and price field and with paged */
 			$newrules['property_search_results/bath-([^/]+)/bed-([^/]+)/type-([^/]+)/sort-([^/]+)/page/([^/]+)/?$'] = 'index.php?post_type=property&s=properties&property_sortby=$matches[4]&property_search_results=1&property_bath=$matches[1]&property_bed=$matches[2]&property_typeid=$matches[3]&property_paged=$matches[5]';
-		}		
+		}
 		if ( false === $rules )
 			return $newrules;
 
@@ -1281,7 +1283,7 @@ if ( ! function_exists( 'realty_request_uri' ) ) {
 					$url .= 'loc-' . $rlt_form_vars['property_location'] . '/';
 				if ( isset( $rlt_form_vars['property_type'] ) && 'all' != $rlt_form_vars['property_type'] )
 					$url .= 'prop-' . $rlt_form_vars['property_type'] . '/';
-				if ( isset( $rlt_form_vars['property_min_price'] ) ) 
+				if ( isset( $rlt_form_vars['property_min_price'] ) )
 					$url .= 'minp-' . $rlt_form_vars['property_min_price'] . '/';
 				if ( isset( $rlt_form_vars['property_max_price'] ) )
 					$url .= 'maxp-' . $rlt_form_vars['property_max_price'] . '/';
@@ -1324,7 +1326,7 @@ if ( ! function_exists( 'rlt_check_form_vars' ) ) {
 		global $rlt_form_vars, $wp_query, $wpdb;
 		if ( true == $view_all ) {
 			if ( empty( $rlt_form_vars ) ) {
-				$rlt_form_vars = array( 
+				$rlt_form_vars = array(
 					'property_type' 		=> 'all',
 					'property_min_price' 	=> 0,
 					'property_max_price'	=> 0,
@@ -1334,7 +1336,7 @@ if ( ! function_exists( 'rlt_check_form_vars' ) ) {
 					'property_sort_by'		=> 'newest'
 				);
 			}
-		} else if ( isset( $wp_query->query_vars['property_search_results'] ) || ( isset( $_REQUEST['rlt_action'] ) && $_REQUEST['rlt_action'] == 'listing_search' ) ) { 
+		} else if ( isset( $wp_query->query_vars['property_search_results'] ) || ( isset( $_REQUEST['rlt_action'] ) && $_REQUEST['rlt_action'] == 'listing_search' ) ) {
 			$rlt_form_vars['current_page'] = $_SESSION['current_page'] = isset( $wp_query->query_vars['property_paged'] ) ? $wp_query->query_vars['property_paged'] : ( isset( $_REQUEST['property_paged'] ) ? $_REQUEST['property_paged'] : 1 );
 			$rlt_form_vars['property_sort_by'] = $_SESSION['property_sort_by'] = isset( $wp_query->query_vars['property_sortby'] ) ? $wp_query->query_vars['property_sortby'] : ( isset( $_REQUEST['property_sort_by'] ) ? $_REQUEST['property_sort_by'] : 'newest' );
 			$rlt_form_vars['property_type'] = $_SESSION['property_type'] = isset( $wp_query->query_vars['property_type'] ) ? esc_attr( urldecode( $wp_query->query_vars['property_type'] ) ) : ( isset( $_REQUEST['rlt_property'] ) ? esc_attr( urldecode( $_REQUEST['rlt_property'] ) ) : null );
@@ -1383,7 +1385,7 @@ if ( ! function_exists ( 'rlt_search_nav' ) ) {
 				'current' 		=> $current_page,
 				'end_size' 		=> 1, /* How many pages at start and at the end. */
 				'mid_size' 		=> 1, /* How many pages before and after current page. */
-				'prev_text'		=> __( 'Prev', 'realty' ), 
+				'prev_text'		=> __( 'Prev', 'realty' ),
 				'next_text'		=> __( 'Next', 'realty' ),
 				'type'			=> 'plain',
 				'add_args'		=> ''
@@ -1406,7 +1408,7 @@ if ( ! function_exists( 'rlt_paginate_links' ) ) {
 
 		if ( '' != get_option( 'permalink_structure' ) )
 			return $link;
-		
+
 		$array_link = explode( '?', str_replace( '#038;', '&', $link ) );
 
 		if ( ! is_array( $array_link ) )
@@ -1417,7 +1419,7 @@ if ( ! function_exists( 'rlt_paginate_links' ) ) {
 		foreach( $array as $key => $value ) {
 			if ( $string )
 				$string .= '&';
-			$string .= $key . '=' . $value;		
+			$string .= $key . '=' . $value;
 		}
 		$link = $array_link[0] . '?' . $string;
 		return $link;
@@ -1467,20 +1469,20 @@ if ( ! function_exists( 'rlt_add_pdf_print_content' ) ) {
 			$property_info = $wpdb->get_row( 'SELECT * FROM `' . $wpdb->prefix . 'realty_property_info`
 				LEFT JOIN `' . $wpdb->prefix . 'realty_property_period` ON `' . $wpdb->prefix . 'realty_property_info`.`property_info_period_id` = `' . $wpdb->prefix . 'realty_property_period`.`property_period_id`
 				LEFT JOIN `' . $wpdb->prefix . 'realty_property_type` ON `' . $wpdb->prefix . 'realty_property_info`.`property_info_type_id` = `' . $wpdb->prefix . 'realty_property_type`.`property_type_id`
-				WHERE `property_info_post_id` = ' . $post->ID, 
+				WHERE `property_info_post_id` = ' . $post->ID,
 			ARRAY_A );
 
 			$custom_content .= '<div class="rlt_home_info">
 					<ul>
 						<li>' . $property_info['property_info_location'] . '</li>
-						<li>' . $property_info['property_info_bedroom'] . ' ' . __( 'bedrooms', 'realty-pro' ) . ', ' . $property_info['property_info_bathroom'] . ' ' . __( 'bathroom', 'realty-pro' ) . '</li>
+						<li>' . $property_info['property_info_bedroom'] . ' ' . _n( 'bedroom', 'bedrooms', absint( $property_info['property_info_bedroom'] ), 'realty' ) . ', ' . $property_info['property_info_bathroom'] . ' ' . _n( 'bathroom', 'bathrooms', absint( $property_info['property_info_bathroom'] ), 'realty' ) . '</li>
 						<li>' . $property_info['property_info_square'] . ' ' . rlt_get_unit_area() . '</li>
 					</ul>
 				</div>
 				<div class="home_footer">
 					<a class="' . ( ! empty( $property_info['property_period_name'] ) ? "rent" : "sale" ) . '" href="' . get_permalink() . '">' . $property_info['property_type_name'] . '</a>
 					<span class="home_cost">' . apply_filters( 'rlt_formatting_price', $property_info['property_info_price'], true );
-						if ( ! empty( $property_info['property_period_name'] ) ) 
+						if ( ! empty( $property_info['property_period_name'] ) )
 							$custom_content .= '<sup>' . "/" . $property_info['property_period_name'] . '</sup>';
 					$custom_content .= '</span>
 				</div>';
@@ -1509,7 +1511,7 @@ if ( ! function_exists ( 'rlt_plugin_action_links' ) ) {
 		if ( ! is_network_admin() ) {
 			/* Static so we don't call plugin_basename on every plugin row. */
 			static $this_plugin;
-			if ( ! $this_plugin ) 
+			if ( ! $this_plugin )
 				$this_plugin = plugin_basename( __FILE__ );
 
 			if ( $file == $this_plugin ){
@@ -1545,7 +1547,7 @@ if ( ! function_exists( 'rlt_theme_banner' ) ) {
 			update_option( 'rlt_options', $rlt_options );
 			return;
 		}
-		
+
 		if ( 'RealEstate' != wp_get_theme() && isset( $rlt_options['theme_banner'] ) && 1 == $rlt_options['theme_banner'] ) { ?>
 			<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">
 				<div class="bws_banner_on_plugin_page rlt_theme_notice">
@@ -1563,8 +1565,8 @@ if ( ! function_exists( 'rlt_theme_banner' ) ) {
 	}
 }
 
-/* 
- * Function for adding all functionality for updating 
+/*
+ * Function for adding all functionality for updating
  */
 
 if ( ! function_exists ( 'rlt_plugin_banner' ) ) {
@@ -1575,8 +1577,8 @@ if ( ! function_exists ( 'rlt_plugin_banner' ) ) {
 				$rlt_options = get_option( 'rlt_options' );
 
 			if ( isset( $rlt_options['first_install'] ) && strtotime( '-1 week' ) > $rlt_options['first_install'] )
-				bws_plugin_banner( $rlt_plugin_info, 'rlt', 'realty', '3936d03a063bccc2a2fa09a26aba0679', '205', 'realty' ); 
-		
+				bws_plugin_banner( $rlt_plugin_info, 'rlt', 'realty', '3936d03a063bccc2a2fa09a26aba0679', '205', 'realty' );
+
 			bws_plugin_banner_to_settings( $rlt_plugin_info, 'rlt_options', 'realty', 'admin.php?page=realty_settings', 'post-new.php?post_type=property' );
 		}
 
@@ -1610,7 +1612,7 @@ if ( ! function_exists( 'rlt_plugin_uninstall' ) ) {
 		}
 
 		/* Delete any templates */
-		foreach ( $rlt_filenames as $filename ) {			
+		foreach ( $rlt_filenames as $filename ) {
 			if ( file_exists( $rlt_themepath . $filename ) && ! unlink( $rlt_themepath . $filename ) ) {
 				add_action( 'admin_notices', create_function( '', ' return "Error delete template file";' ) );
 			}
@@ -1624,7 +1626,7 @@ if ( ! function_exists( 'rlt_plugin_uninstall' ) ) {
 
 if ( ! function_exists( 'rlt_plugin_uninstall_single' ) ) {
 	function rlt_plugin_uninstall_single() {
-		global $wpdb;		
+		global $wpdb;
 
 		/* Delete any tables */
 		$wpdb->query( 'DROP TABLE IF EXISTS `' . $wpdb->prefix . 'realty_property_info`' );
@@ -1662,7 +1664,7 @@ add_action( 'admin_menu', 'rlt_admin_menu' );
 add_filter( 'manage_edit-property_columns', 'rlt_property_columns' );
 add_action( 'restrict_manage_posts', 'rlt_restrict_manage_property' );
 add_action( 'pre_get_posts', 'rlt_property_pre_get_posts' );
-add_action( 'save_post', 'rlt_save_postdata' );
+add_action( 'save_post', 'rlt_save_postdata', 10, 2 );
 add_action( 'before_delete_post', 'rlt_delete_post' );
 
 /* Additional links on the plugin page */

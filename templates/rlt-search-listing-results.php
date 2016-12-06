@@ -1,7 +1,7 @@
-<?php get_header(); 
+<?php get_header();
 	global $post, $rlt_count_results, $rlt_property_info_count_all_results, $rlt_form_action, $rlt_form_vars, $limit, $current_page, $rlt_options;
 	if ( empty( $rlt_options ) )
-		$rlt_options = get_option( 'rlt_options' ); 
+		$rlt_options = get_option( 'rlt_options' );
 
 	do_action( 'rlt_check_form_vars' );
 
@@ -13,13 +13,13 @@
 		$property_args = array(
 			'post_type'				=> 'property',
 			'property_type'			=> $rlt_form_vars['property_type'],
-			'fields'				=> 'ids', 
+			'fields'				=> 'ids',
 			'posts_per_page'		=> -1
 		);
 	else
 		$property_args = array(
 			'post_type'				=> 'property',
-			'fields'				=> 'ids', 
+			'fields'				=> 'ids',
 			'posts_per_page'		=> -1
 		);
 	$query = new WP_Query( $property_args );
@@ -44,9 +44,9 @@
 			$where .= ' AND ' . $wpdb->prefix . 'realty_property_info.property_info_type_id = ' . ( $rlt_form_vars['property_type_id'] );
 		$search_propety_sql = 'SELECT ' . $wpdb->posts . '.ID,
 				' . $wpdb->posts . '.post_title,
-				' . $wpdb->prefix . 'realty_property_info.*, 
-				' . $wpdb->prefix . 'realty_property_period.property_period_name, 
-				' . $wpdb->prefix . 'realty_property_type.property_type_name 
+				' . $wpdb->prefix . 'realty_property_info.*,
+				' . $wpdb->prefix . 'realty_property_period.property_period_name,
+				' . $wpdb->prefix . 'realty_property_type.property_type_name
 			FROM ' . $wpdb->posts . '
 				INNER JOIN ' . $wpdb->prefix . 'realty_property_info ON ' . $wpdb->prefix . 'realty_property_info.property_info_post_id = ' . $wpdb->posts . '.ID
 				LEFT JOIN ' . $wpdb->prefix . 'realty_property_period ON ' . $wpdb->prefix . 'realty_property_info.property_info_period_id = ' . $wpdb->prefix . 'realty_property_period.property_period_id
@@ -74,7 +74,7 @@
 		} else
 			$rlt_property_info_count_all_results = $rlt_count_results;
 	}
-	wp_reset_query();	
+	wp_reset_query();
 	$class_sort_newest = $class_sort_price = '';
 	if ( isset( $rlt_form_vars['property_sort_by'] ) && count( $property_info_results ) > 0 ) {
 		if ( $rlt_form_vars['property_sort_by'] == 'newest' ) {
@@ -86,7 +86,7 @@
 			$rlt_newest_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), 'sort' );
 			$rlt_price_link = apply_filters( 'realty_request_uri', '', 'property', get_option( 'permalink_structure' ), '' );
 		}
-	} ?> 
+	} ?>
 	<aside class="content rlt-clearfix">
 		<div class="content-wrapper">
 			<div class="rlt_home_full_wrapper">
@@ -115,7 +115,7 @@
 									<h4><a href="<?php echo get_permalink( $property_info['ID'] ); ?>"><?php echo $property_info['post_title']; ?></a></h4>
 									<ul>
 										<li><?php echo $property_info['property_info_location']; ?></li>
-										<li><?php echo $property_info['property_info_bedroom']; ?> <?php _e( 'bedrooms', 'realty' ); ?>, <?php echo $property_info['property_info_bathroom']; ?> <?php _e( 'bathroom', 'realty' ); ?></li>
+										<li><?php echo $property_info['property_info_bedroom'] . ' ' . _n( 'bedroom', 'bedrooms', absint( $property_info['property_info_bedroom'] ), 'realty' ) . ', ' . $property_info['property_info_bathroom'] . ' ' . _n( 'bathroom', 'bathrooms', absint( $property_info['property_info_bathroom'] ), 'realty' ); ?></li>
 										<li><?php echo $property_info['property_info_square'] . ' ' . rlt_get_unit_area(); ?></li>
 									</ul>
 								</div>

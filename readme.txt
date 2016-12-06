@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.6.1
-Stable tag: 1.0.8
+Tested up to: 4.7
+Stable tag: 1.0.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -79,7 +79,7 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 * [[Doc] Installation](https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/)
 * [[Doc] Purchase, Installation & Configuration](https://docs.google.com/document/d/1Hn98k9y3e2ODfmYpR8jDK1BkxwcH8bdx1MVwZDNQshE/)
-* [[Video] Installation Instruction](https://www.youtube.com/watch?v=_BQCk4D-CyI) 
+* [[Video] Installation Instruction](https://www.youtube.com/watch?v=_BQCk4D-CyI)
 
 = Help & Support =
 
@@ -161,6 +161,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 
 == Changelog ==
 
+= V1.0.9 - 06.12.2016 =
+* NEW : Responsive layout was added.
+* NEW : Slider script was replaced with "Slick".
+
 = V1.0.8 - 17.08.2016 =
 * Update : All functionality for WordPress 4.6 was updated.
 
@@ -198,6 +202,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.0.9 =
+* Appearance improved.
+* Bugs fixed.
 
 = V1.0.8 =
 * The compatibility with new WordPress version updated.
