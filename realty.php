@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: Realty by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/realty/
+Plugin URI: https://bestwebsoft.com/products/realty/
 Description: Create your personal real estate WordPress website. Sell, rent and buy properties. Add, search and browse listings easily.
 Author: BestWebSoft
 Text Domain: realty
 Domain Path: /languages
-Version: 1.0.9
-Author URI: http://bestwebsoft.com/
+Version: 1.1.0
+Author URI: https://bestwebsoft.com/
 License: GPLv3 or later
 */
 
-/*  © Copyright 2016  BestWebSoft  ( http://support.bestwebsoft.com )
+/*  © Copyright 2017  BestWebSoft  ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -1529,8 +1529,8 @@ if ( ! function_exists ( 'rlt_register_plugin_links' ) ) {
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
 				$links[] = '<a href="admin.php?page=realty_settings">' . __( 'Settings', 'realty' ) . '</a>';
-			$links[]	=	'<a href="http://wordpress.org/plugins/realty/faq/" target="_blank">' . __( 'FAQ', 'realty' ) . '</a>';
-			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'realty' ) . '</a>';
+			$links[]	=	'<a href="https://wordpress.org/plugins/realty/faq/" target="_blank">' . __( 'FAQ', 'realty' ) . '</a>';
+			$links[]	=	'<a href="https://support.bestwebsoft.com">' . __( 'Support', 'realty' ) . '</a>';
 		}
 		return $links;
 	}
@@ -1552,7 +1552,7 @@ if ( ! function_exists( 'rlt_theme_banner' ) ) {
 			<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">
 				<div class="bws_banner_on_plugin_page rlt_theme_notice">
 					<div class="text">
-						<strong><?php echo __( "Your theme does not declare Realty plugin support. Please check out our", 'realty') . '&nbsp;<a href="http://bestwebsoft.com/products/real-estate-creative-wordpress-theme/" target="_blank">Real Estate</a>' . __( ' theme which has been developed specifically for use with Realty plugin.', 'realty' ); ?></strong>
+						<strong><?php echo __( "Your theme does not declare Realty plugin support. Please check out our", 'realty') . '&nbsp;<a href="https://bestwebsoft.com/products/real-estate-creative-wordpress-theme/" target="_blank">Real Estate</a>' . __( ' theme which has been developed specifically for use with Realty plugin.', 'realty' ); ?></strong>
 					</div>
 					<form action="" method="post">
 						<button class="notice-dismiss bws_hide_settings_notice" title="<?php _e( 'Close notice', 'bestwebsoft' ); ?>"></button>

@@ -1,10 +1,10 @@
 === Realty by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: http://bestwebsoft.com/donate/
+Donate link: https://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.8
-Tested up to: 4.7
-Stable tag: 1.0.9
+Tested up to: 4.7.3
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,11 +12,11 @@ Create your personal real estate WordPress website. Sell, rent and buy propertie
 
 == Description ==
 
-Realty plugins makes it easy to create your own real estate WordPress website. Add realty widgets, add and manage unlimited properties, agents and property info for each listing.
+Realty plugin makes it easy to create your own real estate WordPress website. Add Realty widgets, add and manage unlimited properties, agents and property info for each listing.
 
 Start your online real estate WordPress website today!
 
-http://www.youtube.com/watch?v=HArMTHq-D7A
+https://www.youtube.com/watch?v=HArMTHq-D7A
 
 = Free Features =
 
@@ -50,11 +50,12 @@ http://www.youtube.com/watch?v=HArMTHq-D7A
 	* Square foot
 	* Square meter
 	* Custom
-* Compatible with [PDF&Print](http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f)
+* Compatible with [PDF & Print](https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f)
 * Add custom code via plugin settings page
 * Compatible with latest WordPress version
 * Incredibly simple settings for fast setup without modifying code
 * Detailed step-by-step documentation and videos
+* Multilingual and RTL ready
 
 > **Pro Features**
 >
@@ -69,21 +70,21 @@ http://www.youtube.com/watch?v=HArMTHq-D7A
 > 	* Additional info
 > * Add custom property features to each listing
 > * Install/Delete demo data
-> * Get answer to your support question within one business day ([Support Policy](http://bestwebsoft.com/support-policy/))
+> * Get answer to your support question within one business day ([Support Policy](https://bestwebsoft.com/support-policy/))
 >
-> [Upgrade to Pro Now](http://bestwebsoft.com/products/wordpress/plugins/realty/?k=143e150e92b9751b52da0cd46fb6f5cf)
+> [Upgrade to Pro Now](https://bestwebsoft.com/products/wordpress/plugins/realty/?k=143e150e92b9751b52da0cd46fb6f5cf)
 
-If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](https://support.bestwebsoft.com/hc/en-us/requests/new)
 
 = Documentation & Videos =
 
-* [[Doc] Installation](https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/)
-* [[Doc] Purchase, Installation & Configuration](https://docs.google.com/document/d/1Hn98k9y3e2ODfmYpR8jDK1BkxwcH8bdx1MVwZDNQshE/)
+* [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
+* [[Doc] Purchase](https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/)
 * [[Video] Installation Instruction](https://www.youtube.com/watch?v=_BQCk4D-CyI)
 
 = Help & Support =
 
-Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <http://support.bestwebsoft.com/>
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <https://support.bestwebsoft.com/>
 
 = Translation =
 
@@ -91,18 +92,12 @@ Visit our Help Center if you have any questions, our friendly Support Team is ha
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](https://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](https://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](https://www.poedit.net/download.php).
 
 = Recommended Plugins =
 
-* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=02c908259e8f82ccb1620b73e5b4cbca) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
-* [PDF & Print](http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f) - Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
-
-= Donate =
-
-Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
-
-[Donate Now](http://bestwebsoft.com/donate/)
+* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=02c908259e8f82ccb1620b73e5b4cbca) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
+* [PDF & Print](https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=73f02a14010b47f9661a001214db1f5f) - Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
 
 == Installation ==
 
@@ -110,9 +105,9 @@ Donations play an important role in supporting open-source projects. We greatly 
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Realty".
 
-[View a Step-by-step Instruction on Realty Installation](https://docs.google.com/document/d/13w9MUw_368g8L11yjo7U2gvOISi5zTgPNV_Yt78Gce0/)
+[View a Step-by-step Instruction on Realty Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 
-http://www.youtube.com/watch?v=_BQCk4D-CyI
+https://www.youtube.com/watch?v=_BQCk4D-CyI
 
 == Frequently Asked Questions ==
 
@@ -141,7 +136,7 @@ The error message notifying that some files were not found means that the plugin
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<https://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
@@ -160,6 +155,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 8. Edit Property page.
 
 == Changelog ==
+
+= V1.1.0 - 17.04.2017 =
+* Bugfix : Multiple Cross-Site Scripting (XSS) vulnerability was fixed.
 
 = V1.0.9 - 06.12.2016 =
 * NEW : Responsive layout was added.
@@ -202,6 +200,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.1.0 =
+* Bugs fixed.
 
 = V1.0.9 =
 * Appearance improved.
