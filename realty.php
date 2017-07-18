@@ -6,7 +6,7 @@ Description: Create your personal real estate WordPress website. Sell, rent and 
 Author: BestWebSoft
 Text Domain: realty
 Domain Path: /languages
-Version: 1.1.0
+Version: 1.1.1
 Author URI: https://bestwebsoft.com/
 License: GPLv3 or later
 */
@@ -79,7 +79,7 @@ if ( ! function_exists ( 'rlt_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version */
-		bws_wp_min_version_check( plugin_basename( __FILE__ ), $rlt_plugin_info, '3.8' );
+		bws_wp_min_version_check( plugin_basename( __FILE__ ), $rlt_plugin_info, '3.9' );
 
 		/* Call register settings function */
 		if ( ! is_admin() || ( isset( $_REQUEST['page'] ) && 'realty_settings' == $_REQUEST['page'] ) )
@@ -1138,10 +1138,10 @@ if ( ! function_exists( 'rlt_enqueue_scripts' ) ) {
 
 if ( ! function_exists ( 'rlt_admin_enqueue_scripts' ) ) {
 	function rlt_admin_enqueue_scripts() {
-		global $wp_version;
-
-		if ( isset( $_REQUEST['page'] ) && 'realty_settings' == $_REQUEST['page'] && isset( $_REQUEST['action'] ) && 'custom_code' == $_REQUEST['action'] )
+		if ( isset( $_REQUEST['page'] ) && 'realty_settings' == $_REQUEST['page'] ) {
+			bws_enqueue_settings_scripts();
 			bws_plugins_include_codemirror();
+		}
 		wp_enqueue_style( 'rlt_stylesheet', plugins_url( 'css/admin-style.css', __FILE__ ) );
 		wp_enqueue_script( 'rlt_script', plugins_url( 'js/admin-script.js', __FILE__ ), array( 'jquery', 'jquery-ui-sortable' ) );
 
@@ -1529,8 +1529,8 @@ if ( ! function_exists ( 'rlt_register_plugin_links' ) ) {
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
 				$links[] = '<a href="admin.php?page=realty_settings">' . __( 'Settings', 'realty' ) . '</a>';
-			$links[]	=	'<a href="https://wordpress.org/plugins/realty/faq/" target="_blank">' . __( 'FAQ', 'realty' ) . '</a>';
-			$links[]	=	'<a href="https://support.bestwebsoft.com">' . __( 'Support', 'realty' ) . '</a>';
+			$links[]	= '<a href="https://wordpress.org/plugins/realty/faq/" target="_blank">' . __( 'FAQ', 'realty' ) . '</a>';
+			$links[]	= '<a href="https://support.bestwebsoft.com">' . __( 'Support', 'realty' ) . '</a>';
 		}
 		return $links;
 	}

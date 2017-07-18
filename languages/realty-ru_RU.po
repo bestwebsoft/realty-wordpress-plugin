@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Realty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-28 13:55+0300\n"
-"PO-Revision-Date: 2016-12-05 18:02+0300\n"
+"PO-Revision-Date: 2017-07-18 12:48+0300\n"
 "Last-Translator: bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_n:1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -364,8 +364,8 @@ msgstr "Последние добавленные объекты"
 msgid "view all"
 msgstr "просмотреть все"
 
-#: realty.php:1069 realty.php:1477
-#: templates/rlt-search-listing-results.php:118 templates/rlt-listing.php:131
+#: realty.php:1069 realty.php:1477 templates/rlt-search-listing-results.php:118
+#: templates/rlt-listing.php:131
 msgid "bedroom"
 msgid_plural "bedrooms"
 msgstr[0] "спальня"
@@ -373,8 +373,8 @@ msgstr[1] "спальни"
 msgstr[2] "спален"
 msgstr[3] "спальня"
 
-#: realty.php:1069 realty.php:1477
-#: templates/rlt-search-listing-results.php:118 templates/rlt-listing.php:131
+#: realty.php:1069 realty.php:1477 templates/rlt-search-listing-results.php:118
+#: templates/rlt-listing.php:131
 msgid "bathroom"
 msgid_plural "bathrooms"
 msgstr[0] "ванная"
@@ -409,14 +409,13 @@ msgstr "Тех. поддержка"
 #: realty.php:1554
 msgid "Your theme does not declare Realty plugin support. Please check out our"
 msgstr ""
-"Используемая тема не заявляет поддержку плагина Realty. Пожалуйста, "
-"ознакомьтесь с нашей темой"
+"Используемая тема не гарантирует поддержки всех возможностей плагина Realty. "
+"Пожалуйста, ознакомьтесь с нашей темой"
 
 #: realty.php:1554
 msgid ""
 " theme which has been developed specifically for use with Realty plugin."
-msgstr ""
-", которая была разработана специально для использования с плагином Realty."
+msgstr ", которая была разработана специально для плагина Realty."
 
 #: realty.php:1557
 msgid "Close notice"
