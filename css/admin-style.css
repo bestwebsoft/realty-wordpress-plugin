@@ -2,19 +2,9 @@
 * styles for settings page
 */
 
-.rlt_left_column {
-	float: left;
-	width: 50%;
-}
-.rlt_right_column {
-	float: right;
-	width: 50%;
-}
-#property-custom-metabox input {
-	max-width: 95%;
-}
-.clear {
-	clear: both;
+#property-custom-metabox input,
+#property-custom-metabox select {
+	max-width: 90%;
 }
 .rlt_image_block {
 	float: left;
@@ -33,8 +23,7 @@
 	width: 150px;
 	height: 150px;
 }
-.rlt_new .rlt_drag,
-.rlt_new.rlt_drag {
+.rlt_new .rlt_drag {
 	background-color: #d8e8c8;
 }
 .rlt_image {
@@ -42,38 +31,4 @@
 }
 .rlt_delete {
 	padding-left:5px;
-}
-.rlt-menu-button,
-.rlt-reset-button {
-	position: relative;
-	height: 28px;
-	padding: 0 10px;
-	background: #21759B;
-	border: 1px solid #2877AE;
-	outline: none;
-	color: #fff;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
-	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
-	box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
-}
-.rlt-reset-button {
-	margin-top: 10px;
-}
-.rlt-menu-button {
-	display: none;
-}
-.rlt-menu-button:hover,
-.rlt-reset-button:hover {
-	opacity: 0.8;
-	cursor: pointer;
-}
-@media screen and (max-width: 500px) {
-	.rlt_left_column,
-	.rlt_right_column {
-		float: none;
-		width: 100%;
-	}
 }

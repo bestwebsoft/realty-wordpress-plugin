@@ -1,8 +1,9 @@
 (function($) {
 	$(document).ready( function() {
 		/*select tags*/
-		if( ! rlt_translation.realestate_active )
+		if( ! rlt_translation.realestate_active ) {
 			$( "select.rlt_select" ).select2();
+		}
 		/*tabs*/
 		$( '.rlt_tabs .tab' ).click( function() {
 			if ( ! $( this ).hasClass( 'active' ) ) {
@@ -78,7 +79,6 @@
 		}
 
 		/* property single image slider*/
-
 		$('#rlt_thumbnails_holder').slick({
 			slidesToShow: 3,
 			slidesToScroll: 1,
@@ -90,6 +90,13 @@
 			var src = $( '#rlt_thumbnails_holder .slick-current' ).attr( 'rel' ),
 				image = $( '.home_image img' );
 			image.attr( 'src', src ).attr( 'srcset', src );
+
+		});
+
+		$( '#rlt_thumbnails_holder .slick-slide' ).on( 'click', function(){
+		var src = $( '#rlt_thumbnails_holder .slick-current' ).attr( 'rel' ),
+			image = $( '.home_image img' );
+			image.attr( 'src', src ).attr( 'srcset', src );
 		});
 
 		/* search results */
@@ -99,11 +106,23 @@
 				rlt_resize_changes();
 			}).trigger( 'resize' );
 		}
+		$(window).load( function() {
+			rlt_resize_changes();
+		} );
+
 
 		if ( $( '.rlt_twentyfifteen #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
 			$( '.rlt_twentyfifteen #content .rlt_home_full_wrapper #rlt_home_preview .rlt_home_preview' ).hover( function(){
 				$( this ).css( 'width', '210px');
 			});
+		}
+
+		if( $( '.rlt_twentythirteen #colophon .widget-area' ).length > 0 && $( '.widget_realty_recent_items_widget' ).length > 0 ) {
+			var height_widget = $( '.widget_realty_recent_items_widget' ).height();
+			var height_block = $( '.rlt_twentythirteen #colophon .widget-area' ).height();
+			if( height_block < height_widget ) {
+				$( '.rlt_twentythirteen #colophon .widget-area' ).css( { 'min-height' : height_widget + 30 } );
+			}
 		}
 
 		var tab_block_count = 1;
@@ -134,8 +153,8 @@
 					action = action + '&property_bed=' + $( '.'+tab+' .bedrooms option:selected' ).val();
 				else
 					action = action + '&property_bed=1';
-				if ( $( '.'+tab+' #rlt_type_id' ).val() != '' )
-					action = action + '&property_typeid=' + $( '.'+tab+' #rlt_type_id' ).val();
+				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' )
+					action = action + '&property_type_info=' + $( '.'+tab+' #rlt_info_type' ).val();
 				action = '?post_type=property&s=properties&property_search_results=1' + action + '&property_sortby=newest';
 			} else {
 				action = '/';
@@ -155,8 +174,8 @@
 					action = action + 'bed-' + $( '.'+tab+' .bedrooms option:selected' ).val() + '/';
 				else
 					action = action + 'bed-1/';
-				if ( $( '.'+tab+' #rlt_type_id' ).val() != '' )
-					action = action + 'type-' + $( '.'+tab+' #rlt_type_id' ).val() + '/';
+				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' )
+					action = action + 'type-' + $( '.'+tab+' #rlt_info_type' ).val() + '/';
 				action = action + 'sort-newest/';
 			}
 			$( '.'+tab+' form' ).attr( 'action', $( '.'+tab+' form' ).attr( 'action' ) + action );
@@ -246,15 +265,34 @@ function rlt_number_format( number, decimals, dec_point, thousands_sep ) {
 function rlt_resize_changes() {
 	(function( $ ) {
 		var rlt_home_preview = 0;
+		var rlt_home_info = 0;
+
+		var width = $( '.rlt_widget_content' ).width();
+		if( 0 != width && width <= 385 ) {
+			$( '#rlt_home_preview .rlt_home_preview' ).css( 'width', width );
+		}
+		$( '#rlt_home_preview .rlt_home_preview .rlt_home_info' ).each( function () {
+			$( this ).css( 'height', 'auto' );
+			var height_block = parseInt( $(this).height() );
+			if ( height_block > rlt_home_info ) {
+				rlt_home_info = height_block;
+			}
+		});
+
+
 		$( '#rlt_home_preview .rlt_home_preview' ).each( function () {
 			$( this ).css( 'height', 'auto' );
 			var height_block = parseInt( $(this).height() );
 			if ( height_block > rlt_home_preview ) {
-				rlt_home_preview = height_block;
+				rlt_home_preview = height_block + 25;
 			}
 		});
+
 		if ( $( window ).width() >= 405 ) {
-			$( "#rlt_home_preview .rlt_home_preview" ).css( 'height', rlt_home_preview );
+			$( '#rlt_home_preview .rlt_home_preview' ).css( 'height', rlt_home_preview );
+			$( '#rlt_home_preview .rlt_home_preview .rlt_home_info' ).css( 'height', rlt_home_info );
+
 		}
+
 	})( jQuery );
 };

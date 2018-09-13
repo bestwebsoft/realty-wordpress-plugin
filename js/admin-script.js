@@ -33,16 +33,16 @@
 		}
 
 		$( '#rlt_currency' ).change( function() {
-			$( '#rlt_currency_custom_display_false' ).attr( 'checked', 'checked' );
+			$( '#rlt_currency_custom_display_false' ).attr( 'checked', true );
 		});
 		$( '#rlt_custom_currency' ).change( function() {
-			$( '#rlt_currency_custom_display_true' ).attr( 'checked', 'checked' );
+			$( '#rlt_currency_custom_display_true' ).attr( 'checked', true );
 		});
 		$( '#rlt_unit_area' ).change( function() {
-			$( '#rlt_unit_area_custom_display_false' ).attr( 'checked', 'checked' );
+			$( '#rlt_unit_area_custom_display_false' ).attr( 'checked', true );
 		});
 		$( '#rlt_custom_unit_area' ).change( function() {
-			$( '#rlt_unit_area_custom_display_true' ).attr( 'checked', 'checked' );
+			$( '#rlt_unit_area_custom_display_true' ).attr( 'checked', true );
 		});
 	});
 })(jQuery);

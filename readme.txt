@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
 Requires at least: 3.9
-Tested up to: 4.8
-Stable tag: 1.1.1
+Tested up to: 4.9.8
+Stable tag: 1.1.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -120,7 +120,7 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 1. You can add the necessary Property types in "Properties" > "Property type" menu.
 2. In the menu "Properties" > "Add New". Select the necessary Propert type.
 3. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block.
-4. If you are using another theme, on "Appearance" > "Widgets" page, please find  "Sale Rent Widget" and add it to the sidebar of your theme.
+4. If you are using another theme, on "Appearance" > "Widgets" page, please find "Sale Rent Widget" and add it to the sidebar of your theme.
 
 = I have added Property, but nothing changed on my website. What do I do now? =
 
@@ -150,11 +150,16 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 3. Single Property Photo tab page.
 4. Single Property View Street tab page.
 5. Single Property Map tab page.
-6. Sale Rent Widget with standard 2016 theme.
+6. Sale Rent Widget with standard 2017 theme.
 7. Plugin settings page.
 8. Edit Property page.
 
 == Changelog ==
+
+= V1.1.2 - 13.09.2018 =
+* Update : All functionality for WordPress 4.9.8 was updated.
+* Bugfix: The bug with property type in search has been fixed.
+* Bugfix: The bug with widget displaying has been fixed.
 
 = V1.1.1 - 18.07.2017 =
 * Update : All functionality for WordPress 4.8 was updated.
@@ -203,6 +208,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.1.2 =
+* The compatibility with new WordPress version updated.
+* Bugs fixed.
 
 = V1.1.1 =
 * The compatibility with new WordPress version updated.
