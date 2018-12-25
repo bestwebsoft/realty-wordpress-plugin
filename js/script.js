@@ -1,5 +1,13 @@
-(function($) {
-	$(document).ready( function() {
+( function( $ ) {
+	$( document ).ready( function() {
+
+		/*change selector 'tab' for chech language*/
+		var elem_tab = $( 'span' ).html();
+		if ( elem_tab == 'Na prodej' ) {
+			$( '.tab' ).css( 'padding', '24px 9px' );
+			$( '.tab' ).css( 'font-size', '12px' );
+		}
+
 		/*select tags*/
 		if( ! rlt_translation.realestate_active ) {
 			$( "select.rlt_select" ).select2();
@@ -18,7 +26,7 @@
 				$( new_active ).parent().parent().find( ".rlt_tab_block_" + new_active_num ).show();
 				$( new_active ).parent().parent().find( ".rlt_home_content_" + new_active_num ).show().addClass( 'active' ).css( 'z-index', '1' );
 			}
-		})
+		} )
 
 		/*shadow*/
 		var shade = $( '.rlt_tab_block' ).css( 'box-shadow' );
@@ -33,7 +41,7 @@
 			var current_min_price = this_slider.siblings( '#rlt_current_min_price' );
 			var current_max_price = this_slider.siblings( '#rlt_current_max_price' );
 			if ( this_slider.find( '#rlt_price' ).length > 0 ) {
-				this_slider.find( '#rlt_price' ).slider({
+				this_slider.find( '#rlt_price' ).slider( {
 					range: true,
 					min: min_price.val() * 1000,
 					max: max_price.val() * 1000,
@@ -46,9 +54,9 @@
 						current_min_price.val( ui.values[ 0 ] / 1000 );
 						current_max_price.val( ui.values[ 1 ] / 1000 );
 					}
-				});
+				} );
 			}
-		});
+		} );
 
 		/* Placeholder for IE */
 		if ( $.browser.msie ) {
@@ -63,7 +71,7 @@
 				}
 			} ).focusout( function() {
 				var val = $( this ).attr( 'placeholder' );
-				if ( $( this ).val() == "" ) {
+				if ( $( this ).val() == '' ) {
 					$( this ).attr( 'value', val ).css( 'color', color );
 				}
 			} );
@@ -79,42 +87,41 @@
 		}
 
 		/* property single image slider*/
-		$('#rlt_thumbnails_holder').slick({
+		$( '#rlt_thumbnails_holder' ).slick( {
 			slidesToShow: 3,
 			slidesToScroll: 1,
 			dots: false,
 			centerMode: true,
 			focusOnSelect: true
 
-		}).on( 'afterChange', function( slick, currentSlide ) {
+		} ).on( 'afterChange', function( slick, currentSlide ) {
 			var src = $( '#rlt_thumbnails_holder .slick-current' ).attr( 'rel' ),
 				image = $( '.home_image img' );
 			image.attr( 'src', src ).attr( 'srcset', src );
 
-		});
+		} );
 
 		$( '#rlt_thumbnails_holder .slick-slide' ).on( 'click', function(){
 		var src = $( '#rlt_thumbnails_holder .slick-current' ).attr( 'rel' ),
 			image = $( '.home_image img' );
 			image.attr( 'src', src ).attr( 'srcset', src );
-		});
+		} );
 
 		/* search results */
 		var count_preview_block = $( '#rlt_home_preview .rlt_home_preview' ).length;
 		if ( count_preview_block > 1 ) {
 			$( window ).resize( function() {
 				rlt_resize_changes();
-			}).trigger( 'resize' );
+			} ).trigger( 'resize' );
 		}
-		$(window).load( function() {
+		$( window ).load( function() {
 			rlt_resize_changes();
 		} );
 
-
 		if ( $( '.rlt_twentyfifteen #content' ).length > 0 && 'MozAppearance' in document.documentElement.style ) {
 			$( '.rlt_twentyfifteen #content .rlt_home_full_wrapper #rlt_home_preview .rlt_home_preview' ).hover( function(){
-				$( this ).css( 'width', '210px');
-			});
+				$( this ).css( 'width', '210px' );
+			} );
 		}
 
 		if( $( '.rlt_twentythirteen #colophon .widget-area' ).length > 0 && $( '.widget_realty_recent_items_widget' ).length > 0 ) {
@@ -137,54 +144,56 @@
 			tab = tab.slice( tab.search( 'rlt_tab_block_count_' ) );
 			var property_type = $( '.'+tab+' .property option:selected' ).val();
 			if ( rlt_translation.rlt_permalink == '' ) {
-				if ( $( '.'+tab+' #rlt_location' ).val() != '' )
+				if ( $( '.'+tab+' #rlt_location' ).val() != '' ) {
 					action = action + '&property_location=' + encodeURI( $( '.'+tab+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
-				if ( '' != property_type && 'all' != property_type )
+				} if ( '' != property_type && 'all' != property_type ) {
 					action = action + '&property_type=' + encodeURI( property_type.replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") );
-				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_min_price' ).val() != '' )
+				} if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_min_price' ).val() != '' ) {
 					action = action + '&property_min_price=' + $( '.' + tab + ' #rlt_current_min_price' ).val();
-				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_max_price' ).val() != '' )
+				} if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.' + tab + ' #rlt_max_price' ).val() != '' ) {
 					action = action + '&property_max_price=' + $( '.' + tab + ' #rlt_current_max_price' ).val();
-				if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' )
+				} if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' ) {
 					action = action + '&property_bath=' + $( '.'+tab+' .bathrooms option:selected' ).val();
-				else
+				} else
 					action = action + '&property_bath=1';
-				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' )
+				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' ) {
 					action = action + '&property_bed=' + $( '.'+tab+' .bedrooms option:selected' ).val();
-				else
+				} else
 					action = action + '&property_bed=1';
-				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' )
+				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' ) {
 					action = action + '&property_type_info=' + $( '.'+tab+' #rlt_info_type' ).val();
+				}
 				action = '?post_type=property&s=properties&property_search_results=1' + action + '&property_sortby=newest';
 			} else {
 				action = '/';
-				if ( $( '.'+tab+' #rlt_location' ).val() != '' )
+				if ( $( '.'+tab+' #rlt_location' ).val() != '' ) {
 					action = action + 'loc-' + encodeURI( $( '.'+tab+' #rlt_location' ).val().replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
-				if ( '' != property_type && 'all' != property_type )
+				} if ( '' != property_type && 'all' != property_type ) {
 					action = action + 'prop-' + encodeURI( property_type.replace(/(<([^>]+)>)/ig,"").replace(/\\/,"") ) + '/';
-				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_min_price' ).val() != '' )
+				} if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_min_price' ).val() != '' ) {
 					action = action + 'minp-' + $( '.'+tab+' #rlt_current_min_price' ).val() + '/';
-				if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_max_price' ).val() != '' )
+				} if ( $( '.'+tab+' #rlt_min_price' ).length > 0 && $( '.'+tab+' #rlt_max_price' ).val() != '' ) {
 					action = action + 'maxp-' + $( '.'+tab+' #rlt_current_max_price' ).val() + '/';
-				if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' )
+				} if ( $( '.'+tab+' .bathrooms option:selected' ).val() != '' ) {
 					action = action + 'bath-' + $( '.'+tab+' .bathrooms option:selected' ).val() + '/';
-				else
+				} else
 					action = action + 'bath-1/';
-				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' )
+				if ( $( '.'+tab+' .bedrooms option:selected' ).val() != '' ) {
 					action = action + 'bed-' + $( '.'+tab+' .bedrooms option:selected' ).val() + '/';
-				else
+				} else
 					action = action + 'bed-1/';
-				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' )
+				if ( $( '.'+tab+' #rlt_info_type' ).val() != '' ) {
 					action = action + 'type-' + $( '.'+tab+' #rlt_info_type' ).val() + '/';
+				}
 				action = action + 'sort-newest/';
 			}
 			$( '.'+tab+' form' ).attr( 'action', $( '.'+tab+' form' ).attr( 'action' ) + action );
 			$( '.'+tab+' form' ).attr( 'method', 'post' );
 			$( '.'+tab+' form' ).submit();
 			return false;
-		});
-	});
-})(jQuery);
+		} );
+	} );
+} )( jQuery );
 
 function rlt_number_format( number, decimals, dec_point, thousands_sep ) {
   /*  discuss at: http://phpjs.org/functions/number_format/
@@ -263,7 +272,7 @@ function rlt_number_format( number, decimals, dec_point, thousands_sep ) {
 * Function for different window sizes
 **/
 function rlt_resize_changes() {
-	(function( $ ) {
+	( function( $ ) {
 		var rlt_home_preview = 0;
 		var rlt_home_info = 0;
 
@@ -273,20 +282,19 @@ function rlt_resize_changes() {
 		}
 		$( '#rlt_home_preview .rlt_home_preview .rlt_home_info' ).each( function () {
 			$( this ).css( 'height', 'auto' );
-			var height_block = parseInt( $(this).height() );
+			var height_block = parseInt( $( this ).height() );
 			if ( height_block > rlt_home_info ) {
 				rlt_home_info = height_block;
 			}
-		});
-
+		} );
 
 		$( '#rlt_home_preview .rlt_home_preview' ).each( function () {
 			$( this ).css( 'height', 'auto' );
-			var height_block = parseInt( $(this).height() );
+			var height_block = parseInt( $( this ).height() );
 			if ( height_block > rlt_home_preview ) {
 				rlt_home_preview = height_block + 25;
 			}
-		});
+		} );
 
 		if ( $( window ).width() >= 405 ) {
 			$( '#rlt_home_preview .rlt_home_preview' ).css( 'height', rlt_home_preview );
@@ -294,5 +302,5 @@ function rlt_resize_changes() {
 
 		}
 
-	})( jQuery );
+	} )( jQuery );
 };
