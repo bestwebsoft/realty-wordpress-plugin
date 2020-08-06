@@ -1,10 +1,10 @@
 /*
 * styles for settings page
 */
-
-#property-custom-metabox input,
-#property-custom-metabox select {
-	max-width: 90%;
+#agent-custom-metabox input,
+#property-custom-metabox input {
+	width: 100%;
+	max-width: 400px;
 }
 .rlt_image_block {
 	float: left;

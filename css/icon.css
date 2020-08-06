@@ -1,0 +1,12 @@
+#menu-posts-property .wp-menu-image {
+	font-family: 'bwsicons' !important;
+}
+#menu-posts-property .wp-menu-image:before {
+	content: "\e928";
+	font-family: 'bwsicons' !important;
+}
+#adminmenu #menu-posts-property .wp-submenu li:nth-child(7) a {
+	border-top: 1px solid #444;
+	padding-top: 12px;
+	margin-top: 6px;
+}

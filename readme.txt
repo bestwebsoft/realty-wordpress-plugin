@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add agents, add property, property info, agent, find property, property plugin, realty, realty plugin, real estate, real estate plugin, rentals, realtor
-Requires at least: 3.9
-Tested up to: 5.2.2
-Stable tag: 1.1.4
+Requires at least: 4.5
+Tested up to: 5.5
+Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -111,6 +111,15 @@ https://www.youtube.com/watch?v=_BQCk4D-CyI
 
 == Frequently Asked Questions ==
 
+= How to change or override plugin templates? =
+
+Plugin template files can be found in the `/wp-content/plugins/realty/templates/` directory.
+You can edit these files in an upgrade-safe way using overrides. Copy them into a directory with your theme named `/bws-templates`.
+
+Example: To override the single gallery template, please copy `/wp-content/plugins/realty/templates/rlt-listing.php` to `wp-content/themes/your-theme/bws-templates/rlt-listing.php`.
+
+Do not edit these files in the plugin's core directly as they are overwritten during the upgrade process and any customizations will be lost.
+
 = Where can I find the settings to adjust the plugin work after activation? =
 
 You can find a link to the settings page in your WordPress admin panel in "BWS Panel" > "Realty".
@@ -126,13 +135,6 @@ You can find a link to the settings page in your WordPress admin panel in "BWS P
 
 1. If you are using "Real Estate" theme, please create the Home page, select Home template for this page, and in "Settings" > "Reading Settings", please select static Home page in "Front page displays" block.
 2. If you are using another theme, on "Appearance" > "Widgets" page, please find "Sale Rent Widget" and add it to the sidebar of your theme.
-
-= I get a message that some files were not found in the theme. Why does this occur and how do I fix it? =
-
-The error message notifying that some files were not found means that the plugin lacks permissions to move the templates required for its work from the plugin folder to the theme folder. To have the plugin running correctly, please follow the instructions in the message, namely:
-- open `/wp-content/plugins/realty/templates/` directory
-- copy the files from this folder (`rlt-listing.php`, `rlt-nothing-found.php`, `rlt-search-form.php`, `rlt-search-listing-results.php`)
-- open the folder with your theme and add the files you just copied.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
@@ -155,6 +157,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 8. Edit Property page.
 
 == Changelog ==
+
+= V1.1.5 - 06.08.2020 =
+* Update : Template files loading has been changed.
+* Update : The plugin settings page was changed.
+* Update : BWS panel section was updated.
 
 = V1.1.4 - 4.09.2019 =
 * Update: The deactivation feedback has been changed. Misleading buttons have been removed.
@@ -216,6 +223,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW: Ability to add Sale Rent Widget into a site.
 
 == Upgrade Notice ==
+
+= V1.1.5 =
+* Usability improved.
 
 = V1.1.4 =
 * Usability improved.

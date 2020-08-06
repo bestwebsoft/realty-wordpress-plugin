@@ -1764,10 +1764,6 @@ body #primary > .widget #main_tabs .rlt_tab_block input[type="text"] {
 	clear: both;
 	display: block;
 }
-.rlt_twentyfifteen #content .rlt_search_options {
-	margin: 0;
-	width: 100%;
-}
 .rlt_twentyfifteen #content .rlt_search_options .search_results {
 	left: 20px;
 }
@@ -1941,6 +1937,14 @@ body #primary > .widget #main_tabs .rlt_tab_block input[type="text"] {
 	margin: 0 auto;
 	width: 940px;
 }
+.rlt_content_center {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.slick-arrow {
+	padding: 1px 6px;
+}
 @media (min-width: 900px) and (max-width: 1350px){
 	.rlt_twentysixteen .widget-area .rlt_tabs .tab {
 		padding: 16px 14px 16px 14px;
@@ -2089,5 +2093,6 @@ body #primary > .widget #main_tabs .rlt_tab_block input[type="text"] {
 	}
 	.rlt_tab_wrapper {
 		top: 28px;
+		position: unset;
 	}
 }
